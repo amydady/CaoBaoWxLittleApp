@@ -1,4 +1,4 @@
-@import '../common/common.wxss';
+@import '/pages/common/common.wxss';
 
 .goods-box{
     position: relative;
@@ -82,7 +82,7 @@
 }
 .goods-box .goods-operation{
     position: relative;
-    width: 100%;
+    width: 47%;
     height: 100rpx;
     line-height: 100rpx;
     padding: 0 50rpx;

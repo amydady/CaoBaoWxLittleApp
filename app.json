@@ -1,13 +1,16 @@
 {
   "pages":[
     "pages/home/home",
-    "pages/combine/combine",
+    "pages/groupbuy/groupbuy",
     "pages/index/index",
-    "pages/details/details",
+    "pages/details/seckillDetails/seckillDetails",
+    "pages/details/commonDetails/commonDetails",
+    "pages/details/groupDetails/groupDetails",
     "pages/cart/cart",
     "pages/user/user",
     "pages/address/address",
-    "pages/orders/orders"
+    "pages/orders/orders",
+    "pages/orders/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -30,7 +33,7 @@
       {
               "selectedIconPath": "images/combine.png",
               "iconPath": "images/combine1.png",
-              "pagePath": "pages/combine/combine",
+              "pagePath": "pages/groupbuy/groupbuy",
               "text": "拼团"  
 
       },

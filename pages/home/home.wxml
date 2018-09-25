@@ -6,7 +6,7 @@
       <block wx:for="{{pictures}}" wx:key="*this">
         <swiper-item>
           <view class="swiper-item {{item}}">
-          <image bindtap="showDetail" data-item="{{item}}" style=" height: 150px; background-color: #eeeeee;" mode="{{item.mode}}" src="{{item.src}}"></image>
+          <image data-item="{{item}}" style=" height: 150px; background-color: #eeeeee;" mode="{{item.mode}}" src="{{item.src}}"></image>
           </view>
          </swiper-item>
       </block>
@@ -16,7 +16,7 @@
     <view class='scroll-item'>
       <scroll-view class="scroll-view_H" scroll-x style="width: 100%" scrollTop="100px">
         <view wx:for="{{fruits}}" wx:key="*this" class="scroll-view-item_H">
-          <image style=" width: 100px; height: 100px; background-color: #eeeeee;" mode="{{item.mode}}" src="{{item.src}}"></image>
+          <image  bindtap="seckill" style=" width: 100px; height: 100px; background-color: #eeeeee;" mode="{{item.mode}}" src="{{item.src}}"></image>
           <view class="newest-text"><text>瓜子 100g</text></view>
           <view class="newest-text"><text>￥ 0.01</text></view>
         </view>

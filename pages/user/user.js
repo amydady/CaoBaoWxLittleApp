@@ -1,4 +1,4 @@
-// page/component/new-pages/user/user.js
+var app = getApp();
 Page({
   data:{
     thumb:'',
@@ -69,5 +69,9 @@ Page({
         })
       }
     })
-  }
+  },
+  showOrder: function (e) {
+    var type = e.currentTarget.dataset.type
+    app.redirect('orders/index', 'id=' + type)
+  },
 })

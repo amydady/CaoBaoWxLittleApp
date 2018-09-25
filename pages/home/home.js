@@ -53,10 +53,9 @@ Page({
     previousMargin: 0,
     nextMargin: 0
   },
-  showDetail:function (e) {
-    console.log(e.currentTarget.dataset['item']);
+  seckill:function (e) {
     wx.navigateTo({
-      url: '../details/details'
+      url: '../details/seckillDetails/seckillDetails'
     })
   }
   

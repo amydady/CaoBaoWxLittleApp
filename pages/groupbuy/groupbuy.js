@@ -44,5 +44,12 @@ Page({
     this.setData({
       duration: e.detail.value
     })
+  },
+
+  showGroupDetail(){
+    wx.navigateTo({
+      url: '../details/groupDetails/groupDetails'
+    })
   }
+
 })

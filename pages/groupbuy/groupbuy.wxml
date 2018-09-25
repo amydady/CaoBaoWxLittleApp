@@ -5,9 +5,7 @@
         <image style="height: 100px; background-color: #eeeeee;" mode="scaleToFill" src="{{item.src}}"></image>
         <text style="margin-left: 20px;">{{item.name}}</text>
         <text style="float: right;margin-right: 20px;">{{item.price}}</text>
-         <button type='warn' style='height:50px;' size='default' form-type='submit' bindtap="addToCar">立即拼购</button>
+         <button type='warn' style='height:50px;' size='default' form-type='submit' bindtap="showGroupDetail">立即拼购</button>
       </view>
-     
-   
   </scroll-view>
 </view>

@@ -35,5 +35,10 @@ App({
   },
   globalData: {
     userInfo: null
-  }
+  },
+  redirect: function (url, param) {
+    wx.navigateTo({
+      url: '/pages/' + url + '?' + param
+    })
+  },
 })

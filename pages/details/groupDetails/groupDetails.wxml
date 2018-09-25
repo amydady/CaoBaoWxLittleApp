@@ -1,22 +1,16 @@
 <view class="main">
+    <scroll-view scroll-y style="height: 436px;"  scroll-top="10">
     <view class="goods-box">
         <image src="{{goods.image}}" class="goods-thumb"></image>
-        
-
         <button data-name="shareBtn" open-type="share" plain="true" class="carts-icon">
-          <image bindtap="back" style='width:30px;height:30px'        src="../../images/share.png"></image>
+          <image bindtap="back" style='width:30px;height:30px'        src="/images/share.png"></image>
         </button>
-        
-        <view class="goods-operation">
-            <text class="goods-operation-num">数量  {{num}}</text>
-            <text class="goods-operation-add" bindtap="addCount">+</text>
-            <text class="goods-to-cart" bindtap="addToCart">加入购物车</text>
-            <image src="/images/shopping.png"  class="goods-cart-img" bindtap="addToCart"></image>
-        </view>
-        <image wx:if="{{show}}" src="/images/shopping.png" class="to-carts-icon"></image>
-        <view class="goods-stock">{{goods.stock}}</view>
         <view class="goods-title">{{goods.title}}</view>
-        <view class="goods-price">￥ {{goods.price}}</view>
+        <view class="goods-price line_m" style='display:inline-block;'>￥ {{goods.price}}</view>
+        <view class="goods-price " style='float:right;'>￥ {{goods.price}}</view>
+    </view>
+    <view bindtap="joinGroup">
+      <text>用户AAA，已参团3人</text>
     </view>
     <view class="goods-tab-box">
         <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">商品详情</view>
@@ -28,4 +22,15 @@
             <view wx:if="{{curIndex === 2}}">{{goods.service}}</view>
         </view>
     </view>
+  </scroll-view>
+  <view class="goods-box">
+      <view class="goods-operation" style='display:inline-block;'>
+        <text class="goods-to-cart" bindtap="buy">立即购买</text>
+      </view>
+      <view class="goods-operation" style='float:right;'>
+        <text class="goods-to-cart" bindtap="createGroup">开团</text>
+      </view>
+    </view>
 </view>
+
+  

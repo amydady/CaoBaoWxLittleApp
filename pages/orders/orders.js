@@ -42,14 +42,27 @@ Page({
   },
 
   toPay() {
+    if(this.check()){
+      wx.showModal({
+        title: '提示',
+        content: '本系统只做演示，支付系统已屏蔽',
+        text: 'center',
+        complete() {
+          wx.switchTab({
+            url: '/pages/user/user'
+          })
+        }
+      })
+    }
+  },
+
+  check(){
     wx.showModal({
       title: '提示',
-      content: '本系统只做演示，支付系统已屏蔽',
-      text:'center',
+      content: '未添加收货地址',
+      text: 'center',
       complete() {
-        wx.switchTab({
-          url: '/page/component/user/user'
-        })
+        return false;
       }
     })
   }
