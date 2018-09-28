@@ -71,12 +71,18 @@ Page({
       }
     })
   },
+
   showOrder: function (e) {
     var type = e.currentTarget.dataset.type
     app.redirect('orders/index', 'id=' + type)
   },
+  //地址显示
   showAddress: function (e) {
     var type = e.currentTarget.dataset.type
     app.redirect('address/address')
   },
+  //商铺管理
+  shopManage(){
+    app.redirect('shopManage/shopManage')
+  }
 })

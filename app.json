@@ -2,7 +2,6 @@
   "pages":[
     "pages/home/home",
     "pages/groupbuy/groupbuy",
-    "pages/index/index",
     "pages/details/seckillDetails/seckillDetails",
     "pages/details/commonDetails/commonDetails",
     "pages/details/groupDetails/groupDetails",
@@ -10,7 +9,8 @@
     "pages/user/user",
     "pages/address/address",
     "pages/orders/orders",
-    "pages/orders/index"
+    "pages/orders/index",
+    "pages/shopManage/shopManage"
   ],
   "window":{
     "backgroundTextStyle":"light",

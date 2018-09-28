@@ -16,6 +16,7 @@ Page({
   },
 
 
+
   addToCart() {
     const self = this;
 

@@ -16,9 +16,17 @@ Page({
   },
 
 
+  onShareAppMessage: function () {
+    console.log('share');
+    return {
+      title: '弹出分享时显示的分享标题',
+      imageUrl:'',
+      path: '/user/user?id=123' // 路径，传递参数到指定页面。
+    }
+  },
+
   addToCart() {
     const self = this;
-
     self.setData({
       show: true
     })
@@ -28,7 +36,6 @@ Page({
       })
      
     }, 300)
-
   },
 
   buy() {

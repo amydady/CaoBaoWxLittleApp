@@ -1,0 +1,8 @@
+<view class="shop">
+  <view class="shopTopic">
+      <image src="/images/home.png"></image>
+  </view>
+  <view>
+      <text>店铺名称</text>
+  </view>
+</view>

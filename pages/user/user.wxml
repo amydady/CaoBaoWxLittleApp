@@ -70,11 +70,11 @@
   </view>
 
   <view class="orderInfo bg-fff text-center">
-		<view bindtap="showOrder" >
+		<view bindtap="shopManage" >
 			<view>
 				<image src="/images/unpay.png"></image>
 			</view>	
-			<view class="orders-status">货架管理</view>
+			<view class="orders-status">商铺管理</view>
 		</view>
 		<view bindtap="showOrder" >
 		  <view>
