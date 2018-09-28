@@ -5,7 +5,8 @@ Page({
     nickname:'',
     orders:[],
     hasAddress:false,
-    address:{}
+    address:{},
+    funsCount:20
   },
   onLoad(){
     var self = this;
@@ -73,5 +74,9 @@ Page({
   showOrder: function (e) {
     var type = e.currentTarget.dataset.type
     app.redirect('orders/index', 'id=' + type)
+  },
+  showAddress: function (e) {
+    var type = e.currentTarget.dataset.type
+    app.redirect('address/address')
   },
 })

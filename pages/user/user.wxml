@@ -65,30 +65,61 @@
 		</view>
 	</view>
 
-    <view class="address-box">
-        <view class="address-manage">
-            <navigator url="/pages/address/address">地址管理</navigator>
-        </view>
-        <view wx:if="{{hasAddress}}" class="address-list">
-            <view>{{address.name}}</view>
-            <view>{{address.phone}}</view>
-            <view>{{address.detail}}</view>
-        </view>
-    </view>
-    <view class="orders-box">
-        <view class="orders">我的订单</view>
-        <view class="orders-list" wx:for="{{orders}}" wx:key="index">
-            <view class="orders-number">订单编号：{{item.number}}</view>
-            <view class="orders-detail">
-                <image src="{{item.thumb}}"></image>
-                <view class="">{{item.name}}</view>
-                <view class="">{{item.count}}</view>
-                <text class="orders-status">{{item.status}}</text>
-            </view>
-            <view class="orders-footer">
-                <text>实付：￥{{item.money}}</text>
-                <button size="mini" class="orders-btn" bindtap="payOrders">付款</button>
-            </view>
-        </view>
-    </view>
+  <view>
+  	<text class="">我是团长</text>
+  </view>
+
+  <view class="orderInfo bg-fff text-center">
+		<view bindtap="showOrder" >
+			<view>
+				<image src="/images/unpay.png"></image>
+			</view>	
+			<view class="orders-status">货架管理</view>
+		</view>
+		<view bindtap="showOrder" >
+		  <view>
+        <block >
+          <text class="notice-1">{{funsCount}}</text>
+        </block>
+			  <image src="/images/ungroup.png"></image>
+		  </view>
+			<view class="orders-status">我的粉丝</view>
+		</view>
+		<view bindtap="showOrder" >
+			<view>
+			  <image src="/images/undelivery.png"></image>
+      </view>
+			<view class="orders-status">订单记录</view>
+		</view>
+		<view bindtap="showOrder" data-type="4">
+			<view>
+				<image src="/images/unreceipt.png"></image>
+			</view>
+			<view class="orders-status">我的佣金</view>
+		</view>
+	</view>
+
+  <view>
+  	<text class="">其他</text>
+  </view>
+  <view class="orderInfo bg-fff text-center">
+		<view bindtap="showAddress" >
+		  <view>
+			  <image src="/images/ungroup.png"></image>
+		  </view>
+			<view class="orders-status">地址管理</view>
+		</view>
+		<view bindtap="showOrder" >
+			<view>
+			  <image src="/images/undelivery.png"></image>
+      </view>
+			<view class="orders-status">关于我们</view>
+		</view>
+		<view bindtap="showOrder" >
+			<view>
+				<image src="/images/unreceipt.png"></image>
+			</view>
+			<view class="orders-status">申请团长</view>
+		</view>
+	</view>
 </view>

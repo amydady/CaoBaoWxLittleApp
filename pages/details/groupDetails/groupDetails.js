@@ -35,7 +35,7 @@ Page({
 
   buy() {
     wx.navigateTo({
-      url: '../orders/orders'
+      url: '/pages/orders/orders'
     })
 
   },
