@@ -1,0 +1,13 @@
+@import '../common/common.wxss';
+
+.funs .funsTopic {
+    width : 100%;
+    height : 300rpx;
+}
+.funs .funsTitle view{
+     float:left;
+     margin:53rpx 10rpx;
+}
+.funs .on{
+     text-decoration:underline;
+}
