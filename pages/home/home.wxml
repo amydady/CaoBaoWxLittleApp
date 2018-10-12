@@ -1,35 +1,43 @@
 
 <view class="section section_gap">
-  <swiper
+  <swiper 
     indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}"                vertical="{{vertical}}"
     interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px"            next-margin="{{nextMargin}}px">
       <block wx:for="{{pictures}}" wx:key="*this">
         <swiper-item>
           <view class="swiper-item {{item}}">
-          <image data-item="{{item}}" style=" height: 150px; background-color: #eeeeee;" mode="{{item.mode}}" src="{{item.src}}"></image>
+          <image data-item="{{item}}"  mode="{{item.mode}}" src="{{item.src}}"></image>
           </view>
          </swiper-item>
       </block>
     </swiper>
   <view class="newest">
-    <view class="quickSell-title"><text>特价秒杀</text></view>
-    <view class='scroll-item'>
+    <view class="quickSell-title">
+      <text  decode="{{true}}" space="{{true}}"  class='text-line'>-&nbsp;&nbsp;</text>
+      <text class='title'>特价秒杀</text>
+      <text  decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;-</text>
+    </view>
+    <view class='scroll-item' style='padding-bottom:10rpx'>
       <scroll-view class="scroll-view_H" scroll-x style="width: 100%" scrollTop="100px">
         <view wx:for="{{fruits}}" wx:key="*this" class="scroll-view-item_H">
-          <image  bindtap="seckill" style=" width: 100px; height: 100px; background-color: #eeeeee;" mode="{{item.mode}}" src="{{item.src}}"></image>
+          <image  bindtap="seckill" mode="{{item.mode}}" src="{{item.src}}"></image>
           <view class="newest-text"><text>瓜子 100g</text></view>
-          <view class="newest-text"><text>￥ 0.01</text></view>
+          <view class="newest-text-price"><text>￥0.01</text></view>
         </view>
       </scroll-view>
     </view>
   </view>
   <view class="newest">
-    <view class="quickSell-title"><text>味品之选</text></view>
+    <view class="quickSell-title">
+    <text  decode="{{true}}" space="{{true}}"  class='text-line'>-&nbsp;&nbsp;</text>
+    <text class='title'>味品之选</text>
+    <text  decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;-</text>
+    </view>
     <view class='newest-box'>
       <view wx:for="{{fruits}}" wx:key="*this" class="newest-list">
         <image  mode="{{item.mode}}" src="{{item.src}}"></image>
           <view class="newest-text"><text>瓜子 100g</text></view>
-          <view class="newest-text"><text>￥ 0.01</text></view>
+          <view class="newest-text-price"><text>￥0.01</text></view>
       </view>
     </view>
   </view>

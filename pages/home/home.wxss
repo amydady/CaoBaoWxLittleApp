@@ -94,10 +94,21 @@ button:last-child{
 .page-section-title{
   padding: 0;
 }
+.section swiper {
+  height: 360rpx;
+}
+
 .swiper-item{
   display: block;
-  height: 150px;
+  height: 360rpx;
 }
+
+.swiper-item image {
+  height: 360rpx; 
+  background-color: #eeeeee;
+  width:100%;
+}
+
 .page-section-title{
   margin-top: 60rpx;
   position: relative;
@@ -120,7 +131,6 @@ button:last-child{
 }
 .scroll-item{
   width: 100%;
-  height: 340rpx;
   overflow: hidden;
   padding: 20rpx;
   background: #fff;
@@ -128,34 +138,84 @@ button:last-child{
 }
 .scroll-view-item_H{
   margin:12rpx;
+  border:solid 0.5rpx #e7e2e2;
+  border-radius:20rpx;
+  overflow:hidden;
 }
+.scroll-view-item_H:first-child{
+  margin-left: 0
+}
+.scroll-view-item_H image{
+  width: 260rpx;
+  height: 180rpx;
+}
+.scroll-view-item_H .newest-text{
+  margin-top: 10rpx;
+  margin-left: 18rpx;
+}
+
+.scroll-view-item_H  .newest-text-price {
+  margin-bottom: 10rpx;
+  margin-left: 18rpx;
+}
+
+.newest {
+  margin-top: 20rpx;
+}
+
 .quickSell-title{
   padding:20rpx;
-  color:#353535;
-  font-weight:bold;
+  text-align: center;
+  background: #ffffff;
+  border-bottom: solid 0.5rpx #e7e2e2;
 }
 
+.quickSell-title .text-line{
+  color:#b2b2b2;
+  font-size:36rpx;
+}
 
+.quickSell-title .title{
+  font-size: 36rpx;
+  color:#000;
+}
+
+.newest-text{
+  font-size: 32rpx;
+  color:#353535;
+}
+.newest-text-price{
+  font-size:30rpx;
+  color: #e64340;
+}
 .newest-box{
-    padding:0 40rpx;
+    padding: 30rpx;
+    background-color: #fff
 }
 .newest-box .newest-list{
     display: inline-block;
-    width: 325rpx;
-    height: 325rpx;
-    margin:0 20rpx 20rpx 0;
-    border-radius: 10px;
-    text-align: center;
-    background: #e0e6e0;
+    width: 335rpx;
+    height: 287rpx;
+    margin:0 20rpx 30rpx 0;
+    position: relative;
 }
 .newest-box .newest-list:nth-child(2n){
     margin-right: 0;
 }
 .newest-box .newest-list image{
-    width: 175rpx;
-    height: 175rpx;
-    margin: 20rpx 0 10rpx;
+    width: 100%;
+    height: 200rpx;
 }
 .newest-box .newest-list .newest-text{
-    font-size: 32rpx;
+    font-size: 30rpx;
+    position: absolute;
+    top:230rpx;
+    left:0;
+}
+
+.newest-box .newest-list .newest-text-price{
+    font-size: 30rpx;
+    position: absolute;
+    top:230rpx;
+    right:0;
 }

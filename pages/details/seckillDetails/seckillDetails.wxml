@@ -6,19 +6,13 @@
         <button data-name="shareBtn" open-type="share" plain="true" class="carts-icon">
           <image bindtap="back" style='width:30px;height:30px'        src="/images/share.png"></image>
         </button>
-        
-        <view class="goods-stock">{{goods.stock}}</view>
+     </view>
+     <view class='goods-intro'>
         <view class="goods-title">{{goods.title}}</view>
-        <view class="goods-price">￥ {{goods.price}}</view>
+        <view class="goods-stock">（{{goods.stock}}）</view>
+        <view class="goods-price">￥ {{goods.price}}              </view>
+      </view>
 
-        <view class="goods-operation" style='display:inline-block;'>
-          <text class="goods-to-cart" bindtap="buy">立即购买</text>
-        </view>
-        <view class="goods-operation" style='float:right;'>
-          <text class="goods-to-cart" bindtap="addToCart">加入购物车</text>
-        </view>
-
-    </view>
     <view class="goods-tab-box">
         <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">商品详情</view>
         <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">产品参数</view>
@@ -29,4 +23,12 @@
             <view wx:if="{{curIndex === 2}}">{{goods.service}}</view>
         </view>
     </view>
+    <view class='button-box'>
+            <button class="default goods-operation" style='display:inline-block;' >
+              <text class="goods-to-cart" bindtap="buy">立即购买</text>
+            </button>
+            <button class="default goods-operation" style='margin-left:20px;'>
+              <text class="goods-to-cart" bindtap="addToCart">加入购物车</text>
+            </button>
+            </view>
 </view>

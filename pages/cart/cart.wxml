@@ -6,13 +6,13 @@
                 <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList"/>
                 <navigator url="../details/details?id={{item.id}}"><image class="cart-thumb" src="{{item.image}}"></image></navigator>
                 <text class="cart-pro-name">{{item.title}}</text>
-                <text class="cart-pro-price">￥{{item.price}}</text>
+                 <text class="cart-del" bindtap="deleteList" data-index="{{index}}">×</text>
                 <view class="cart-count-box">
                     <text class="cart-count-down" bindtap="minusCount" data-obj="{{obj}}" data-index="{{index}}">-</text>
                     <text class="cart-count-num">{{item.num}}</text>
                     <text class="cart-count-add" bindtap="addCount" data-index="{{index}}">+</text>
                 </view>
-                <text class="cart-del" bindtap="deleteList" data-index="{{index}}">×</text>
+                <text class="cart-pro-price">￥{{item.price}}</text>
             </view>
         </view>
 
@@ -22,7 +22,7 @@
             <view class="order-icon">
                 <navigator url="../orders/orders"><image src="/images/icon3.png"></image></navigator>
             </view>
-            <text>全选</text>
+            <text style='margin-top:4rpx;display:inline-block'>全选</text>
             <text class="cart-toatl-price">￥{{totalPrice}}</text>
         </view>
     </view>

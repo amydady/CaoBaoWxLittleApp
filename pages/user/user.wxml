@@ -65,7 +65,7 @@
 		</view>
 	</view>
 
-  <view>
+  <view class='my-group'>
   	<text class="">我是团长</text>
   </view>
 
@@ -77,7 +77,7 @@
 			<view class="orders-status">商铺管理</view>
 		</view>
 		<view bindtap="showOrder" >
-		  <view>
+		  <view style='text-align:center;position:relative'>
         <block >
           <text class="notice-1">{{funsCount}}</text>
         </block>
@@ -99,7 +99,7 @@
 		</view>
 	</view>
 
-  <view>
+  <view class='collect'>
   	<text class="">其他</text>
   </view>
   <view class="orderInfo bg-fff text-center">

@@ -33,16 +33,21 @@
 }
 .cart-list .cart-pro-price{
     display: inline-block;
-    float: right;
-    height: 105rpx;
-    line-height: 50rpx;
+    position: absolute;
+    bottom: 7.5px;
+    right: 20rpx;
+    height: 40px;
+    line-height:40px;
+    color:#e64340;
+    font-size:34rpx;
 }
 .cart-list .cart-count-box{
     position: absolute;
     left: 285;
-    bottom: 20rpx;
+    bottom: 10px;
     width: 250rpx;
-    height: 80rpx;
+    height: 40px;
+    line-height: 40px;
 }
 .cart-list .cart-count-box text{
     display: inline-block;
@@ -58,14 +63,9 @@
     width: 150rpx;
 }
 .cart-del{
-    position: absolute;
-    right: 20rpx;
-    bottom: 20rpx;
-    width: 80rpx;
-    height: 80rpx;
-    line-height: 80rpx;
-    text-align: center;
     font-size: 44rpx;
+    float: right;
+    margin-top: -5rpx;
 }
 .cart-footer{
     position: fixed;
@@ -101,6 +101,7 @@
 .cart-toatl-price{
     float: right;
     width: 120rpx;
+    font-size: 14pt;
 }
 
 .cart-no-data{

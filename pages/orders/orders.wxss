@@ -3,10 +3,13 @@
 .orders-address{
     position: relative;
     padding: 20rpx 50rpx 20rpx 35rpx;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 25px;
-    border-bottom: 20rpx solid #ededed;
-    color: #adadad;
+    border-bottom: 1px solid #ededed;
+    color: #888;
+}
+.orders-address text{
+  display: block;
 }
 .orders-address::after{
     position: absolute;
@@ -47,12 +50,12 @@
 }
 
 .orders-box{
-    padding-bottom: 105rpx;
+    overflow-y: scroll;
 }
 .orders-list{
     position: relative;
-    padding:20rpx 20rpx 20rpx 220rpx;
-    height: 180rpx;
+    padding:10px 10px 10px 220rpx;
+    height: 90px;
     border-bottom: 1rpx solid #ededed;
 }
 .orders-thumb{
@@ -65,7 +68,15 @@
 .orders-list view{
     line-height: 60rpx;
 }
-
+.orders-count-num{
+  float: left;
+  height: 100%;
+}
+.orders-pro-price{
+  height: 100%;
+  float: right;
+  color:#e64340;
+}
 .orders-footer{
     position: fixed;
     bottom: 0;
@@ -80,7 +91,7 @@
     width: 510rpx;
     padding-left: 30rpx;
     box-sizing: border-box;
-    color: #a55350;
+    color: #353535;
 }
 .orders-footer .orders-footer-btn{
     display: inline-block;
