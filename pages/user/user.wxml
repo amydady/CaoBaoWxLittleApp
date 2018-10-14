@@ -111,13 +111,13 @@
                      </view>
                      <view class="orders-status">地址管理</view>
               </view>
-              <view bindtap="showOrder">
+              <view bindtap="aboutUS">
                      <view>
                             <image src="/images/undelivery.png"></image>
                      </view>
                      <view class="orders-status">关于我们</view>
               </view>
-              <view bindtap="showOrder">
+              <view bindtap="groupOwner">
                      <view>
                             <image src="/images/unreceipt.png"></image>
                      </view>

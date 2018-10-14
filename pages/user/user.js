@@ -101,4 +101,11 @@ Page({
        showCommission() {
               app.redirect('commission/commission')
        },
+       //关于我们
+       aboutUS() {
+              app.redirect('aboutUs/aboutUs')
+       },
+       groupOwner() {
+              app.redirect('groupOwner/groupOwner')
+       },
 })

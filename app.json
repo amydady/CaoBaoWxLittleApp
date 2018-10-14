@@ -10,7 +10,13 @@
     "pages/address/address",
     "pages/orders/orders",
     "pages/orders/index",
-    "pages/shopManage/shopManage"
+    "pages/shopManage/shopManage",
+    "pages/funsManage/funsManage",
+    "pages/shopOrder/shopOrder",
+    "pages/welfare/welfare",
+    "pages/aboutUs/aboutUs",
+    "pages/groupOwner/groupOwner",
+    "pages/commission/commission"
   ],
   "window":{
     "backgroundTextStyle":"light",
