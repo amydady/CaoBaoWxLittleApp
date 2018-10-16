@@ -56,8 +56,9 @@ Page({
        },
        onLoad: function() {
               var app = this;
+              //首页滚动
               wx.request({
-                     url: "http://192.168.0.102:8006/rest/littlecat/caobao/homeimgs/getList", //给函数传递服务器地址参数
+                     url: "http://192.168.0.110:8006/rest/littlecat/caobao/homeimgs/getList", //给函数传递服务器地址参数
                      data: {
                             
                      }, //给服务器传递数据，本次请求不需要数据，可以不填
@@ -76,8 +77,9 @@ Page({
                             })
                      },
               })
+              //首页产品信息
               wx.request({
-                     url: "http://192.168.0.102:8006/rest/littlecat/caobao/goods/getList", //给函数传递服务器地址参数 
+                     url: "http://192.168.0.110:8006/rest/littlecat/caobao/goods/getList", //给函数传递服务器地址参数 
                      data: {
                             "condition": {
                                    "logicType": "and",
@@ -99,15 +101,17 @@ Page({
                             var quickSell = [];
                             var commonSell = [];
                             for (var index in res.data.data) {
-                                   debugger;
+                   
                                    if (res.data.data[index].hasSecKillPlan == 'Y'){
                                           quickSell.push({
+                                                 id: res.data.data[index].id,
                                                  title: res.data.data[index].name,
                                                  price: res.data.data[index].price,
                                                  image: 'data:image/png;base64,' +res.data.data[index].mainImgData
                                           });
                                    }else{
                                           commonSell.push({
+                                                 id: res.data.data[index].id,
                                                  title: res.data.data[index].name,
                                                  price: res.data.data[index].price,
                                                  image: 'data:image/png;base64,' +res.data.data[index].mainImgData
@@ -126,6 +130,13 @@ Page({
               wx.navigateTo({
                      url: '../details/seckillDetails/seckillDetails'
               })
-       }
+       },
+       commonBuy: function (e) {
+           
+              var id = e.currentTarget.dataset.productid;
+              wx.navigateTo({
+                     url: '../details/commonDetails/commonDetails?id='+id
+              })
+       },
 
 })

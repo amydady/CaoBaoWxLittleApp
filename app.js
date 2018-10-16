@@ -9,7 +9,21 @@ App({
     // 登录
     wx.login({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+            var code = res.code;
+       //  发送 res.code 到后台换取 openId, sessionKey, unionId
+             wx.request({
+                    url: "https://api.weixin.qq.com/sns/jscode2session?appid=wx59e6873e9161c795&secret=4dc7b0ee2cb613eeb79faa811b998d25&js_code=" + code+"&grant_type=authorization_code",
+                    data: {
+
+                    }, //给服务器传递数据，本次请求不需要数据，可以不填
+                    method: "POST",
+                    header: {
+                           'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
+                    },
+                    success: function (res) {
+                         console.log("openID",res);
+                    },
+             })
       }
     })
     // 获取用户信息

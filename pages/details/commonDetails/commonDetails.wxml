@@ -4,7 +4,7 @@
         
 
         <button data-name="shareBtn" open-type="share" plain="true" class="carts-icon">
-          <image style='width:30px;height:30px'  src="../../images/share.png"></image>
+          <image style='width:30px;height:30px'  src="/images/share.png"></image>
         </button>
         
         <view class="goods-stock">{{goods.stock}}</view>

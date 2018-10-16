@@ -1,55 +1,52 @@
 Page({
-  data: {
-    productInfoList: [],
-    indicatorDots: true,
-    vertical: false,
-    autoplay: true,
-    circular: true,
-    interval: 2000,
-    duration: 500,
-    previousMargin: 0,
-    nextMargin: 0
-  },
-  onLoad: function () {
-    //获取拼团信息
-    this.setData({
-      productInfoList: [{
-        name:'荔枝',
-        src:'../../images/5.jpg',
-        price:'5'
-      },{
-          name: '苹果',
-          src: '../../images/6.jpg',
-          price: '7'
-        }, {
-          name: '草莓',
-          src: '../../images/7.jpg',
-          price: '9.9'
-        }, {
-          name: '荔枝',
-          src: '../../images/5.jpg',
-          price: '5'
-        }, {
-          name: '苹果',
-          src: '../../images/6.jpg',
-          price: '7'
-        }, {
-          name: '草莓',
-          src: '../../images/7.jpg',
-          price: '9.9'
-        }]
-    })
-  },
-  durationChange: function (e) {
-    this.setData({
-      duration: e.detail.value
-    })
-  },
+       data: {
+              goodsList: [],
+              indicatorDots: true,
+              vertical: false,
+              autoplay: true,
+              circular: true,
+              interval: 2000,
+              duration: 500,
+              previousMargin: 0,
+              nextMargin: 0
+       },
+       onLoad: function() {
+              var app = this;
+              wx.request({
+                     url: "http://192.168.0.110:8006/rest/littlecat/caobao/groupbuyplan/getList", //给函数传递服务器地址参数
+                     data: {
 
-  showGroupDetail(){
-    wx.navigateTo({
-      url: '../details/groupDetails/groupDetails'
-    })
-  }
+                     }, //给服务器传递数据，本次请求不需要数据，可以不填
+                     method: "POST",
+                     header: {
+                            'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
+                     },
+                     success: function(res) {
+                            console.log('groupBuy', res);
+                            var goods = [];
+                            for (var index in res.data.data) {
+                                   goods.push({
+                                          name: res.data.data[index].goodsName,
+                                          price: res.data.data[index].price,
+                                          image: 'data:image/png;base64,' + res.data.data[index].goodsMainImgData
+                                   });
+                            }
+                            app.setData({
+                                   goodsList: goods,
+                            })
+                     },
+              })
+       },
+       durationChange: function(e) {
+              this.setData({
+                     duration: e.detail.value
+              })
+       },
+
+       showGroupDetail() {
+              wx.navigateTo({
+                     url: '../details/groupDetails/groupDetails'
+              })
+       }
 
 })

@@ -37,7 +37,7 @@
               </view>
               <view class='newest-box'>
                      <view wx:for="{{commonSell}}" wx:key="*this" class="newest-list">
-                            <image mode="scaleToFill" src="{{item.image}}"></image>
+                            <image bindtap="commonBuy" data-productID="{{item.id}}" mode="scaleToFill" src="{{item.image}}"></image>
                             <view class="newest-text">
                                    <text>{{item.title}}</text>
                             </view>

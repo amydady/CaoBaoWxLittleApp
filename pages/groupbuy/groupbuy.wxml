@@ -1,8 +1,8 @@
 
 <view class="section section_gap">
  <scroll-view class="scroll-view_H" scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
-      <view class="group-box" wx:for="{{productInfoList}}">
-       <image mode="scaleToFill" src="{{item.src}}"></image>
+      <view class="group-box" wx:for="{{goodsList}}">
+       <image mode="scaleToFill" src="{{item.image}}"></image>
         <view class='introducation'>
         <text class='item-name'>{{item.name}}</text>
         <text class='item-price'>${{item.price}}</text>

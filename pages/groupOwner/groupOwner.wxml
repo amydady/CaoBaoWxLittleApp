@@ -1,13 +1,19 @@
 <view class="welfare">
-    <view class="form-box">
-        <form bindsubmit="formSubmit">
-            <text>卡号</text>
-            <input value="{{address.name}}" name="name" placeholder="卡号"/>
-            <text>密码</text>
-            <input type="number" name="phone" value="{{address.phone}}" placeholder="密码"/>
-            <button form-type="submit">兑换</button>
-        </form>
-    </view>
-    <view>兑换记录</view>
-    <view wx:for="{{RecordList}}" wx:key="*this">{{item.time}}   {{item.price}}</view>
+       <view class="form-box">
+              <form bindsubmit="formSubmit">
+                     <text>姓名</text>
+                     <input value="{{address.name}}" name="name" />
+                     <text>手机号</text>
+                     <input type="number" name="phone" value="{{address.phone}}" />
+                     <text>身份证</text>
+                     <input type="number" name="phone" value="{{address.phone}}" />
+                     <text>上传身份证</text>
+                     <input type="number" name="phone" value="{{address.phone}}" />
+                     <text>住址</text>
+                     <input type="number" name="phone" value="{{address.phone}}" />
+                      <image bindtap="bindChooiceProduct" mode="scaleToFill" src="/images/3.jpg"></image>
+                     <button form-type="submit">申請入圈</button>
+              </form>
+       </view>
+     
 </view>
