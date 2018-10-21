@@ -5,26 +5,24 @@
                             <icon wx:if="{{item.selected}}" type="success" color="red" data-index="{{index}}" class="cart-pro-select" bindtap="selectList" />
                             <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList" />
                             <navigator url="../details/details?id={{item.id}}">
-                                   <image class="cart-thumb" src="{{item.image}}"></image>
+                                   <image class="cart-thumb" src="{{'data:image/png;base64,'+item.goodsMainImgData}}"></image>
                             </navigator>
-                            <text class="cart-pro-name">{{item.title}}</text>
-                            <text class="cart-pro-price">￥{{item.price}}</text>
+                            <text class="cart-pro-name">{{item.goodsName}}</text>
+                            <text class="cart-pro-price">￥{{item.goodsPrice}}</text>
                             <view class="cart-count-box">
                                    <text class="cart-count-down" bindtap="minusCount" data-obj="{{obj}}" data-index="{{index}}">-</text>
-                                   <text class="cart-count-num">{{item.num}}</text>
+                                   <text class="cart-count-num">{{item.goodsNum}}</text>
                                    <text class="cart-count-add" bindtap="addCount" data-index="{{index}}">+</text>
                             </view>
-                            <text class="cart-del" bindtap="deleteList" data-index="{{index}}">×</text>
+                            <text class="cart-del" bindtap="deleteList" data-index="{{index}}" data-id="{{item.id}}">×</text>
                      </view>
               </view>
 
               <view class="cart-footer">
                      <icon wx:if="{{selectAllStatus}}" type="success_circle" color="#fff" class="total-select" bindtap="selectAll" />
                      <icon wx:else type="circle" color="#fff" class="total-select" bindtap="selectAll" />
-                     <view class="order-icon">
-                            <navigator url="../orders/orders">
-                                   <image src="/images/icon3.png"></image>
-                            </navigator>
+                     <view class="order-icon" bindtap='pay'>
+                             <image src="/images/icon3.png"></image>
                      </view>
                      <text style='margin-top:4rpx;display:inline-block'>全选</text>
                      <text class="cart-toatl-price">￥{{totalPrice}}</text>

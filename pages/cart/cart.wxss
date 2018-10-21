@@ -100,7 +100,7 @@
 }
 .cart-toatl-price{
     float: right;
-    width: 120rpx;
+    width: 270rpx;
     font-size: 14pt;
 }
 

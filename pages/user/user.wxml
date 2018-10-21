@@ -1,7 +1,10 @@
 <view class="main">
        <view class="header">
-              <image src="{{thumb}}" class="thumb"></image>
-              <text class="nickname">{{nickname}}</text>
+              <view style='display:inline-block;width:50px;float:left;'>
+                     <open-data type="userAvatarUrl"></open-data>
+              </view>
+
+              <open-data type="userNickName"></open-data>
               <text class="about" bindtap='welfare'>兑换福利</text>
        </view>
 
@@ -65,7 +68,7 @@
               </view>
               <view bindtap="showOrder" data-type="5">
                      <view>
-                           <image src="/images/unreceipt.png"></image>
+                            <image src="/images/unreceipt.png"></image>
                      </view>
                      <view class="orders-status">售后/退款</view>
               </view>

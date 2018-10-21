@@ -1,3 +1,4 @@
+var app = getApp();
 Page({
        data: {
               goodsList: [],
@@ -11,9 +12,9 @@ Page({
               nextMargin: 0
        },
        onLoad: function() {
-              var app = this;
+              var self = this;
               wx.request({
-                     url: "http://192.168.0.110:8006/rest/littlecat/caobao/groupbuyplan/getList", //给函数传递服务器地址参数
+                     url: app.globalData.serverUrl + "/rest/littlecat/caobao/groupbuyplan/getList", //给函数传递服务器地址参数
                      data: {
 
                      }, //给服务器传递数据，本次请求不需要数据，可以不填
@@ -31,7 +32,7 @@ Page({
                                           image: 'data:image/png;base64,' + res.data.data[index].goodsMainImgData
                                    });
                             }
-                            app.setData({
+                            self.setData({
                                    goodsList: goods,
                             })
                      },

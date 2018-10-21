@@ -1,24 +1,20 @@
-// page/component/details/details.js
+var app = getApp();
 Page({
        data: {
-              goods: {
-                     id: 1,
-                     image: '/images/1.jpg',
-                     title: '橘子',
-                     price: 0.01,
-                     stock: '有货',
-                     detail: '这是一个橘子。',
-                     parameter: '125g/个',
-                     service: '不支持退货'
+              goodsDetail: {
               },
               hasCarts: false,
-              curIndex: 0,
+              goodsId: null,
        },
        onLoad(options) {
               var id = options.id;
+              var self = this;
+              self.setData({
+                     goodsId:id
+              })
               //查询详情
               wx.request({
-                     url: "http://192.168.0.110:8006/rest/littlecat/caobao/goods/getbyid?id=" + id, //给函数传递服务器地址参数
+                     url: app.globalData.serverUrl + "/rest/littlecat/caobao/goods/getbyid?id=" + id, //给函数传递服务器地址参数
                      data: {
                             
                      }, //给服务器传递数据，本次请求不需要数据，可以不填
@@ -27,11 +23,21 @@ Page({
                             'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
                      },
                      success: function (res) {
-                            debugger;
+                            //TO-DO 详细信息
                             console.log('commonDetail', res);
+                            self.setData({
+                                   goodsDetail: {
+                                          id: res.data.data[0].id,
+                                          name: res.data.data[0].name,
+                                          price:res.data.data[0].price,
+                                          mainImg:  res.data.data[0].mainImgData,
+                                          detailImage: res.data.data[0].detailImgs,
+                                   }
+                            })
 
                      },
               })
+
        },
 
 
@@ -39,18 +45,17 @@ Page({
               const self = this;
 
               wx.request({
-                     url: "http://192.168.0.110:8006/rest/littlecat/caobao/shoppingcart/add", //给函数传递服务器地址参数
+                     url: app.globalData.serverUrl + "/rest/littlecat/caobao/shoppingcart/add", //给函数传递服务器地址参数
                      data: {
-                            "terminalUserId": "terminalUserId1",
+                            "terminalUserId": app.globalData.openID,
                             "buyType": "normal",
-                            "resId": "resId001"
+                            "resId": self.data.goodsId
                      }, //给服务器传递数据，本次请求不需要数据，可以不填
                      method: "POST",
                      header: {
                             'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
                      },
                      success: function(res) {
-                            debugger;
                             console.log('commonDetail-addToCar', res);
 
                      },
@@ -69,17 +74,25 @@ Page({
        },
 
        buy() {
-              wx.navigateTo({
-                     url: '../orders/orders'
-              })
-
+             let self = this;
+              var goods = [{
+                     id: this.data.goodsDetail.id,
+                     name: this.data.goodsDetail.name,
+                     price: this.data.goodsDetail.price,
+                     image: this.data.goodsDetail.mainImg,
+                     num: 1,
+              }];
+              wx.setStorage({
+                     key: "selectGoods",
+                     data: goods,
+                     success(res){
+                            wx.navigateTo({
+                                   url: '/pages/orders/orders'
+                            })
+                     }
+              });
+              
        },
 
-       bindTap(e) {
-              const index = parseInt(e.currentTarget.dataset.index);
-              this.setData({
-                     curIndex: index
-              })
-       }
-
+      
 })

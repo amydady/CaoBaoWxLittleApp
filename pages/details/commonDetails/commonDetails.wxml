@@ -1,15 +1,14 @@
 <view class="main">
     <view class="goods-box">
-        <image src="{{goods.image}}" class="goods-thumb"></image>
+        <image src="{{'data:image/png;base64,'+goodsDetail.mainImg}}" class="goods-thumb"></image>
         
 
         <button data-name="shareBtn" open-type="share" plain="true" class="carts-icon">
           <image style='width:30px;height:30px'  src="/images/share.png"></image>
         </button>
         
-        <view class="goods-stock">{{goods.stock}}</view>
-        <view class="goods-title">{{goods.title}}</view>
-        <view class="goods-price">￥ {{goods.price}}</view>
+        <view class="goods-title">{{goodsDetail.name}}</view>
+        <view class="goods-price">￥ {{goodsDetail.price}}</view>
 
         <view class="goods-operation" style='display:inline-block;'>
           <text class="goods-to-cart" bindtap="buy">立即购买</text>
@@ -20,13 +19,12 @@
 
     </view>
     <view class="goods-tab-box">
-        <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">商品详情</view>
-        <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">产品参数</view>
-        <view class="goods-tab-nav {{curIndex === 2 ?'on':''}}" bindtap="bindTap" data-index="2">售后保障</view>
+        <view class="goods-tab-nav on" >商品详情</view>
         <view class="goods-content">
-            <view wx:if="{{curIndex === 0}}">{{goods.detail}}</view>
-            <view wx:if="{{curIndex === 1}}">{{goods.parameter}}</view>
-            <view wx:if="{{curIndex === 2}}">{{goods.service}}</view>
+            <view wx:for="{{goodsDetail.detailImage}}">
+              <image style='width:300px;height:300px'  src="{{'data:image/png;base64,'+item.imgData}}"></image>
+            </view>
+            
         </view>
     </view>
 </view>

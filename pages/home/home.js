@@ -1,3 +1,4 @@
+var app = getApp();
 Page({
        data: {
               titlePictures:[],
@@ -55,10 +56,10 @@ Page({
               nextMargin: 0
        },
        onLoad: function() {
-              var app = this;
+              var self = this;
               //首页滚动
               wx.request({
-                     url: "http://192.168.0.110:8006/rest/littlecat/caobao/homeimgs/getList", //给函数传递服务器地址参数
+                     url: app.globalData.serverUrl + "/rest/littlecat/caobao/homeimgs/getList", //给函数传递服务器地址参数
                      data: {
                             
                      }, //给服务器传递数据，本次请求不需要数据，可以不填
@@ -72,14 +73,14 @@ Page({
                             for (var index in res.data.data){
                                    pictures.push('data:image/png;base64,' + res.data.data[index].imgData);
                             }
-                            app.setData({
+                            self.setData({
                                    titlePictures: pictures,
                             })
                      },
               })
               //首页产品信息
               wx.request({
-                     url: "http://192.168.0.110:8006/rest/littlecat/caobao/goods/getList", //给函数传递服务器地址参数 
+                     url: app.globalData.serverUrl + "/rest/littlecat/caobao/goods/getList", //给函数传递服务器地址参数 
                      data: {
                             "condition": {
                                    "logicType": "and",
@@ -119,7 +120,7 @@ Page({
                                    }
                                    
                             }
-                            app.setData({
+                            self.setData({
                                    quickSell: quickSell,
                                    commonSell: commonSell
                             })

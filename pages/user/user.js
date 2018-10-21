@@ -10,30 +10,7 @@ Page({
        },
        onLoad() {
               var self = this;
-              /**
-               * 获取用户信息
-               */
-              wx.getUserInfo({
-                            success: function(res) {
-                                   debugger;
-                                   self.setData({
-                                          thumb: res.userInfo.avatarUrl,
-                                          nickname: res.userInfo.nickName
-                                   })
-                            }
-                     }),
-
-                     /**
-                      * 发起请求获取订单列表信息
-                      */
-                     wx.request({
-                            url: '',
-                            success(res) {
-                                   self.setData({
-                                          orders: res.data
-                                   })
-                            }
-                     })
+         
        },
        onShow() {
               var self = this;

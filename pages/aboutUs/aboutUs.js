@@ -1,4 +1,3 @@
-// pages/welfare/welfare.js
 Page({
 
        /**
