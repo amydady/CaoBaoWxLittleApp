@@ -2,8 +2,8 @@
        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
               <block wx:for="{{titlePictures}}" wx:key="*this">
                      <swiper-item>
-                            <view class="swiper-item {{item}}">
-                                   <image data-item="{{item}}" mode="scaleToFill" src="{{item}}"></image>
+                            <view class="swiper-item ">
+                                   <image  mode="scaleToFill" src="{{'data:image/png;base64,'+item.imgData}}"></image>
                             </view>
                      </swiper-item>
               </block>
@@ -18,12 +18,12 @@
                      <scroll-view class="scroll-view_H" scroll-x style="width: 100%" scrollTop="100px">
          
                             <view wx:for="{{quickSell}}" wx:key="*this" class="scroll-view-item_H">
-                                   <image bindtap="seckill" mode="scaleToFill" src="{{item.image}}"></image>
+                                   <image bindtap="seckill" data-productID="{{item.id}}" mode="scaleToFill" src="{{'data:image/png;base64,'+item.goodsMainImgData}}"></image>
                                    <view class="newest-text">
-                                          <text>{{item.title}}</text>
+                                          <text>{{item.goodsName}}</text>
                                    </view>
                                    <view class="newest-text-price">
-                                          <text>￥{{item.price}}</text>
+                                          <text>￥{{item.goodsPrice}}</text>
                                    </view>
                             </view>
                      </scroll-view>
@@ -37,9 +37,9 @@
               </view>
               <view class='newest-box'>
                      <view wx:for="{{commonSell}}" wx:key="*this" class="newest-list">
-                            <image bindtap="commonBuy" data-productID="{{item.id}}" mode="scaleToFill" src="{{item.image}}"></image>
+                            <image bindtap="commonBuy" data-productID="{{item.id}}" mode="scaleToFill" src="{{'data:image/png;base64,'+item.mainImgData}}"></image>
                             <view class="newest-text">
-                                   <text>{{item.title}}</text>
+                                   <text>{{item.name}}</text>
                             </view>
                             <view class="newest-text-price">
                                    <text>￥{{item.price}}</text>

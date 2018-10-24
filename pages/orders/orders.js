@@ -30,7 +30,6 @@ Page({
                      success(res) {
                             self.setData({
                                    orders: res.data,
-
                             })
                      }
               })
@@ -59,8 +58,8 @@ Page({
               for (let i = 0; i < orders.length; i++){
                      payOders.push({
                             buyType:111,
-                            resId: orders[i].id,
-                            goodsId:id,
+                            resId: orders[i].resId,
+                            goodsId: orders[i].goodsId,
                             price: orders[i].price,
                             goodsNum: orders[i].num,
                      });

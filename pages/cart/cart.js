@@ -80,7 +80,7 @@ Page({
                      data: {
 
                      }, //给服务器传递数据，本次请求不需要数据，可以不填
-                     method: "DELETE",
+                     method: "PUT",
                      header: {
                             'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
                      },
@@ -166,8 +166,9 @@ Page({
               for (let i = 0; i < carts.length; i++) { 
                      if (carts[i].selected) { 
                             selectGoods.push({
-                                   id: carts[i].id,
-                                   name: carts[i].goodsName,
+                                   resId: carts[i].resId,
+                                   goodsId: carts[i].goodsId,
+                                   name: carts[i].goodsName,//接口缺少一个ID
                                    price: carts[i].goodsPrice,
                                    image: carts[i].goodsMainImgData,
                                    num: carts[i].goodsNum,

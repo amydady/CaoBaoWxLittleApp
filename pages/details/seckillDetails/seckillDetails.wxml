@@ -1,6 +1,6 @@
 <view class="main">
     <view class="goods-box">
-        <image src="{{goods.image}}" class="goods-thumb"></image>
+        <image src="{{'data:image/png;base64,'+goodsDetail.goodsMainImgData}}" class="goods-thumb"></image>
         
 
         <button data-name="shareBtn" open-type="share" plain="true" class="carts-icon">
@@ -8,27 +8,24 @@
         </button>
      </view>
      <view class='goods-intro'>
-        <view class="goods-title">{{goods.title}}</view>
-        <view class="goods-stock">（{{goods.stock}}）</view>
-        <view class="goods-price">￥ {{goods.price}}              </view>
+        <view class="goods-title">{{goodsDetail.goodsName}}</view>
+        <view class="goods-price">￥ {{goodsDetail.goodsPrice}}              </view>
       </view>
 
     <view class="goods-tab-box">
-        <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">商品详情</view>
-        <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">产品参数</view>
-        <view class="goods-tab-nav {{curIndex === 2 ?'on':''}}" bindtap="bindTap" data-index="2">售后保障</view>
+        <view class="goods-tab-nav on" bindtap="bindTap" >商品详情</view>
         <view class="goods-content">
-            <view wx:if="{{curIndex === 0}}">{{goods.detail}}</view>
-            <view wx:if="{{curIndex === 1}}">{{goods.parameter}}</view>
-            <view wx:if="{{curIndex === 2}}">{{goods.service}}</view>
+             <view wx:for="{{goodsDetail.goodsDetailImgs}}">
+              <image style='width:300px;height:300px'  src="{{'data:image/png;base64,'+item.imgData}}"></image>
+            </view>
         </view>
     </view>
     <view class='button-box'>
-            <button class="default goods-operation" style='display:inline-block;' >
+            <view class="default goods-operation" style='display:inline-block;' >
               <text class="goods-to-cart" bindtap="buy">立即购买</text>
-            </button>
-            <button class="default goods-operation" style='margin-left:20px;'>
+            </view>
+            <view class="default goods-operation" style='margin-left:20px;'>
               <text class="goods-to-cart" bindtap="addToCart">加入购物车</text>
-            </button>
+            </view>
             </view>
 </view>

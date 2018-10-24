@@ -26,13 +26,7 @@ Page({
                             //TO-DO 详细信息
                             console.log('commonDetail', res);
                             self.setData({
-                                   goodsDetail: {
-                                          id: res.data.data[0].id,
-                                          name: res.data.data[0].name,
-                                          price:res.data.data[0].price,
-                                          mainImg:  res.data.data[0].mainImgData,
-                                          detailImage: res.data.data[0].detailImgs,
-                                   }
+                                   goodsDetail: res.data.data[0]
                             })
 
                      },
@@ -61,25 +55,16 @@ Page({
                      },
               })
 
-              self.setData({
-                     show: true
-              })
-              setTimeout(function() {
-                     self.setData({
-
-                     })
-
-              }, 300)
-
        },
 
        buy() {
              let self = this;
               var goods = [{
-                     id: this.data.goodsDetail.id,
+                     resId: this.data.goodsDetail.id,
+                     goodsId: this.data.goodsDetail.id,
                      name: this.data.goodsDetail.name,
                      price: this.data.goodsDetail.price,
-                     image: this.data.goodsDetail.mainImg,
+                     image: this.data.goodsDetail.mainImgData,
                      num: 1,
               }];
               wx.setStorage({

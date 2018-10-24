@@ -108,12 +108,6 @@
               <text class="">其他</text>
        </view>
        <view class="orderInfo bg-fff text-center">
-              <view bindtap="showAddress">
-                     <view>
-                            <image src="/images/ungroup.png"></image>
-                     </view>
-                     <view class="orders-status">地址管理</view>
-              </view>
               <view bindtap="aboutUS">
                      <view>
                             <image src="/images/undelivery.png"></image>
