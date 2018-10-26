@@ -1,16 +1,6 @@
 var app = getApp();
 Page({
        data: {
-              goods: {
-                     id: 1,
-                     image: '/images/1.jpg',
-                     title: '橘子',
-                     price: 0.01,
-                     stock: '有货',
-                     detail: '这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。这是一个橘子。',
-                     parameter: '125g/个',
-                     service: '不支持退货'
-              },
               goodsDetail:{},
               hasCarts: false,
               curIndex: 0,
@@ -19,9 +9,6 @@ Page({
        onLoad(options) {
               var id = options.id;
               var self = this;
-              self.setData({
-                     goodsId: id
-              })
               //查询详情
               wx.request({
                      url: app.globalData.serverUrl + "/rest/littlecat/caobao/seckillplan/getbyid?id=" + id, //给函数传递服务器地址参数
@@ -61,7 +48,7 @@ Page({
                      data: {
                             "terminalUserId": app.globalData.openID,
                             "buyType": "seckill",
-                            "resId": self.data.goodsId
+                            "resId": self.data.goodsDetail.id
                      }, //给服务器传递数据，本次请求不需要数据，可以不填
                      method: "POST",
                      header: {
@@ -78,7 +65,8 @@ Page({
        buy() {
               let self = this;
               var goods = [{
-                     redId: this.data.goodsDetail.id,
+                     buyType: "seckill",
+                     resId: this.data.goodsDetail.id,
                      goodsId: this.data.goodsDetail.goodsId,
                      name: this.data.goodsDetail.goodsName,
                      price: this.data.goodsDetail.goodsPrice,

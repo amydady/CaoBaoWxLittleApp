@@ -33,7 +33,7 @@ Page({
                             })
                      }
               })
-              
+
 
        },
 
@@ -55,9 +55,9 @@ Page({
               let self = this;
               let orders = this.data.orders;
               let payOders = [];
-              for (let i = 0; i < orders.length; i++){
+              for (let i = 0; i < orders.length; i++) {
                      payOders.push({
-                            buyType:111,
+                            buyType: orders[i].buyType,
                             resId: orders[i].resId,
                             goodsId: orders[i].goodsId,
                             price: orders[i].price,
@@ -66,37 +66,30 @@ Page({
               }
               if (this.check()) {
                      wx.request({
-                            url: app.globalData.serverUrl + "/rest/littlecat/caobao/shoppingcart/add", //给函数传递服务器地址参数
+                            url: app.globalData.serverUrl + "/rest/littlecat/caobao/order/create", //给函数传递服务器地址参数
                             data: {
                                    "orderMO": {
                                           "terminalUserId": app.globalData.openID,
                                           "fee": self.data.total,
                                           "state": "daifukuan",
                                           "deliveryAddress": {
-                                                 "provinceId": self.data.addressInfo.provinceName,
-                                                 "cityId": self.data.addressInfo.cityName,
-                                                 "areaId": self.data.addressInfo.countyName,
+                                                 "province": self.data.addressInfo.provinceName,
+                                                 "city": self.data.addressInfo.cityName,
+                                                 "area": self.data.addressInfo.countyName,
                                                  "detailInfo": self.data.addressInfo.detailInfo,
-
-                                          }
+                                          },
+                                          "contactName": self.data.addressInfo.userName,
+                                          "contactMobile": self.data.addressInfo.telNumber
                                    },
-                                   "orderDetailMOs":
-                                          [{
-                                                 "buyType": "normal",
-                                                 "resId": "590452ef-94b3-4167-9fc5-d52b809cd257",
-                                                 "goodsId": "590452ef-94b3-4167-9fc5-d52b809cd257",
-                                                 "price": 100,
-                                                 "goodsNum": 10
-                                          }
-                                          ]
+                                   "orderDetailMOs": payOders
                             }, //给服务器传递数据，本次请求不需要数据，可以不填
                             method: "POST",
                             header: {
                                    'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
                             },
-                            success: function (res) {
-                                   console.log('commonDetail-addToCar', res);
-
+                            success: function(res) {
+                                   console.log('orders', res);
+                                   //pay weixin
                             },
                      })
               }

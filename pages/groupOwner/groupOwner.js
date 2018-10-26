@@ -25,13 +25,12 @@ Page({
        bindChooiceProduct: function() {
               var that = this;
               wx.chooseImage({
-                     count: 3, //最多可以选择的图片总数  
-                     sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有  
+                     count: 2, //最多可以选择的图片总数  
+                     sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有  
                      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有  
                      success: function(res) {
                             // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片  
                             var tempFilePaths = res.tempFilePaths;
-                            debugger;
                             //启动上传等待中...  
                             wx.showToast({
                                    title: '正在上传...',
@@ -91,12 +90,19 @@ Page({
        formSubmit(e) {
               const value = e.detail.value;
               if (value.name && value.phone && value.detail) {
-                     wx.setStorage({
-                            key: 'address',
-                            data: value,
-                            success() {
-                                   wx.navigateBack();
-                            }
+                     wx.request({
+                            url: app.globalData.serverUrl + "/rest/littlecat/caobao/order/create", //给函数传递服务器地址参数
+                            data: {
+                                   
+                            }, //给服务器传递数据，本次请求不需要数据，可以不填
+                            method: "POST",
+                            header: {
+                                   'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
+                            },
+                            success: function (res) {
+                                   console.log('groupOwner', res);
+                                   //pay weixin
+                            },
                      })
               } else {
                      wx.showModal({

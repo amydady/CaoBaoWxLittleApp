@@ -6,12 +6,13 @@
                      <text>手机号</text>
                      <input type="number" name="phone" value="{{address.phone}}" />
                      <text>身份证</text>
-                     <input type="number" name="phone" value="{{address.phone}}" />
-                     <text>上传身份证</text>
-                     <input type="number" name="phone" value="{{address.phone}}" />
+                     <input type="number" name="idCard" value="{{address.idCard}}" />
+                     <text>上传身份证
+                     </text>
+                     <image style='heiht:80rpx,width:80rpx' bindtap="bindChooiceProduct" mode="scaleToFill" src="/images/3.jpg"></image>
                      <text>住址</text>
-                     <input type="number" name="phone" value="{{address.phone}}" />
-                      <image bindtap="bindChooiceProduct" mode="scaleToFill" src="/images/3.jpg"></image>
+                     <input type="number" name="address" value="{{address.address}}" />
+                      
                      <button form-type="submit">申請入圈</button>
               </form>
        </view>

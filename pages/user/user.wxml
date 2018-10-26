@@ -18,55 +18,35 @@
        <view class="orderInfo bg-fff text-center">
               <view bindtap="showOrder" data-type="1">
                      <view>
-                            <block wx:if="{{data.unpay>=10}}">
-                                   <text class="notice-1">{{data.unpay}}</text>
-                            </block>
-                            <block wx:else>
-                                   <text wx:if="{{data.unpay>0}}" class="notice">{{data.unpay}}</text>
-                            </block>
                             <image src="/images/unpay.png"></image>
                      </view>
                      <view class="orders-status">待付款</view>
               </view>
               <view bindtap="showOrder" data-type="2">
                      <view>
-                            <block wx:if="{{data.ungroup>=10}}">
-                                   <text class="notice-1">{{data.ungroup}}</text>
-                            </block>
-                            <block wx:else>
-                                   <text wx:if="{{data.ungroup>0}}" class="notice">{{data.ungroup}}</text>
-                            </block>
-                            <!-- <text wx:if="{{data.ungroup>0}}" class="notice">{{data.ungroup}}</text> -->
                             <image src="/images/ungroup.png"></image>
                      </view>
                      <view class="orders-status">待成团</view>
               </view>
               <view bindtap="showOrder" data-type="3">
                      <view>
-                            <block wx:if="{{data.unsend>=10}}">
-                                   <text class="notice-1">{{data.unsend}}</text>
-                            </block>
-                            <block wx:else>
-                                   <text wx:if="{{data.unsend>0}}" class="notice">{{data.unsend}}</text>
-                            </block>
-                            <!-- <text wx:if="{{data.unsend>0}}" class="notice">{{data.unsend}}</text> -->
                             <image src="/images/undelivery.png"></image>
                      </view>
                      <view class="orders-status">待发货</view>
               </view>
               <view bindtap="showOrder" data-type="4">
                      <view>
-                            <block wx:if="{{data.unreceipt>=10}}">
-                                   <text class="notice-1">{{data.unreceipt}}</text>
-                            </block>
-                            <block wx:else>
-                                   <text wx:if="{{data.unreceipt>0}}" class="notice">{{data.unreceipt}}</text>
-                            </block>
                             <image src="/images/unreceipt.png"></image>
                      </view>
-                     <view class="orders-status">待收货</view>
+                     <view class="orders-status">待签收</view>
               </view>
               <view bindtap="showOrder" data-type="5">
+                     <view>
+                            <image src="/images/unreceipt.png"></image>
+                     </view>
+                     <view class="orders-status">已发货</view>
+              </view>
+              <view bindtap="showOrder" data-type="6">
                      <view>
                             <image src="/images/unreceipt.png"></image>
                      </view>

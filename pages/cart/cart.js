@@ -163,17 +163,30 @@ Page({
        pay() {
               let selectGoods = [];
               let carts = this.data.carts; 
+             
               for (let i = 0; i < carts.length; i++) { 
                      if (carts[i].selected) { 
                             selectGoods.push({
+                                   buyType: carts[i].buyType,
                                    resId: carts[i].resId,
                                    goodsId: carts[i].goodsId,
-                                   name: carts[i].goodsName,//接口缺少一个ID
+                                   name: carts[i].goodsName,
                                    price: carts[i].goodsPrice,
                                    image: carts[i].goodsMainImgData,
                                    num: carts[i].goodsNum,
                             }); 
                      }
+              }
+              if (selectGoods.length == 0) {
+                     wx.showModal({
+                            title: '提示',
+                            content: '请选择至少一条商品',
+                            text: 'center',
+                            complete() {
+
+                            }
+                     })
+                     return;
               }
               wx.setStorage({
                      key:"selectGoods",

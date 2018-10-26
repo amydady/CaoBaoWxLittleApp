@@ -31,7 +31,7 @@ var self = this;
        },
        globalData: {
               userInfo: null,
-         serverUrl: "http://47.100.218.102:8006",
+         serverUrl: "http://192.168.0.108:8006",
               openID:null
        },
        redirect: function(url, param) {

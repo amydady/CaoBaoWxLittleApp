@@ -17,51 +17,96 @@ Page({
               })
        },
        onShow: function(options) {
-              if (this.data.currentTab == 0) {
-                     this.setCurrentData()
-              }
-             
+              
+              this.setCurrentData();
        },
        setCurrentData: function() {
-              
+              var state = {};
+              if (this.data.currentTab == 0) {
+                     state = {};
+              } else if (this.data.currentTab == 1) {
+                     state = {
+                            "condition": {
+                                   "logicType": "and",
+                                   "condItems": [{
+                                          "fieldName": "state",
+                                          "opType": "equal",
+                                          "value": "daifukuan"
+                                   }]
+                            }
+                     }
+              } else if (this.data.currentTab == 2) {
+                     state = {
+                            "condition": {
+                                   "logicType": "and",
+                                   "condItems": [{
+                                          "fieldName": "state",
+                                          "opType": "equal",
+                                          "value": "daichengtuan"
+                                   }]
+                            }
+                     }
+              } else if (this.data.currentTab == 3) {
+                     state = {
+                            "condition": {
+                                   "logicType": "and",
+                                   "condItems": [{
+                                          "fieldName": "state",
+                                          "opType": "equal",
+                                          "value": "daifahuo"
+                                   }]
+                            }
+                     }
+              } else if (this.data.currentTab == 4) {
+                     state = {
+                            "condition": {
+                                   "logicType": "and",
+                                   "condItems": [{
+                                          "fieldName": "state",
+                                          "opType": "equal",
+                                          "value": "daiqianshou"
+                                   }]
+                            }
+                     }
+              } else if (this.data.currentTab == 5) {
+                     state = {
+                            "condition": {
+                                   "logicType": "and",
+                                   "condItems": [{
+                                          "fieldName": "state",
+                                          "opType": "equal",
+                                          "value": "yishouhuo"
+                                   }]
+                            }
+                     }
+              } else {
+                     state = {
+                            "condition": {
+                                   "logicType": "and",
+                                   "condItems": [{
+                                          "fieldName": "state",
+                                          "opType": "in",
+                                          "value": "'tuikuanzhong','yituikuan','tuangoujiesantuikuan'"
+                                   }]
+                            }
+                     }
+              }
               var self = this;
               wx.request({
                      url: app.globalData.serverUrl + "/rest/littlecat/caobao/order/getList", //给函数传递服务器地址参数
-                     data: {
-
-                     }, //给服务器传递数据，本次请求不需要数据，可以不填
+                     data: state, //给服务器传递数据，本次请求不需要数据，可以不填
                      method: "POST",
                      header: {
                             'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
                      },
-                     success: function (res) {
+                     success: function(res) {
                             console.log('order', res);
-
+                            self.setData({
+                                   ordersData: res.data.data
+                            })
                      },
               })
-              // app.request.wxRequest({
-              //   url:'orders-list',
-              //   data:{sid:self.data.currentTab,page:self.data.page},
-              //   success:function(res){
-              //     if(!res){
-              //       self.data.loading = false
-              //       self.setData({
-              //         loading:false
-              //       })
-              //       var ordersData = self.data.ordersData
-              //     }else{
-              //       var ordersData = self.data.ordersData = self.data.ordersData.concat(res)
-              //     }
-              //     if(res.length<4){
-              //       self.setData({
-              //         loading:false
-              //       })
-              //     }
-              //     self.setData({
-              //       ordersList:ordersData
-              //     })
-              //   }
-              // })
+              
        },
        toGroupDetail: function(e) {
               var id = e.currentTarget.dataset.id;
@@ -143,6 +188,7 @@ Page({
               this.setData({
                      currentTab: this.data.currentTab
               })
+              this.setCurrentData();
        },
        scrolltolower: function() {
               ++this.data.page

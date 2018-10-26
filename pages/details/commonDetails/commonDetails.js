@@ -60,6 +60,7 @@ Page({
        buy() {
              let self = this;
               var goods = [{
+                     buyType:"normal",
                      resId: this.data.goodsDetail.id,
                      goodsId: this.data.goodsDetail.id,
                      name: this.data.goodsDetail.name,
