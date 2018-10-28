@@ -1,3 +1,44 @@
+@import '../common/common.wxss';
+
+.welfare{
+  padding: 10px 15px;
+
+}
+.welfare form{
+  display: block;
+  width: 100%;
+}
 .welfare text{
-       float:left;
+  float:left;
+  display: inline-block;
+  height: 25px;
+  width: 100px;
+  font-size: 14px;
+  text-align: left;
+  color:#353535;
+  vertical-align: bottom;
+  margin-top: 10px;
+}
+
+.welfare input{
+    display: inline-block;
+    height: 24px;
+    line-height: 25px;
+    font-size: 14px;
+    color: #353535;
+    border-bottom: solid 1px #e7e2e2;
+    min-width: 480rpx;
+    margin-top: 10px;
+}
+
+.welfare button{
+  margin-top: 10px;
+  width: 150px;
+}
+
+.card-pic{
+  display: block;
+  height: 80px;
+  width: 80px;
+  margin-top: 10px;
 }

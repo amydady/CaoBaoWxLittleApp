@@ -2,12 +2,34 @@
 
 .funs .funsTopic {
     width : 100%;
-    height : 300rpx;
+    box-sizing: border-box;
+    font-size:14px;
+    color:#353535;
+    line-height:28px;
+    padding:10px;
 }
-.funs .funsTitle view{
-     float:left;
-     margin:53rpx 10rpx;
+
+.funsTitle{
+  width: 100%;
+  height: 32px;
 }
-.funs .on{
-     text-decoration:underline;
+
+.funsTitle>view{
+    width: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    text-align: center;
+    height: 100%;
+    font-size: 16px;
+}
+
+.funsTitle span{
+  display: inline-block;
+  height: 32px;
+  line-height: 32px;
+}
+.on span{
+     color:#10AEFF;
+     font-weight:bold;
+     border-bottom: solid 2px #10AEFF;
 }

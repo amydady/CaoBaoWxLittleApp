@@ -13,7 +13,9 @@
       </view>
 
     <view class="goods-tab-box">
-        <view class="goods-tab-nav on" bindtap="bindTap" >商品详情</view>
+        <view class='my-group'>
+              <text class="">商品详情</text>
+       </view>
         <view class="goods-content">
              <view wx:for="{{goodsDetail.goodsDetailImgs}}">
               <image style='width:300px;height:300px'  src="{{'data:image/png;base64,'+item.imgData}}"></image>
@@ -21,11 +23,11 @@
         </view>
     </view>
     <view class='button-box'>
-            <view class="default goods-operation" style='display:inline-block;' >
+            <button class="goods-operation" type='primary' style='display:inline-block;' >
               <text class="goods-to-cart" bindtap="buy">立即购买</text>
-            </view>
-            <view class="default goods-operation" style='margin-left:20px;'>
+            </button>
+            <button class="goods-operation" type='primary' style='margin-left:20px;'>
               <text class="goods-to-cart" bindtap="addToCart">加入购物车</text>
-            </view>
+            </button>
             </view>
 </view>

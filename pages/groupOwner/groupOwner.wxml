@@ -1,19 +1,17 @@
 <view class="welfare">
        <view class="form-box">
               <form bindsubmit="formSubmit">
-                     <text>姓名</text>
+                     <text>姓名：</text>
                      <input value="{{address.name}}" name="name" />
-                     <text>手机号</text>
+                     <text>手机号：</text>
                      <input type="number" name="phone" value="{{address.phone}}" />
-                     <text>身份证</text>
-                     <input type="number" name="idCard" value="{{address.idCard}}" />
-                     <text>上传身份证
-                     </text>
-                     <image style='heiht:80rpx,width:80rpx' bindtap="bindChooiceProduct" mode="scaleToFill" src="/images/3.jpg"></image>
-                     <text>住址</text>
-                     <input type="number" name="address" value="{{address.address}}" />
-                      
-                     <button form-type="submit">申請入圈</button>
+                     <text>身份证：</text>
+                     <input type="idcard" name="idCard" value="{{address.idCard}}" />
+                     <text>上传身份证：</text>
+                     <image class='card-pic' bindtap="bindChooiceProduct" mode="scaleToFill" src="/images/3.jpg"></image>
+                     <text>住址：</text>
+                     <input  name="address" value="{{address.address}}" />
+                     <button form-type="submit" type='primary'>申请入圈</button>
               </form>
        </view>
      

@@ -1,3 +1,9 @@
-<view class="welfare">
-    <text>About US</text>
-</view>
+<page>
+    <view class="quickSell-title">
+        <text decode="{{true}}" space="{{true}}" class='text-line'>-&nbsp;&nbsp;</text>
+        <text class='title'>关于我们</text>
+        <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;-</text>
+    </view>
+    <view class="welfare">
+    <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;About US</text></view>
+</page>

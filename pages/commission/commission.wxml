@@ -1,13 +1,20 @@
 <view class="funs">
        <view class="funsTopic">
-              <text>
-              1.通过圈长分享链接购物成功后，即可成为圈长的粉丝
-              2.粉丝锁定期为30天，期间在平台或通过圈长链接购物的佣金均归该圈长，若30天内为购买则自动解除归属关系
-              3.锁定期内粉丝通过其他圈长链接购物成功，该笔佣金归当前圈长，但该粉丝锁定期不变，归属关系不变
-              </text>
+              <text>累计发放佣金：¥9999
+可提现：¥5000
+待发放：
+已提现：</text>
        </view>
        <view class="funsTitle">
-              <view class="{{currentTab==0 ? 'on' : ''}}" bindtap="showFuns" data-current="0">我的粉丝</view>
-              <view class="{{currentTab==1 ? 'on' : ''}}" bindtap="showFuns" data-current="1">已失效</view>
+              <view class="{{currentTab==0 ? 'on' : ''}}" bindtap="showFuns" data-current="0">
+                <span>
+                待提现
+                </span>
+              </view>
+              <view class="{{currentTab==1 ? 'on' : ''}}" bindtap="showFuns" data-current="1">
+                <span>
+                已提现
+                </span>
+              </view>
        </view>
 </view>
