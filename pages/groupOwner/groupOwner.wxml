@@ -1,20 +1,32 @@
 <view class="welfare">
        <view class="form-box">
               <form bindsubmit="formSubmit">
-                     <text>姓名</text>
-                     <input value="{{address.name}}" name="name" />
-                     <text>手机号</text>
-                     <input type="number" name="phone" value="{{address.phone}}" />
-                     <text>身份证</text>
-                     <input type="number" name="idCard" value="{{address.idCard}}" />
+                     <text>店铺名称</text>
+                     <input value="{{shopName}}" name="shopName" />
+                     <text>合伙人姓名</text>
+                     <input value="{{name}}" name="name" />
+                     <text>合伙人手机号</text>
+                     <input type="number" name="mobile" value="{{mobile}}" />
+
                      <text>上传身份证
                      </text>
-                     <image style='heiht:80rpx,width:80rpx' bindtap="bindChooiceProduct" mode="scaleToFill" src="/images/3.jpg"></image>
+                     <image style='heiht:80rpx;width:80rpx' bindtap="chooseFront" mode="scaleToFill" src="/images/3.jpg"></image>
+                     <image style='heiht:80rpx;width:80rpx' bindtap="chooseBack" mode="scaleToFill" src="/images/3.jpg"></image>
+                     <view>
+                            <image class="orders-thumb" src="{{'data:image/png;base64,'+idCardFront}}"></image>
+                            <image class="orders-thumb" src="{{'data:image/png;base64,'+idCardBack}}"></image>
+                     </view>
+
                      <text>住址</text>
-                     <input type="number" name="address" value="{{address.address}}" />
-                      
+                     <view bindtap='chooseAddress'>
+                            <view wx:if="{{hasAddress}}" class="orders-address">
+                                   <view class="orders-address-detail">{{addressInfo.provinceName + addressInfo.cityName + addressInfo.countyName+ addressInfo.detailInfo}}</view>
+                            </view>
+                            <view wx:else class="orders-no-address">添加收货地址</view>
+                     </view>
+
                      <button form-type="submit">申請入圈</button>
               </form>
        </view>
-     
+
 </view>
