@@ -126,14 +126,14 @@
     height: 100%;
     line-height: 50px;
     float:left;
-    font-size: 42rpx;
+    font-size: 18px;
 }
 
 .goods-price{
     height: 100%;
     line-height: 50px;
     float:right;
-    font-size: 42rpx;
+    font-size: 18px;
 }
 .goods-tab-nav{
     display: inline-block;
@@ -149,6 +149,19 @@
     color: #bcaa8a;
     border-bottom: 5rpx solid #bcaa8a;
 }
+
+.my-group{
+  line-height:88rpx;
+  padding:0 15px;
+  font-size:16px;
+  font-weight:bold;
+  color:#353535;
+  height:88rpx;
+  box-sizing:border-box;
+  border-left:solid 4px #10AEFF;
+  margin-top: 10px;
+}
+
 .goods-content{
   padding:10px 20px;
   font-size:30rpx;

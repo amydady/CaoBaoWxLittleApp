@@ -5,14 +5,14 @@
 }
 .cart-list{
     position: relative;
-    padding: 20rpx 20rpx 20rpx 285rpx;
-    height: 185rpx;
+    padding: 10rpx 20rpx 10rpx 250rpx;
+    height: 165rpx;
     border-bottom: 1rpx solid #e9e9e9;
 }
 .cart-list .cart-pro-select{
     position: absolute;
     left: 20rpx;
-    top: 90rpx;
+    top: 70rpx;
     width: 45rpx;
     height: 45rpx;
 }
@@ -21,8 +21,8 @@
     position: absolute;
     top: 20rpx;
     left: 85rpx;
-    width: 185rpx;
-    height: 185rpx;
+    width:70px;
+    height: 70px;
 }
 .cart-list .cart-pro-name{
     display: inline-block;
@@ -30,34 +30,45 @@
     height: 105rpx;
     line-height: 50rpx;
     overflow: hidden;
+    font-size: 16px;
+    color: #353535;
 }
 .cart-list .cart-pro-price{
     display: inline-block;
     position: absolute;
-    bottom: 7.5px;
+    bottom: 3px;
     right: 20rpx;
     height: 40px;
     line-height:40px;
     color:#e64340;
-    font-size:34rpx;
+    font-size:16px;
 }
 .cart-list .cart-count-box{
     position: absolute;
     left: 285;
     bottom: 10px;
-    width: 250rpx;
-    height: 40px;
-    line-height: 40px;
+    width: 256rpx;
+    height: 25px;
+    font-size: 16px;
+   border:solid 0.5px #e7e2e2;
+   box-sizing: border-box;
 }
 .cart-list .cart-count-box text{
     display: inline-block;
-    line-height: 80rpx;
+    height: 100%;
+    line-height: 22px;
     text-align: center;
+    box-sizing: border-box;
+}
+.cart-count-add{
+  border-left: solid 0.5px #e7e2e2;
+}
+.cart-count-down{
+ border-right: solid 0.5px #e7e2e2;
 }
 .cart-count-down,.cart-count-add{
-    font-size: 44rpx;
+    font-size: 40rpx;
     width: 50rpx;
-    height: 100%;
 }
 .cart-count-num{
     width: 150rpx;
@@ -74,7 +85,7 @@
     width: 100%;
     height: 90rpx;
     line-height: 90rpx;
-    padding:0 100rpx 0 80rpx;
+    padding:0 80rpx 0 80rpx;
     box-sizing: border-box;
     background: #AB956D;
     color: #fff;
@@ -88,10 +99,11 @@
 }
 .order-icon{
     position: absolute;
-    right: 40rpx;
+    right: 20rpx;
     top: 25rpx;
     width: 45rpx;
     height: 45rpx;
+    font-size: 14pt;
 }
 .order-icon image,.order-icon navigator{
   display: block;
@@ -102,6 +114,7 @@
     float: right;
     width: 270rpx;
     font-size: 14pt;
+    text-align: right;
 }
 
 .cart-no-data{

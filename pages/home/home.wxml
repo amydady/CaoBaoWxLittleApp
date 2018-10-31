@@ -14,7 +14,7 @@
                      <text class='title'>特价秒杀</text>
                      <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;-</text>
               </view>
-              <view class='scroll-item' style='padding-bottom:10rpx'>
+              <view class='scroll-item'>
                      <scroll-view class="scroll-view_H" scroll-x style="width: 100%" scrollTop="100px">
          
                             <view wx:for="{{quickSell}}" wx:key="*this" class="scroll-view-item_H">
@@ -47,5 +47,4 @@
                      </view>
               </view>
        </view>
-
 </view>

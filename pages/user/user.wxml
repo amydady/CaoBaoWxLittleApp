@@ -3,19 +3,18 @@
               <view style='display:inline-block;width:50px;float:left;'>
                      <open-data type="userAvatarUrl"></open-data>
               </view>
-
-              <open-data type="userNickName"></open-data>
+              <open-data style='margin-left:20rpx' type="userNickName"></open-data>
               <text class="about" bindtap='welfare'>兑换福利</text>
        </view>
 
-       <navigator url="/pages/orders/index" class="my-order bg-fff">
-              <text class="">我的订单</text>
+       <navigator url="/pages/orders/index" class="my-order" style='position:relative'>
+        <text>我的订单</text>
               <view class="pull-right">查看全部
                      <image src="/images/left-b.png"></image>
               </view>
-       </navigator>
+      </navigator>
 
-       <view class="orderInfo bg-fff text-center">
+       <view class="orderInfo text-center">
               <view bindtap="showOrder" data-type="1">
                      <view>
                             <image src="/images/unpay.png"></image>

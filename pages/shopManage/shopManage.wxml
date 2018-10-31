@@ -1,12 +1,14 @@
 <view class="shop">
   <view class="shopTopic">
       <image src="/images/home.png"></image>
-      <text>店铺名称</text>
+      <text class='shop-name'>店铺名称</text>
   </view>
   <view class="productTitle">
-     <view class="{{currentTab==0 ? 'on' : ''}}" bindtap="showProduct" data-current="0">上架商品</view>
-     <view class="{{currentTab==1 ? 'on' : ''}}" bindtap="showProduct" data-current="1">下架商品</view>
+     <view class="{{currentTab==0 ? 'on' : ''}}" bindtap="showProduct" data-current="0">
+    <span>上架商品</span>
+     </view>
+     <view class="{{currentTab==1 ? 'on' : ''}}" bindtap="showProduct" data-current="1">
+     <span>下架商品</span>
+    </view>
   </view>
-
- 
 </view>

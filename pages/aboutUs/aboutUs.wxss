@@ -1,0 +1,25 @@
+@import '../common/common.wxss';
+
+.quickSell-title{
+  padding:20rpx;
+  text-align: center;
+  background: #ffffff;
+  border-bottom: solid 0.5rpx #e7e2e2;
+}
+
+.quickSell-title .text-line{
+  color:#b2b2b2;
+  font-size:36rpx;
+}
+
+.quickSell-title .title{
+  font-size: 18px;
+  color:#000;
+}
+
+.welfare{
+  padding:  10px;
+  font-size: 14px;
+  color: #353535;
+  line-height: 28px;
+}

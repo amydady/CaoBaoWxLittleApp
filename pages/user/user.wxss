@@ -4,12 +4,14 @@
     position: relative;
     height: 160rpx;
     line-height: 100rpx;
-    padding:30rpx 30rpx 30rpx 150rpx;
+    padding:30rpx 30rpx 30rpx 30rpx;
     box-sizing: border-box;
     background: #AB956D;
     font-size: 13pt;
     color: #fff;
+    margin-bottom: 10px;
 }
+
 .header .thumb{
     position: absolute;
     left: 30rpx;
@@ -124,10 +126,30 @@
 /*.circle{width: 160rpx;height: 160rpx;border-radius: 50%;display: inline-block;background-color: #fff;opacity: 0.35}*/
 .userInfo image{width: 144rpx;height: 144rpx;border-radius: 50%;opacity: 1}
 .userName{color: #fff;margin-top: 24rpx;font-size: 28rpx;}
-.my-order,.collect,.my-group{line-height: 88rpx;padding: 0 15px;font-size: 16px;color:#353535;}
-.my-order>view {font-size: 24rpx;color: #5d5d5d}
+.my-order,.collect,.my-group{
+  line-height: 88rpx;
+  padding: 0 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color:#353535;
+  height: 88rpx;
+  box-sizing: border-box;
+  border-left:solid 4px #10AEFF;
+  }
+.my-order>text{
+  display:inline-block;
+  position:absolute;
+  left:15px;
+}
+.my-order>view {font-size: 12px;color: #5d5d5d}
 .my-order image{height: 24rpx;width: 12rpx;margin-left: 16rpx;}
-.orderInfo>view{display: inline-block;width: 25%;text-align: center;}
+.orderInfo {
+  padding-top: 10px;
+}
+.orderInfo>view{
+  display: inline-block;
+  width: 25%;
+  text-align: center;}
 .orders-status {margin-top: 5px;font-size: 12px;margin-bottom: 15px}
 .orderInfo image{width: 44rpx;height: 38rpx;}
 .orderInfo .notice{position: relative;top: -16rpx;right: -65rpx;height: 32rpx;width: 32rpx;border-radius: 50%;border:1px solid #fe0000;color: #fe0000;display: inline-block;line-height: 32rpx;background-color: #fff;}
@@ -139,5 +161,6 @@
 .icon image{width: 40rpx;height: 40rpx;}
 .pull-right {
 float:right;
-color:#5d5d5d;
+color:#b2b2b2;
+font-weight: normal;
 }

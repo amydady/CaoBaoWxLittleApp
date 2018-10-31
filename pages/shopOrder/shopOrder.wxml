@@ -17,10 +17,12 @@
 
        <swiper-item>
               <scroll-view scroll-y="true" class="scroll-view-y" scroll-with-animation="true" scroll-top="{{scrollTop}}" lower-threshold="50" bindscrolltolower="scrolltolower" style="height: {{windowHeight-35}}px;">
-                     <view wx:for="{{ordersData}}" wx:key="*this">
-                     <image data-item="{{item}}" style=" height: 150px;width:247rpx;background-color: #eeeeee;" mode="scaleToFill" src="{{item.src}}"></image>
-                     <text>{{item.name}} </text> 
-                     <text> {{item.price}}</text>
+                     <view wx:for="{{ordersData}}" wx:key="*this" class='item-details'>
+                     <image data-item="{{item}}" mode="scaleToFill" src="{{item.src}}"></image>
+                     <view class='item'>
+                      <text class="item-name">{{item.name}}</text> 
+                      <span class="cart-pro-price">订单金额：<text>￥{{item.price}}</text></span>
+                     </view>
                      </view>
               </scroll-view>
        </swiper-item>

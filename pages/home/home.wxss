@@ -1,3 +1,4 @@
+@import '../common/common.wxss';
 page {
   background-color: #F8F8F8;
   height: 100%;
@@ -132,14 +133,16 @@ button:last-child{
 .scroll-item{
   width: 100%;
   overflow: hidden;
-  padding: 20rpx;
+  padding-left: 20rpx;
   background: #fff;
   white-space: nowrap;
 }
 .scroll-view-item_H{
-  margin:12rpx;
+  width:260rpx;
+  height:300rpx;
+  margin:20rpx 20rpx 0 0;
   border:solid 0.5rpx #e7e2e2;
-  border-radius:20rpx;
+  border-radius:10px;
   overflow:hidden;
 }
 .scroll-view-item_H:first-child{
@@ -150,17 +153,19 @@ button:last-child{
   height: 180rpx;
 }
 .scroll-view-item_H .newest-text{
-  margin-top: 10rpx;
-  margin-left: 18rpx;
+  height:48rpx;
+  line-height:48rpx;
+  text-align:center;
+  font-size:14px;
+  color: #353535;
 }
 
 .scroll-view-item_H  .newest-text-price {
-  margin-bottom: 10rpx;
-  margin-left: 18rpx;
-}
-
-.newest {
-  margin-top: 20rpx;
+  font-size:14px;
+  color: #e64340;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
 }
 
 .quickSell-title{
@@ -176,16 +181,12 @@ button:last-child{
 }
 
 .quickSell-title .title{
-  font-size: 36rpx;
+  font-size: 18px;
   color:#000;
 }
 
-.newest-text{
-  font-size: 32rpx;
-  color:#353535;
-}
 .newest-text-price{
-  font-size:30rpx;
+  font-size:16px;
   color: #e64340;
 }
 .newest-box{
@@ -198,6 +199,10 @@ button:last-child{
     height: 287rpx;
     margin:0 20rpx 30rpx 0;
     position: relative;
+    border:solid 0.5rpx #e7e2e2;
+    box-sizing:border-box;
+    border-radius:10px;
+
 }
 .newest-box .newest-list:nth-child(2n){
     margin-right: 0;
@@ -207,15 +212,19 @@ button:last-child{
     height: 200rpx;
 }
 .newest-box .newest-list .newest-text{
-    font-size: 30rpx;
+    font-size: 14px;
     position: absolute;
-    top:230rpx;
-    left:0;
+    top:200rpx;
+    left:14rpx;
+    height: 80rpx;
+    line-height: 80rpx;
 }
 
 .newest-box .newest-list .newest-text-price{
-    font-size: 30rpx;
+    font-size: 14px;
     position: absolute;
-    top:230rpx;
-    right:0;
+    top:200rpx;
+    right:14rpx;
+    height: 80rpx;
+    line-height: 80rpx;
 }

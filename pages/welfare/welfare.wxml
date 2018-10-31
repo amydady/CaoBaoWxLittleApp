@@ -1,13 +1,31 @@
 <view class="welfare">
     <view class="form-box">
+        <view class='title'>填写卡号</view>
         <form bindsubmit="formSubmit">
-            <text>卡号</text>
-            <input value="{{address.name}}" name="name" placeholder="卡号"/>
-            <text>密码</text>
-            <input type="number" name="phone" value="{{address.phone}}" placeholder="密码"/>
-            <button form-type="submit">兑换</button>
+            <view>
+              <text class='inputName'>卡号：</text>
+              <input value="{{address.name}}" name="name" placeholder="请输入您的卡号"/>
+            </view>
+            <view>
+              <text class='inputName'>密码：</text>
+              <input type="number" name="phone" value="{{address.phone}}" placeholder="请输入您的密码"/>
+            </view>
+            <button form-type="submit" type='primary'>兑换</button>
         </form>
     </view>
-    <view>兑换记录</view>
-    <view wx:for="{{RecordList}}" wx:key="*this">{{item.time}}   {{item.price}}</view>
+    <view>
+      <view class='title'>兑换记录</view>
+      <view class='table-box'>
+        <table border='1'>
+          <tr>
+            <th style='border-right: solid 1px #e7e2e2'>兑换日期</th>
+            <th>兑换金额</th>
+          </tr>
+          <tr wx:for="{{RecordList}}" wx:key="*this">
+            <td style='border-right: solid 1px #e7e2e2'>{{item.time}}</td>
+            <td>{{item.price}}</td>
+          </tr> 
+      </table>
+  </view>
+</view>
 </view>
