@@ -57,12 +57,12 @@
        </view>
 
        <view class="orderInfo bg-fff text-center">
-              <view bindtap="shopManage">
+              <!-- <view bindtap="shopManage">
                      <view>
                             <image src="/images/unpay.png"></image>
                      </view>
                      <view class="orders-status">商铺管理</view>
-              </view>
+              </view> -->
               <view bindtap="showFuns">
                      <view style='text-align:center;position:relative'>
                             <image src="/images/ungroup.png"></image>

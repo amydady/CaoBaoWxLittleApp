@@ -4,11 +4,19 @@ Page({
               goodsDetail:{},
               hasCarts: false,
               curIndex: 0,
+              goodsId:'',
+              shareId:''
        },
 
        onLoad(options) {
-              var id = options.id;
               var self = this;
+              var id = options.id;
+              var shareid = options.shareid
+              self.setData({
+                     shareId: shareid,
+                     goodsId:id
+              })
+              
               //查询详情
               wx.request({
                      url: app.globalData.serverUrl + "/rest/littlecat/caobao/seckillplan/getbyid?id=" + id, //给函数传递服务器地址参数
@@ -32,12 +40,13 @@ Page({
        },
 
 
+
        onShareAppMessage: function() {
               console.log('share');
               return {
-                     title: '弹出分享时显示的分享标题',
+                     title: this.data.goodsDetail.goodsSummaryDescription,
                      imageUrl: '',
-                     path: '/user/user?id=123' // 路径，传递参数到指定页面。
+                     path: '/pages/details/seckillDetails?id=' + this.data.goodsId+'&shareid=' + app.globalData.openID// 路径，传递参数到指定页面。
               }
        },
 
@@ -48,7 +57,8 @@ Page({
                      data: {
                             "terminalUserId": app.globalData.openID,
                             "buyType": "seckill",
-                            "resId": self.data.goodsDetail.id
+                            "resId": self.data.goodsDetail.id,
+                            "tuanZhangId": self.data.shareId
                      }, //给服务器传递数据，本次请求不需要数据，可以不填
                      method: "POST",
                      header: {
@@ -71,6 +81,7 @@ Page({
                      name: this.data.goodsDetail.goodsName,
                      price: this.data.goodsDetail.goodsPrice,
                      image: this.data.goodsDetail.goodsMainImgData,
+                     shareId:this.data.shareId,
                      num: 1,
               }];
               wx.setStorage({

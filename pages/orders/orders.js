@@ -62,6 +62,7 @@ Page({
                             goodsId: orders[i].goodsId,
                             price: orders[i].price,
                             goodsNum: orders[i].num,
+                            tuanZhangId: orders[i].shareId,
                      });
               }
               if (this.check()) {

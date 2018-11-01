@@ -5,11 +5,14 @@ Page({
               },
               hasCarts: false,
               goodsId: null,
+              shareId: ''
        },
        onLoad(options) {
               var id = options.id;
+              var shareid = options.shareid
               var self = this;
               self.setData({
+                     shareId: shareid,
                      goodsId:id
               })
               //查询详情
@@ -34,6 +37,14 @@ Page({
 
        },
 
+       onShareAppMessage: function () {
+              console.log('share');
+              return {
+                     title: this.data.goodsDetail.summaryDescription,
+                     imageUrl: '',
+                     path: '/pages/details/commonDetails?id=' + this.data.goodsId + '&shareid=' + app.globalData.openID// 路径，传递参数到指定页面。
+              }
+       },
 
        addToCart() {
               const self = this;
@@ -43,7 +54,8 @@ Page({
                      data: {
                             "terminalUserId": app.globalData.openID,
                             "buyType": "normal",
-                            "resId": self.data.goodsId
+                            "resId": self.data.goodsId,
+                            "tuanZhangId":self.data.shareId
                      }, //给服务器传递数据，本次请求不需要数据，可以不填
                      method: "POST",
                      header: {
@@ -66,6 +78,7 @@ Page({
                      name: this.data.goodsDetail.name,
                      price: this.data.goodsDetail.price,
                      image: this.data.goodsDetail.mainImgData,
+                     shareId: this.data.shareId,
                      num: 1,
               }];
               wx.setStorage({

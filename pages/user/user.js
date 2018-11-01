@@ -14,18 +14,7 @@ Page({
        },
        onShow() {
               var self = this;
-              /**
-               * 获取本地缓存 地址信息
-               */
-              wx.getStorage({
-                     key: 'address',
-                     success: function(res) {
-                            self.setData({
-                                   hasAddress: true,
-                                   address: res.data
-                            })
-                     }
-              })
+            
        },
        /**
         * 发起支付请求

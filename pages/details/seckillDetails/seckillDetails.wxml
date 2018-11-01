@@ -23,11 +23,11 @@
         </view>
     </view>
     <view class='button-box'>
-            <button class="goods-operation" type='primary' style='display:inline-block;' >
-              <text class="goods-to-cart" bindtap="buy">立即购买</text>
+            <button class="goods-operation" type='primary' style='display:inline-block;' bindtap="buy">
+              <text class="goods-to-cart" >立即购买</text>
             </button>
-            <button class="goods-operation" type='primary' style='margin-left:20px;'>
-              <text class="goods-to-cart" bindtap="addToCart">加入购物车</text>
+            <button class="goods-operation" type='primary' style='margin-left:20px;' bindtap="addToCart">
+              <text class="goods-to-cart" >加入购物车</text>
             </button>
             </view>
 </view>
