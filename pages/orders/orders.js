@@ -7,23 +7,8 @@ Page({
               orders: []
        },
 
-       onReady() {
-              this.getTotalPrice();
-       },
 
        onShow: function() {
-              // const self = this;
-              // wx.getStorage({
-              //        key: 'address',
-              //        success(res) {
-              //               self.setData({
-              //                      address: res.data,
-              //                      hasAddress: true
-              //               })
-              //        }
-              // })
-       },
-       onLoad(options) {
               let self = this;
               wx.getStorage({
                      key: 'selectGoods',
@@ -31,9 +16,11 @@ Page({
                             self.setData({
                                    orders: res.data,
                             })
+                            self.getTotalPrice()
                      }
               })
-
+       },
+       onLoad(options) {
 
        },
 
@@ -46,6 +33,7 @@ Page({
               for (let i = 0; i < orders.length; i++) {
                      total += orders[i].num * orders[i].price;
               }
+              this.data.total = total;
               this.setData({
                      total: total
               })
@@ -62,7 +50,7 @@ Page({
                             goodsId: orders[i].goodsId,
                             price: orders[i].price,
                             goodsNum: orders[i].num,
-                            tuanZhangId: orders[i].shareId,
+                            shareTuanZhangId: orders[i].shareId,
                      });
               }
               if (this.check()) {
@@ -90,10 +78,51 @@ Page({
                             },
                             success: function(res) {
                                    console.log('orders', res);
+                                   self.paySuccess(res.data.data[0]);
                                    //pay weixin
                             },
                      })
               }
+       },
+
+       paySuccess(id) {
+              let self = this;
+              wx.request({
+                     url: app.globalData.serverUrl + "/rest/littlecat/caobao/order/payOrder/" + id, //给函数传递服务器地址参数
+                     data: {
+
+                     }, //给服务器传递数据，本次请求不需要数据，可以不填
+                     method: "PUT",
+                     header: {
+                            'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
+                     },
+                     success: function(res) {
+                            console.log('pay-success', res);
+                            let orders = self.data.orders;
+                            let ids = [];
+                            for (let i = 0; i < orders.length; i++) {
+                                   if (orders[i].isCart) {
+                                          ids.push(orders[i].id);
+                                   }
+                            }
+                            self.deleteFromCart(ids);
+                     },
+              })
+       },
+
+       deleteFromCart(ids) {
+              wx.request({
+                     url: app.globalData.serverUrl + "/rest/littlecat/caobao/shoppingcart/batchdelete", //给函数传递服务器地址参数
+                     data: ids, //给服务器传递数据，本次请求不需要数据，可以不填
+                     method: "PUT",
+                     header: {
+                            'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
+                     },
+                     success: function(res) {
+                            //TO-DO 详细信息
+                            console.log('delete-cart', res);
+                     },
+              })
        },
 
        payToWx() {
@@ -181,8 +210,8 @@ Page({
        },
 
        /* 随机数 */
-       randomString: function () {
-              var chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+       randomString: function() {
+              var chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678'; /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
               var maxPos = chars.length;
               var pwd = '';
               for (var i = 0; i < 32; i++) {
@@ -191,49 +220,49 @@ Page({
               return pwd;
        },
        /* 获取prepay_id */
-       getXMLNodeValue: function (node_name, xml) {
+       getXMLNodeValue: function(node_name, xml) {
               var tmp = xml.split("<" + node_name + ">")
               var _tmp = tmp[1].split("</" + node_name + ">")
               return _tmp[0]
        },
 
        /* 时间戳产生函数   */
-       createTimeStamp: function () {
+       createTimeStamp: function() {
               return parseInt(new Date().getTime() / 1000) + ''
        },
        /* 支付   */
-       pay: function (param) {
+       pay: function(param) {
               wx.requestPayment({
                      timeStamp: param.timeStamp,
                      nonceStr: param.nonceStr,
                      package: param.package,
                      signType: param.signType,
                      paySign: param.paySign,
-                     success: function (res) {
+                     success: function(res) {
                             // success
                             console.log(res)
                             wx.navigateBack({
                                    delta: 1, // 回退前 delta(默认为1) 页面
-                                   success: function (res) {
+                                   success: function(res) {
                                           wx.showToast({
                                                  title: '支付成功',
                                                  icon: 'success',
                                                  duration: 2000
                                           })
                                    },
-                                   fail: function () {
+                                   fail: function() {
                                           // fail
                                    },
-                                   complete: function () {
+                                   complete: function() {
                                           // complete
                                    }
                             })
                      },
-                     fail: function () {
+                     fail: function() {
                             // fail
                             console.log("支付失败")
                      },
-                     complete: function () {
+                     complete: function() {
                             // complete
                             console.log("pay complete")
                      }

@@ -4,16 +4,14 @@ Page({
               goodsDetail:{},
               hasCarts: false,
               curIndex: 0,
-              goodsId:'',
-              shareId:''
+              goodsId:''
        },
 
        onLoad(options) {
               var self = this;
               var id = options.id;
-              var shareid = options.shareid
+              app.globalData.shareID = options.shareid
               self.setData({
-                     shareId: shareid,
                      goodsId:id
               })
               
@@ -58,7 +56,7 @@ Page({
                             "terminalUserId": app.globalData.openID,
                             "buyType": "seckill",
                             "resId": self.data.goodsDetail.id,
-                            "tuanZhangId": self.data.shareId
+                            "shareTuanZhangId": app.globalData.shareID
                      }, //给服务器传递数据，本次请求不需要数据，可以不填
                      method: "POST",
                      header: {
@@ -66,7 +64,6 @@ Page({
                      },
                      success: function(res) {
                             console.log('secDetail-addToCar', res);
-
                      },
               })
 
@@ -81,7 +78,7 @@ Page({
                      name: this.data.goodsDetail.goodsName,
                      price: this.data.goodsDetail.goodsPrice,
                      image: this.data.goodsDetail.goodsMainImgData,
-                     shareId:this.data.shareId,
+                     shareId: app.globalData.shareID,
                      num: 1,
               }];
               wx.setStorage({

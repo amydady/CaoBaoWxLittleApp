@@ -5,9 +5,9 @@
        <view class="scroll-view-item">
               <view class="{{currentTab==1 ? 'on' : ''}}" bindtap="swichNav" data-current="1">待付款</view>
        </view>
-       <view class="scroll-view-item">
+       <!-- <view class="scroll-view-item">
               <view class="{{currentTab==2 ? 'on' : ''}}" bindtap="swichNav" data-current="2">待成团</view>
-       </view>
+       </view> -->
        <view class="scroll-view-item">
               <view class="{{currentTab==3 ? 'on' : ''}}" bindtap="swichNav" data-current="3">待发货</view>
        </view>
