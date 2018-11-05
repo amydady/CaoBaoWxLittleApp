@@ -174,7 +174,9 @@ Page({
                                    price: carts[i].goodsPrice,
                                    image: carts[i].goodsMainImgData,
                                    num: carts[i].goodsNum,
-                                   shareId: carts[i].tuanZhangId,
+                                   shareId: carts[i].shareTuanZhangId,
+                                   isCart:true,
+                                   id: carts[i].id,
                             }); 
                      }
               }

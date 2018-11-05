@@ -6,15 +6,21 @@ Page({
               orders: [],
               hasAddress: false,
               address: {},
-              funsCount: 20
+              funsCount: 20,
+              isLogin: false
        },
        onLoad() {
-              var self = this;
-         
+
+              if (app.globalData.userInfo) {
+                     this.data.isLogin = true;
+              }
+              this.setData({
+                     isLogin: true,
+              })
        },
        onShow() {
               var self = this;
-            
+
        },
        /**
         * 发起支付请求
@@ -43,7 +49,7 @@ Page({
               var type = e.currentTarget.dataset.type
               app.redirect('orders/index', 'id=' + type)
        },
-  
+
        //商铺管理
        shopManage() {
               app.redirect('shopManage/shopManage')
@@ -71,4 +77,25 @@ Page({
        groupOwner() {
               app.redirect('groupOwner/groupOwner')
        },
+       bindGetUserInfo: function(e) {
+              app.globalData.userInfo = e.detail.userInfo;
+              this.setData({
+                     isLogin: true,
+              })
+              wx.request({
+                     url: app.globalData.serverUrl + "/rest/littlecat/caobao/terminaluser/add ", //给函数传递服务器地址参数
+                     data: {
+                            id: app.globalData.openID,
+                            name: e.detail.userInfo.nickName,
+                            image: e.detail.userInfo.avatarUrl
+                     }, //给服务器传递数据，本次请求不需要数据，可以不填
+                     method: "POST",
+                     header: {
+                            'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
+                     },
+                     success: function(res) {
+                            console.log('userInfo-success', res);
+                     },
+              })
+       }
 })

@@ -5,15 +5,14 @@
               3.锁定期内粉丝通过其他圈长链接购物成功，该笔佣金归当前圈长，但该粉丝锁定期不变，归属关系不变</text>
        </view>
        <view class="funsTitle">
-              <view class="{{currentTab==0 ? 'on' : ''}}" bindtap="showFuns" data-current="0">
-                <span>
-                我的粉丝
-                </span>
+              <view data-current="0">
+                     <span>
+                            我的粉丝
+                     </span>
               </view>
-              <view class="{{currentTab==1 ? 'on' : ''}}" bindtap="showFuns" data-current="1">
-                <span>
-                已失效
-                </span>
-              </view>
+       </view>
+       <view wx:for="{{funs}}" wx:key="{{index}}">
+              <image src="{{item.terminalUser.image}}"></image>
+              <text>{{item.terminalUser.name}}</text>
        </view>
 </view>

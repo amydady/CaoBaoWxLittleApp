@@ -4,15 +4,13 @@ Page({
               goodsDetail: {
               },
               hasCarts: false,
-              goodsId: null,
-              shareId: ''
+              goodsId: null
        },
        onLoad(options) {
               var id = options.id;
-              var shareid = options.shareid
+              app.globalData.shareID = options.shareid
               var self = this;
               self.setData({
-                     shareId: shareid,
                      goodsId:id
               })
               //查询详情
@@ -55,7 +53,7 @@ Page({
                             "terminalUserId": app.globalData.openID,
                             "buyType": "normal",
                             "resId": self.data.goodsId,
-                            "tuanZhangId":self.data.shareId
+                            "shareTuanZhangId": app.globalData.shareID
                      }, //给服务器传递数据，本次请求不需要数据，可以不填
                      method: "POST",
                      header: {
@@ -78,7 +76,7 @@ Page({
                      name: this.data.goodsDetail.name,
                      price: this.data.goodsDetail.price,
                      image: this.data.goodsDetail.mainImgData,
-                     shareId: this.data.shareId,
+                     shareId: app.globalData.shareID,
                      num: 1,
               }];
               wx.setStorage({

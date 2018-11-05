@@ -1,18 +1,21 @@
 <view class="main">
-       <view class="header">
+       <view class="header" wx:if="{{isLogin}}">
               <view style='display:inline-block;width:50px;float:left;'>
                      <open-data type="userAvatarUrl"></open-data>
               </view>
               <open-data style='margin-left:20rpx' type="userNickName"></open-data>
-              <text class="about" bindtap='welfare'>兑换福利</text>
+              <!-- <text class="about" bindtap='welfare'>兑换福利</text> -->
+       </view>
+       <view wx:else>
+              <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
        </view>
 
        <navigator url="/pages/orders/index" class="my-order" style='position:relative'>
-        <text>我的订单</text>
+              <text>我的订单</text>
               <view class="pull-right">查看全部
                      <image src="/images/left-b.png"></image>
               </view>
-      </navigator>
+       </navigator>
 
        <view class="orderInfo text-center">
               <view bindtap="showOrder" data-type="1">
@@ -21,7 +24,13 @@
                      </view>
                      <view class="orders-status">待付款</view>
               </view>
-              <view bindtap="showOrder" data-type="2">
+              <!-- <view bindtap="showOrder" data-type="2">
+                     <view>
+                            <image src="/images/ungroup.png"></image>
+                     </view>
+                     <view class="orders-status">待成团</view>
+              </view> -->
+              <view bindtap="showOrder" data-type="3">
                      <view>
                             <image src="/images/undelivery.png"></image>
                      </view>
