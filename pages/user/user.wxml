@@ -23,29 +23,23 @@
               </view>
               <view bindtap="showOrder" data-type="2">
                      <view>
-                            <image src="/images/ungroup.png"></image>
-                     </view>
-                     <view class="orders-status">待成团</view>
-              </view>
-              <view bindtap="showOrder" data-type="3">
-                     <view>
                             <image src="/images/undelivery.png"></image>
                      </view>
                      <view class="orders-status">待发货</view>
               </view>
-              <view bindtap="showOrder" data-type="4">
+              <view bindtap="showOrder" data-type="3">
                      <view>
                             <image src="/images/unreceipt.png"></image>
                      </view>
                      <view class="orders-status">待签收</view>
               </view>
-              <view bindtap="showOrder" data-type="5">
+              <view bindtap="showOrder" data-type="4">
                      <view>
                             <image src="/images/unreceipt.png"></image>
                      </view>
                      <view class="orders-status">已发货</view>
               </view>
-              <view bindtap="showOrder" data-type="6">
+              <view bindtap="showOrder" data-type="5">
                      <view>
                             <image src="/images/unreceipt.png"></image>
                      </view>
@@ -97,7 +91,7 @@
                      <view>
                             <image src="/images/unreceipt.png"></image>
                      </view>
-                     <view class="orders-status">申请团长</view>
+                     <view class="orders-status">申请合作</view>
               </view>
        </view>
 </view>

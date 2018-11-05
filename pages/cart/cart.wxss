@@ -21,8 +21,8 @@
     position: absolute;
     top: 20rpx;
     left: 85rpx;
-    width:70px;
-    height: 70px;
+    width:140rpx;
+    height: 140rpx;
 }
 .cart-list .cart-pro-name{
     display: inline-block;

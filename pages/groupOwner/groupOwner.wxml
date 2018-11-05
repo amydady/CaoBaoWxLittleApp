@@ -1,17 +1,17 @@
 <view class="welfare">
        <view class="form-box">
               <form bindsubmit="formSubmit">
-                     <text>店铺名称</text>
+                     <text>店铺名称：</text>
                      <input value="{{shopName}}" name="shopName" />
-                     <text>合伙人姓名</text>
+                     <text>合伙人姓名：</text>
                      <input value="{{name}}" name="name" />
-                     <text>合伙人手机号</text>
+                     <text>合伙人手机号：</text>
                      <input type="number" name="mobile" value="{{mobile}}" />
 
-                     <text>上传身份证
+                     <text>上传身份证：
                      </text>
-                     <image style='heiht:80rpx;width:80rpx' bindtap="chooseFront" mode="scaleToFill" src="/images/3.jpg"></image>
-                     <image style='heiht:80rpx;width:80rpx' bindtap="chooseBack" mode="scaleToFill" src="/images/3.jpg"></image>
+                     <image style='height:120rpx;width:120rpx;margin-right:20rpx;margin-top:10rpx' bindtap="chooseFront" mode="scaleToFill" src="/images/upload.jpeg"></image>
+                     <image style='height:120rpx;width:120rpx;margin-top:10rpx' bindtap="chooseBack" mode="scaleToFill" src="/images/upload.jpeg"></image>
                      <view>
                             <image class="orders-thumb" src="{{'data:image/png;base64,'+idCardFront}}"></image>
                             <image class="orders-thumb" src="{{'data:image/png;base64,'+idCardBack}}"></image>
@@ -25,7 +25,7 @@
                             <view wx:else class="orders-no-address">添加收货地址</view>
                      </view>
 
-                     <button form-type="submit">申請入圈</button>
+                     <button form-type="submit" type='primary'>申请入圈</button>
               </form>
        </view>
 

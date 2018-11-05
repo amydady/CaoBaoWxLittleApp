@@ -34,6 +34,8 @@
 .welfare button{
   margin-top: 10px;
   width: 150px;
+  height: 36px;
+  line-height: 36px;
 }
 
 .card-pic{
@@ -41,4 +43,16 @@
   height: 80px;
   width: 80px;
   margin-top: 10px;
+}
+
+.orders-thumb{
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 10px;
+}
+
+.orders-no-address{
+  margin-top:10px;
+  font-size: 14px;
+  color:#b2b2b2;
 }

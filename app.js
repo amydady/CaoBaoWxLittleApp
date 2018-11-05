@@ -31,7 +31,7 @@ var self = this;
        },
        globalData: {
               userInfo: null,
-         serverUrl: "http://192.168.0.111:8116",
+         serverUrl: "https://s.yimiwei.cn:8006",
               openID:null
        },
        redirect: function(url, param) {

@@ -11,7 +11,7 @@
        <view class="newest">
               <view class="quickSell-title">
                      <text decode="{{true}}" space="{{true}}" class='text-line'>-&nbsp;&nbsp;</text>
-                     <text class='title'>特价秒杀</text>
+                     <text class='title'>限时秒杀</text>
                      <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;-</text>
               </view>
               <view class='scroll-item'>
@@ -32,7 +32,7 @@
        <view class="newest">
               <view class="quickSell-title">
                      <text decode="{{true}}" space="{{true}}" class='text-line'>-&nbsp;&nbsp;</text>
-                     <text class='title'>味品之选</text>
+                     <text class='title'>品源之选</text>
                      <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;-</text>
               </view>
               <view class='newest-box'>
