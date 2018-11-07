@@ -24,6 +24,11 @@
                             </view>
                             <view wx:else class="orders-no-address">添加收货地址</view>
                      </view>
+                     <view>
+                            <icon wx:if="{{isDeliverySite}}" type="success" color="red" bindtap="isDeliverySite" />
+                            <icon wx:else type="circle"  bindtap="isDeliverySite" />
+                            是否作为自提点
+                     </view>
 
                      <button form-type="submit" type='primary'>申请入圈</button>
               </form>

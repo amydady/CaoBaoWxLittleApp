@@ -98,6 +98,7 @@ Page({
                      },
                      success: function(res) {
                             console.log('pay-success', res);
+                            
                             let orders = self.data.orders;
                             let ids = [];
                             for (let i = 0; i < orders.length; i++) {
@@ -105,7 +106,9 @@ Page({
                                           ids.push(orders[i].id);
                                    }
                             }
-                            self.deleteFromCart(ids);
+                            if (ids.length > 0){
+                                   self.deleteFromCart(ids);
+                            }
                      },
               })
        },

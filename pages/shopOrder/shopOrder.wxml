@@ -1,49 +1,35 @@
 <scroll-view scroll-x="true" class="scroll-view-x">
        <view class="scroll-view-item">
-              <view class="{{currentTab==0 ? 'on' : ''}}" bindtap="swichNav" data-current="0">全部</view>
+              <view class="{{currentTab==0 ? 'on' : ''}}" bindtap="swichNav" data-current="0">冻结</view>
        </view>
        <view class="scroll-view-item">
-              <view class="{{currentTab==1 ? 'on' : ''}}" bindtap="swichNav" data-current="1">冻结</view>
+              <view class="{{currentTab==1 ? 'on' : ''}}" bindtap="swichNav" data-current="1">可申请</view>
        </view>
        <view class="scroll-view-item">
-              <view class="{{currentTab==2 ? 'on' : ''}}" bindtap="swichNav" data-current="2">发放</view>
+              <view class="{{currentTab==2 ? 'on' : ''}}" bindtap="swichNav" data-current="2">已申请</view>
        </view>
        <view class="scroll-view-item">
-              <view class="{{currentTab==3 ? 'on' : ''}}" bindtap="swichNav" data-current="3">失效</view>
+              <view class="{{currentTab==3 ? 'on' : ''}}" bindtap="swichNav" data-current="3">已发放</view>
+       </view>
+        <view class="scroll-view-item">
+              <view class="{{currentTab==4 ? 'on' : ''}}" bindtap="swichNav" data-current="4">已发放</view>
        </view>
 </scroll-view>
-
-<swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange" style="height: {{windowHeight-35}}px;">
-
-       <swiper-item>
-              <scroll-view scroll-y="true" class="scroll-view-y" scroll-with-animation="true" scroll-top="{{scrollTop}}" lower-threshold="50" bindscrolltolower="scrolltolower" style="height: {{windowHeight-35}}px;">
-                     <view wx:for="{{ordersData}}" wx:key="*this" class='item-details'>
-                     <image data-item="{{item}}" mode="scaleToFill" src="{{item.src}}"></image>
-                     <view class='item'>
-                      <text class="item-name">{{item.name}}</text> 
-                      <span class="cart-pro-price">订单金额：<text>￥{{item.price}}</text></span>
-                     </view>
-                     </view>
-              </scroll-view>
-       </swiper-item>
-
-
-       <swiper-item>
-              <scroll-view scroll-y="true" class="scroll-view-y" scroll-with-animation="true" scroll-top="{{scrollTop}}" lower-threshold="50" bindscrolltolower="scrolltolower" style="height: {{windowHeight-35}}px;">
-                     <template is="ordersList" data="{{ordersList:ordersList,loading:loading}}" />
-              </scroll-view>
-       </swiper-item>
-
-       <swiper-item>
-              <scroll-view scroll-y="true" class="scroll-view-y" scroll-with-animation="true" scroll-top="{{scrollTop}}" lower-threshold="50" bindscrolltolower="scrolltolower" style="height: {{windowHeight-35}}px;">
-                     <template is="ordersList" data="{{ordersList:ordersList,loading:loading}}" />
-              </scroll-view>
-       </swiper-item>
-
-       <swiper-item>
-              <scroll-view scroll-y="true" class="scroll-view-y" scroll-with-animation="true" scroll-top="{{scrollTop}}" lower-threshold="50" bindscrolltolower="scrolltolower" style="height: {{windowHeight-35}}px;">
-                     <template is="ordersList" data="{{ordersList:ordersList,loading:loading}}" />
-              </scroll-view>
-       </swiper-item>
-
-</swiper>
+<view>
+ <view wx:for="{{ordersData}}" wx:key="*this" class="scroll-view-item_H">
+                                   <image  data-productID="{{item.id}}" mode="scaleToFill" src="{{'data:image/png;base64,'+item.goodsMainImgData}}"></image>
+                                   <view >
+                                          <text>{{item.goodsName}}</text>
+                                   </view>
+                                   <view >
+                                          <text>{{item.goodsFee}}</text>
+                                   </view>
+                                   <view >
+                                    <text>￥{{item.commissionTypeName}}</text>
+                                          <text>￥{{item.calcFee}}</text>
+                                   </view>
+                                   <view >
+                                    <text>佣金生成时间{{item.createTime}}</text>
+                                   </view>
+                            </view>
+</view>

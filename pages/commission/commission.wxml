@@ -1,20 +1,13 @@
 <view class="funs">
        <view class="funsTopic">
-              <text>累计发放佣金：¥9999
-可提现：¥5000
-待发放：
-已提现：</text>
+              <text>累计发放佣金：¥{{totalPayedFee}}
+可提现：¥{{totalCanApplyFee}}</text>
        </view>
        <view class="funsTitle">
-              <view class="{{currentTab==0 ? 'on' : ''}}" bindtap="showFuns" data-current="0">
-                <span>
-                待提现
-                </span>
+              <text>申请提现记录</text>
+              <view wx:for="{{applyHistory}}" wx:key="*this">
+                     {{item}}
               </view>
-              <view class="{{currentTab==1 ? 'on' : ''}}" bindtap="showFuns" data-current="1">
-                <span>
-                已提现
-                </span>
-              </view>
+
        </view>
 </view>

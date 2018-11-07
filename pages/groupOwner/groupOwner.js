@@ -8,11 +8,12 @@ Page({
               addressInfo: {},
               isModify: false,
               hasAddress: false,
-              shopName:'',
-              name:'',
+              shopName: '',
+              name: '',
               mobile: '',
               idCardFront: '',
               idCardBack: '',
+              isDeliverySite: false
        },
 
        /**
@@ -20,6 +21,13 @@ Page({
         */
        onLoad: function(options) {
 
+       },
+
+       isDeliverySite() {
+              this.data.isDeliverySite = !this.data.isDeliverySite
+              this.setData({
+                     isDeliverySite: this.data.isDeliverySite
+              })
        },
 
        /**
@@ -38,8 +46,8 @@ Page({
                      },
                      success: function(res) {
                             console.log('groupOwner', res);
-                 
-                            if (res.data.data.length != 0){
+
+                            if (res.data.data.length != 0) {
                                    self.setData({
                                           shopName: res.data.data[0].name,
                                           name: res.data.data[0].tuanZhangName,
@@ -50,10 +58,11 @@ Page({
                                                  countyName: res.data.data[0].addressInfo.area,
                                                  detailInfo: res.data.data[0].addressInfo.detailInfo,
                                           },
-                                          hasAddress:true,
-                                          isModify:true,
+                                          hasAddress: true,
+                                          isModify: true,
                                           idCardFront: res.data.data[0].idCardImgDataFront,
                                           idCardBack: res.data.data[0].idCardImgDataBack,
+                                          isDeliverySite: res.data.data[0].isDeliverySite == "Y"?true:false
                                    })
                             }
                      },
@@ -68,7 +77,7 @@ Page({
                                    hasAddress: true
                             })
                      },
-                     fail: function (err) {
+                     fail: function(err) {
                             console.log(err)
                      }
               })
@@ -105,7 +114,7 @@ Page({
                                    },
                                    success: function(res) {
                                           var data = JSON.parse(res.data);
-                                          console.log("uploadFront",res);
+                                          console.log("uploadFront", res);
                                           that.setData({
                                                  idCardFront: data.data[0]
                                           });
@@ -127,13 +136,13 @@ Page({
        },
 
        //添加Banner  
-       chooseBack: function () {
+       chooseBack: function() {
               var that = this;
               wx.chooseImage({
                      count: 1, //最多可以选择的图片总数  
                      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有  
                      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有  
-                     success: function (res) {
+                     success: function(res) {
                             // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片  
                             var tempFilePaths = res.tempFilePaths;
                             //启动上传等待中...  
@@ -155,7 +164,7 @@ Page({
                                    header: {
                                           "Content-Type": "multipart/form-data"
                                    },
-                                   success: function (res) {
+                                   success: function(res) {
                                           var data = JSON.parse(res.data);
                                           console.log("uploadBack", res);
                                           that.setData({
@@ -163,13 +172,13 @@ Page({
                                           });
                                           wx.hideToast();
                                    },
-                                   fail: function (res) {
+                                   fail: function(res) {
                                           wx.hideToast();
                                           wx.showModal({
                                                  title: '错误提示',
                                                  content: '上传图片失败',
                                                  showCancel: false,
-                                                 success: function (res) { }
+                                                 success: function(res) {}
                                           })
                                    }
                             });
@@ -181,11 +190,15 @@ Page({
        formSubmit(e) {
               var self = this;
               var url = "add";
-        
-              if (self.data.isModify){
+
+              if (self.data.isModify) {
                      url = "modify"
               }
               const value = e.detail.value;
+              let isDeliverySite = 'N';
+              if (self.data.isDeliverySite) {
+                     isDeliverySite = 'Y';
+              }
               if (value.shopName && value.name && value.mobile && self.data.hasAddress) {
                      wx.request({
                             url: app.globalData.serverUrl + "/rest/littlecat/caobao/tuan/" + url, //给函数传递服务器地址参数
@@ -194,12 +207,13 @@ Page({
                                    tuanZhangName: value.name,
                                    name: value.shopName,
                                    mobile: value.mobile,
-                                   addressInfo:{
+                                   addressInfo: {
                                           province: self.data.addressInfo.provinceName,
                                           city: self.data.addressInfo.cityName,
                                           area: self.data.addressInfo.countyName,
                                           detailInfo: self.data.addressInfo.detailInfo,
-                                   }
+                                   },
+                                   isDeliverySite: isDeliverySite
 
                             }, //给服务器传递数据，本次请求不需要数据，可以不填
                             method: "POST",
