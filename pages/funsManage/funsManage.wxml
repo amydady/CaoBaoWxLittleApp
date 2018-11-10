@@ -6,13 +6,11 @@
        </view>
        <view class="funsTitle">
               <view data-current="0">
-                     <span>
-                            我的粉丝
-                     </span>
+                     <span class='on'>我的粉丝</span>
               </view>
        </view>
-       <view wx:for="{{funs}}" wx:key="{{index}}">
+       <view wx:for="{{funs}}" wx:key="{{index}}" class='funs-image'>
               <image src="{{item.terminalUser.image}}"></image>
-              <text>{{item.terminalUser.name}}</text>
+              <span>{{item.terminalUser.name}}</span>
        </view>
 </view>

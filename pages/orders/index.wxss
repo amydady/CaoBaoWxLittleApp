@@ -55,8 +55,8 @@
 
 .item-details image.cart-thumb {
   display: block;
-  width: 95px;
-  height: 95px;
+  width: 190rpx;
+  height: 190rpx;
   margin-left: 5px;
   margin-right: 10px;
   float: left;

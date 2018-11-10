@@ -1,30 +1,31 @@
 <view class="main">
-    <view class="goods-box">
-        <image src="{{'data:image/png;base64,'+goodsDetail.mainImgData}}" class="goods-thumb"></image>
-        
-
-        <button data-name="shareBtn" open-type="share" plain="true" class="carts-icon">
-          <image style='width:30px;height:30px'  src="/images/share.png"></image>
-        </button>
-        
-        <view class="goods-title">{{goodsDetail.name}}</view>
-        <view class="goods-price">￥ {{goodsDetail.price}}</view>
-
-        <view class="goods-operation" style='display:inline-block;'>
-          <text class="goods-to-cart" bindtap="buy">立即购买</text>
-        </view>
-        <view class="goods-operation" style='float:right;'>
-          <text class="goods-to-cart" bindtap="addToCart">加入购物车</text>
-        </view>
-
-    </view>
-    <view class="goods-tab-box">
-        <view class="goods-tab-nav on" >商品详情</view>
+  <view class="goods-box">
+     <image src="{{'data:image/png;base64,'+goodsDetail.mainImgData}}" class="goods-thumb"></image>
+      <button data-name="shareBtn" open-type="share" plain="true" class="carts-icon">
+      <image bindtap="back" style='width:30px;height:30px'  src="/images/share.png"></image>
+      </button>
+   </view>   
+   <view class='goods-intro'>
+        <view class="goods-title">{{goodsDetail.name}}            </view>
+        <view class="goods-price">￥ {{goodsDetail.price}}
+         </view>
+  </view>
+   <view class="goods-tab-box">
+        <view class='my-group'>
+              <text class="">商品详情</text>
+       </view>
         <view class="goods-content">
-            <view wx:for="{{goodsDetail.detailImgs}}">
+             <view wx:for="{{goodsDetail.detailImgs}}">
               <image style='width:300px;height:300px'  src="{{'data:image/png;base64,'+item.imgData}}"></image>
             </view>
-            
         </view>
+    </view>
+    <view class='button-box'>
+            <button class="goods-operation" type='primary' style='display:inline-block;' bindtap="buy">
+              <text class="goods-to-cart">立即购买</text>
+            </button>
+            <button class="goods-operation" type='primary' style='margin-left:20px;' bindtap="addToCart">
+              <text class="goods-to-cart" >加入购物车</text>
+            </button>
     </view>
 </view>

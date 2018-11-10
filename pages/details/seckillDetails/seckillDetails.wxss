@@ -1,7 +1,6 @@
 @import '/pages/common/common.wxss';
 .main{
   position: relative;
- 
 }
 .goods-box{
     position: relative;
