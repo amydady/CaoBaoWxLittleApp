@@ -44,7 +44,7 @@ Page({
               return {
                      title: this.data.goodsDetail.goodsSummaryDescription,
                      imageUrl: '',
-                     path: '/pages/details/seckillDetails?id=' + this.data.goodsId+'&shareid=' + app.globalData.openID// 路径，传递参数到指定页面。
+                path: '/pages/details/seckillDetails/seckillDetails?id=' + this.data.goodsId+'&shareid=' + app.globalData.openID// 路径，传递参数到指定页面。
               }
        },
 

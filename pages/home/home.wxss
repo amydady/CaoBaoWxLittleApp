@@ -194,6 +194,7 @@ button:last-child{
     background-color: #fff
 }
 .newest-box .newest-list{
+  overflow: hidden;
     display: inline-block;
     width: 335rpx;
     height: 287rpx;

@@ -4,10 +4,9 @@
 可提现：¥{{totalCanApplyFee}}</text>
        </view>
        <view class="funsTitle">
-              <text>申请提现记录</text>
-              <view wx:for="{{applyHistory}}" wx:key="*this">
-                     {{item}}
-              </view>
-
-       </view>
+          <view data-current="0">
+              <span class='on'>申请提现记录</span>
+           </view>
+            <view wx:for="{{applyHistory}}" wx:key="*this">{{item}}</view>
+        </view>
 </view>

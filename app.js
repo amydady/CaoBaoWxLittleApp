@@ -60,7 +60,7 @@ App({
       
        globalData: {
               userInfo: null,
-              serverUrl: "http://192.168.0.102:8116",
+         serverUrl: "https://s.yimiwei.cn:8006",
               openID:null,
               shareID: null
        },

@@ -9,7 +9,8 @@
      </view>
      <view class='goods-intro'>
         <view class="goods-title">{{goodsDetail.goodsName}}</view>
-        <view class="goods-price">￥ {{goodsDetail.goodsPrice}}              </view>
+        <view class="goods-price">￥ {{goodsDetail.goodsPrice}}            
+        </view>
       </view>
 
     <view class="goods-tab-box">
@@ -29,5 +30,5 @@
             <button class="goods-operation" type='primary' style='margin-left:20px;' bindtap="addToCart">
               <text class="goods-to-cart" >加入购物车</text>
             </button>
-            </view>
+      </view>
 </view>

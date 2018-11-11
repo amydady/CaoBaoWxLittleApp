@@ -40,7 +40,7 @@ Page({
               return {
                      title: this.data.goodsDetail.summaryDescription,
                      imageUrl: '',
-                     path: '/pages/details/commonDetails?id=' + this.data.goodsId + '&shareid=' + app.globalData.openID// 路径，传递参数到指定页面。
+                path: '/pages/details/commonDetails/commonDetails?id=' + this.data.goodsId + '&shareid=' + app.globalData.openID// 路径，传递参数到指定页面。
               }
        },
 

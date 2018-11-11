@@ -32,7 +32,7 @@
 }
 
 .welfare button{
-  margin-top: 10px;
+  margin-top: 25px;
   width: 150px;
   height: 36px;
   line-height: 36px;
