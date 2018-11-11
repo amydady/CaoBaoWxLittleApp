@@ -1,0 +1,3 @@
+<view wx:for="{{orders}}" wx:key="index">
+
+</view>

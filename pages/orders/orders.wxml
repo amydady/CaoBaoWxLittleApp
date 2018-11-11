@@ -7,6 +7,14 @@
         <view wx:else class="orders-no-address" >添加收货地址</view>
     </view>
 
+    <view bindtap='chooseGoodsAddress' wx:if="{{hasAddress}}">
+        <view wx:if="{{hasGoodsAddress}}" class="orders-address">
+            <text class="orders-address-name">{{addressInfo.userName}}</text>
+            <view class="orders-address-detail">{{addressInfo.provinceName + addressInfo.cityName + addressInfo.countyName+ addressInfo.detailInfo}}</view>
+        </view>
+        <view wx:else class="orders-no-address" >选择自提点地址</view>
+    </view>
+
     <view class="orders-box">
         <view wx:for="{{orders}}" wx:key="index" class="orders-list">
             <image class="orders-thumb" src="{{'data:image/png;base64,'+item.image}}"></image>

@@ -26,11 +26,11 @@ Page({
                        let applyHistory = [];
                        for (let i = 0; i < commision.applyHistory.length; i++){
                               applyHistory.push(commision.applyHistory[i].split(",")[0]);
-                              applyHistory.push((commision.applyHistory[i].split(",")[1]/1000).toFixed(2));
+                              applyHistory.push(commision.applyHistory[i].split(",")[1]);
                        }
                        self.setData({
-                              totalCanApplyFee: (commision.totalCanApplyFee / 1000).toFixed(2),
-                              totalPayedFee: (commision.totalPayedFee / 1000).toFixed(2),
+                              totalCanApplyFee: commision.totalCanApplyFee ,
+                              totalPayedFee: commision.totalPayedFee ,
                               applyHistory: applyHistory
                        })
                 },

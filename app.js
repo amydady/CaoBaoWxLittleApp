@@ -60,7 +60,7 @@ App({
       
        globalData: {
               userInfo: null,
-         serverUrl: "http://192.168.0.106:8116",
+              serverUrl: "http://192.168.0.102:8116",
               openID:null,
               shareID: null
        },

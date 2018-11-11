@@ -1,9 +1,13 @@
+var util = require('../../utils/md5.js');
 var app = getApp();
 Page({
        data: {
               addressInfo: {},
+              goodsAddressInfo: {},
               hasAddress: false,
+              hasGoodsAddress: false,
               total: 0,
+              paySn: '',
               orders: []
        },
 
@@ -17,6 +21,17 @@ Page({
                                    orders: res.data,
                             })
                             self.getTotalPrice()
+                     }
+              })
+              wx.getStorage({
+                     key: 'goodsAddress',
+                     success(res) {
+                            if (res.data) {
+                                   self.setData({
+                                          goodsAddressInfo: res.data,
+                                          hasGoodsAddress: true
+                                   })
+                            }
                      }
               })
        },
@@ -78,7 +93,11 @@ Page({
                             },
                             success: function(res) {
                                    console.log('orders', res);
-                                   self.paySuccess(res.data.data[0]);
+                                   self.setData({
+                                          paySn: res.data.data[0]
+                                   })
+                                   self.payToWx();
+                                   // self.paySuccess(res.data.data[0]);
                                    //pay weixin
                             },
                      })
@@ -98,7 +117,7 @@ Page({
                      },
                      success: function(res) {
                             console.log('pay-success', res);
-                            
+
                             let orders = self.data.orders;
                             let ids = [];
                             for (let i = 0; i < orders.length; i++) {
@@ -106,7 +125,7 @@ Page({
                                           ids.push(orders[i].id);
                                    }
                             }
-                            if (ids.length > 0){
+                            if (ids.length > 0) {
                                    self.deleteFromCart(ids);
                             }
                      },
@@ -129,27 +148,26 @@ Page({
        },
 
        payToWx() {
+              let self = this;
               var appid = 'wx59e6873e9161c795'; //appid  
-              var body = '味品源'; //商户名
+              var body = '味品源-超市'; //商户名
               var mch_id = '1502422811'; //商户号  
-              var nonce_str = this.randomString; //随机字符串，不长于32位。  
+              var nonce_str = this.randomString(); //随机字符串，不长于32位。  
               var notify_url = ''; //通知地址
-              var spbill_create_ip = ''; //ip
-              // var total_fee = parseInt(that.data.wxPayMoney) * 100;
+              var spbill_create_ip = '47.100.218.102'; //ip
               var total_fee = this.data.total;
               var trade_type = "JSAPI";
-              var key = '';
-              var unifiedPayment = 'appid=' + appid + '&body=' + body + '&mch_id=' + mch_id + '&nonce_str=' + nonce_str + '¬ify_url=' + notify_url + '&openid=' + res.data.openid + '&out_trade_no=' + this.data.paySn + '&spbill_create_ip=' + spbill_create_ip + '&total_fee=' + total_fee + '&trade_type=' + trade_type + '&key=' + key
-              var sign = MD5.MD5(unifiedPayment).toUpperCase();
-
+              var key = 'q9qShwkPzNTKlU5vJTvMb3DA6OYcZzD5';
+              var unifiedPayment = 'appid=' + appid + '&body=' + body + '&mch_id=' + mch_id + '&nonce_str=' + nonce_str + '¬ify_url=' + notify_url + '&openid=' + app.globalData.openID + '&out_trade_no=' + this.data.paySn + '&spbill_create_ip=' + spbill_create_ip + '&total_fee=' + total_fee + '&trade_type=' + trade_type + '&key=' + key
+              var sign = util.hexMD5(unifiedPayment).toUpperCase();
               var formData = "<xml>"
               formData += "<appid>" + appid + "</appid>"
               formData += "<body>" + body + "</body>"
               formData += "<mch_id>" + mch_id + "</mch_id>"
               formData += "<nonce_str>" + nonce_str + "</nonce_str>"
               formData += "<notify_url>" + notify_url + "</notify_url>"
-              formData += "<openid>" + res.data.openid + "</openid>"
-              formData += "<out_trade_no>" + that.data.paySn + "</out_trade_no>"
+              formData += "<openid>" + app.globalData.openID + "</openid>"
+              formData += "<out_trade_no>" + this.data.paySn + "</out_trade_no>"
               formData += "<spbill_create_ip>" + spbill_create_ip + "</spbill_create_ip>"
               formData += "<total_fee>" + total_fee + "</total_fee>"
               formData += "<trade_type>" + trade_type + "</trade_type>"
@@ -162,12 +180,12 @@ Page({
                      head: 'application/x-www-form-urlencoded',
                      data: formData, // 设置请求的 header
                      success: function(res) {
-                            console.log(res.data)
+                            console.log('统一下单', res.data)
 
-                            var result_code = that.getXMLNodeValue('result_code', res.data.toString("utf-8"))
+                            var result_code = self.getXMLNodeValue('result_code', res.data.toString("utf-8"))
                             var resultCode = result_code.split('[')[2].split(']')[0]
                             if (resultCode == 'FAIL') {
-                                   var err_code_des = that.getXMLNodeValue('err_code_des', res.data.toString("utf-8"))
+                                   var err_code_des = self.getXMLNodeValue('err_code_des', res.data.toString("utf-8"))
                                    var errDes = err_code_des.split('[')[2].split(']')[0]
                                    wx.navigateBack({
                                           delta: 1, // 回退前 delta(默认为1) 页面
@@ -182,16 +200,16 @@ Page({
                                    })
                             } else {
                                    //发起支付
-                                   var prepay_id = that.getXMLNodeValue('prepay_id', res.data.toString("utf-8"))
+                                   var prepay_id = self.getXMLNodeValue('prepay_id', res.data.toString("utf-8"))
                                    var tmp = prepay_id.split('[')
                                    var tmp1 = tmp[2].split(']')
                                    //签名  
-                                   var key = '';
+                                   var key = 'q9qShwkPzNTKlU5vJTvMb3DA6OYcZzD5';
                                    var appId = '';
-                                   var timeStamp = that.createTimeStamp();
-                                   var nonceStr = that.randomString();
-                                   var stringSignTemp = "appId=&nonceStr=" + nonceStr + "&package=prepay_id=" + tmp1[0] + "&signType=MD5&timeStamp=" + timeStamp + "&key="
-                                   var sign = MD5.MD5(stringSignTemp).toUpperCase()
+                                   var timeStamp = self.createTimeStamp();
+                                   var nonceStr = self.randomString();
+                                   var stringSignTemp = "appId=&nonceStr=" + nonceStr + "&package=prepay_id=" + tmp1[0] + "&signType=MD5&timeStamp=" + timeStamp + "&key=" + key
+                                   var sign = util.hexMD5(stringSignTemp).toUpperCase()
                                    console.log(sign)
                                    var param = {
                                           "timeStamp": timeStamp,
@@ -200,7 +218,7 @@ Page({
                                           "signType": "MD5",
                                           "nonceStr": nonceStr
                                    }
-                                   that.pay(param)
+                                   self.pay(param)
                             }
 
 
@@ -224,9 +242,7 @@ Page({
        },
        /* 获取prepay_id */
        getXMLNodeValue: function(node_name, xml) {
-              var tmp = xml.split("<" + node_name + ">")
-              var _tmp = tmp[1].split("</" + node_name + ">")
-              return _tmp[0]
+              return xml.split("<" + node_name + ">")[1].split("</" + node_name + ">")[0];
        },
 
        /* 时间戳产生函数   */
@@ -284,6 +300,11 @@ Page({
                      fail: function(err) {
                             console.log(err)
                      }
+              })
+       },
+       chooseGoodsAddress() {
+              wx.navigateTo({
+                     url: '/pages/goodsAddress/goodsAddress?province=' + this.data.addressInfo.provinceName + '&city=' + this.data.addressInfo.cityName + '&area=' + this.data.addressInfo.countyName
               })
        },
        check() {

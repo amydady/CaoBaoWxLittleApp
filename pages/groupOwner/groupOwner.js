@@ -20,20 +20,6 @@ Page({
         * 生命周期函数--监听页面加载
         */
        onLoad: function(options) {
-
-       },
-
-       isDeliverySite() {
-              this.data.isDeliverySite = !this.data.isDeliverySite
-              this.setData({
-                     isDeliverySite: this.data.isDeliverySite
-              })
-       },
-
-       /**
-        * 生命周期函数--监听页面加载
-        */
-       onShow: function(options) {
               var self = this;
               wx.request({
                      url: app.globalData.serverUrl + "/rest/littlecat/caobao/tuan/getById?id=" + app.globalData.openID, //给函数传递服务器地址参数
@@ -44,7 +30,7 @@ Page({
                      header: {
                             'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
                      },
-                     success: function(res) {
+                     success: function (res) {
                             console.log('groupOwner', res);
 
                             if (res.data.data.length != 0) {
@@ -62,17 +48,32 @@ Page({
                                           isModify: true,
                                           idCardFront: res.data.data[0].idCardImgDataFront,
                                           idCardBack: res.data.data[0].idCardImgDataBack,
-                                          isDeliverySite: res.data.data[0].isDeliverySite == "Y"?true:false
+                                          isDeliverySite: res.data.data[0].isDeliverySite == "Y" ? true : false
                                    })
                             }
                      },
               })
        },
 
+       isDeliverySite() {
+              this.data.isDeliverySite = !this.data.isDeliverySite
+              this.setData({
+                     isDeliverySite: this.data.isDeliverySite
+              })
+       },
+
+       /**
+        * 生命周期函数--监听页面加载
+        */
+       onShow: function() {
+             
+       },
+
        chooseAddress() {
+              let self = this;
               wx.chooseAddress({
                      success: (res) => {
-                            this.setData({
+                            self.setData({
                                    addressInfo: res,
                                    hasAddress: true
                             })
