@@ -1,3 +1,6 @@
-<view wx:for="{{orders}}" wx:key="index">
-
+<view wx:for="{{goodsAddress}}" wx:key="index">
+  <view bindtap='chooseAddress' data-index='{{index}}'>
+    <view>{{item.name}}</view>
+    <view>{{item.addressInfo.province+item.addressInfo.city+item.addressInfo.area+item.addressInfo.detailInfo}}</view>
+  </view>
 </view>

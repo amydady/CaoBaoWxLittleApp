@@ -9,8 +9,8 @@
 
     <view bindtap='chooseGoodsAddress' wx:if="{{hasAddress}}">
         <view wx:if="{{hasGoodsAddress}}" class="orders-address">
-            <text class="orders-address-name">{{addressInfo.userName}}</text>
-            <view class="orders-address-detail">{{addressInfo.provinceName + addressInfo.cityName + addressInfo.countyName+ addressInfo.detailInfo}}</view>
+            <text class="orders-address-name">{{goodsAddressInfo.name}}</text>
+            <view class="orders-address-detail">{{goodsAddressInfo.addressInfo.province + goodsAddressInfo.addressInfo.city +goodsAddressInfo. addressInfo.area+ goodsAddressInfo.addressInfo.detailInfo}}</view>
         </view>
         <view wx:else class="orders-no-address" >选择自提点地址</view>
     </view>
