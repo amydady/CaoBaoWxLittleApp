@@ -82,7 +82,7 @@ Page({
               "area": self.data.addressInfo.countyName,
               "detailInfo": self.data.addressInfo.detailInfo,
             },
-            "diliverySiteAddress": {
+            "deliverySiteAddress": {
               "province": self.data.goodsAddressInfo.addressInfo.province,
               "city": self.data.goodsAddressInfo.addressInfo.city,
               "area": self.data.goodsAddressInfo.addressInfo.area,
