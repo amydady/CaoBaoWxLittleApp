@@ -17,7 +17,7 @@
 
     <view class="orders-box">
         <view wx:for="{{orders}}" wx:key="index" class="orders-list">
-            <image class="orders-thumb" src="{{'data:image/png;base64,'+item.image}}"></image>
+            <image class="orders-thumb" src="{{item.image}}"></image>
             <view class="orders-pro-name">{{item.name}}</view>
             <view style='height:30px;margin-top:30px'>
               <view class="orders-pro-price">￥{{item.price}}</view>

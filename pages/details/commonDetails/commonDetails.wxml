@@ -1,6 +1,6 @@
 <view class="main">
   <view class="goods-box">
-     <image src="{{'data:image/png;base64,'+goodsDetail.mainImgData}}" class="goods-thumb"></image>
+     <image src="{{goodsDetail.mainImgData}}" class="goods-thumb"></image>
       <button data-name="shareBtn" open-type="share" plain="true" class="carts-icon">
       <image bindtap="back" style='width:30px;height:30px'  src="/images/share.png"></image>
       </button>
@@ -16,7 +16,7 @@
        </view>
         <view class="goods-content">
              <view wx:for="{{goodsDetail.detailImgs}}">
-              <image style='width:300px;height:300px'  src="{{'data:image/png;base64,'+item.imgData}}"></image>
+              <image style='width:300px;height:300px'  src="{{item.imgData}}"></image>
             </view>
         </view>
     </view>

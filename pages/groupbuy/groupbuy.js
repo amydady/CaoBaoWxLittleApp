@@ -29,7 +29,7 @@ Page({
                                    goods.push({
                                           name: res.data.data[index].goodsName,
                                           price: res.data.data[index].price,
-                                          image: 'data:image/png;base64,' + res.data.data[index].goodsMainImgData
+                                          image: res.data.data[index].goodsMainImgData
                                    });
                             }
                             self.setData({

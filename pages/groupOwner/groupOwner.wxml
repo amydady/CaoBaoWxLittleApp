@@ -13,8 +13,8 @@
                      <image style='height:120rpx;width:120rpx;margin-right:20rpx;margin-top:10rpx' bindtap="chooseFront" mode="scaleToFill" src="/images/upload.jpeg"></image>
                      <image style='height:120rpx;width:120rpx;margin-top:10rpx' bindtap="chooseBack" mode="scaleToFill" src="/images/upload.jpeg"></image>
                      <view>
-                            <image class="orders-thumb" src="{{'data:image/png;base64,'+idCardFront}}"></image>
-                            <image class="orders-thumb" src="{{'data:image/png;base64,'+idCardBack}}"></image>
+                            <image class="orders-thumb" src="{{idCardFront}}"></image>
+                            <image class="orders-thumb" src="{{idCardBack}}"></image>
                      </view>
 
                      <text>住址</text>

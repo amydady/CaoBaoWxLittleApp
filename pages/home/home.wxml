@@ -3,7 +3,7 @@
               <block wx:for="{{titlePictures}}" wx:key="*this">
                      <swiper-item>
                             <view class="swiper-item ">
-                                   <image  mode="scaleToFill" src="{{'data:image/png;base64,'+item.imgData}}"></image>
+                                   <image  mode="scaleToFill" src="{{item.imgData}}"></image>
                             </view>
                      </swiper-item>
               </block>
@@ -18,7 +18,7 @@
                      <scroll-view class="scroll-view_H" scroll-x style="width: 100%" scrollTop="100px">
          
                             <view wx:for="{{quickSell}}" wx:key="*this" class="scroll-view-item_H">
-                                   <image bindtap="seckill" data-productID="{{item.id}}" mode="scaleToFill" src="{{'data:image/png;base64,'+item.goodsMainImgData}}"></image>
+                                   <image bindtap="seckill" data-productID="{{item.id}}" mode="scaleToFill" src="{{item.goodsMainImgData}}"></image>
                                    <view class="newest-text">
                                           <text>{{item.goodsName}}</text>
                                    </view>
@@ -37,7 +37,7 @@
               </view>
               <view class='newest-box'>
                      <view wx:for="{{commonSell}}" wx:key="*this" class="newest-list">
-                            <image bindtap="commonBuy" data-productID="{{item.id}}" mode="scaleToFill" src="{{'data:image/png;base64,'+item.mainImgData}}"></image>
+                            <image bindtap="commonBuy" data-productID="{{item.id}}" mode="scaleToFill" src="{{item.mainImgData}}"></image>
                             <view class="newest-text">
                                    <text>{{item.name}}</text>
                             </view>

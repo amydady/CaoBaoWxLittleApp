@@ -17,7 +17,7 @@
 </scroll-view>
 <view>
  <view wx:for="{{ordersData}}" wx:key="*this" class="scroll-view-item_H">
-                                   <image  data-productID="{{item.id}}" mode="scaleToFill" src="{{'data:image/png;base64,'+item.goodsMainImgData}}"></image>
+                                   <image  data-productID="{{item.id}}" mode="scaleToFill" src="{{item.goodsMainImgData}}"></image>
                                    <view >
                                           <text>{{item.goodsName}}</text>
                                    </view>
