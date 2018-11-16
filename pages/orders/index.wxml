@@ -29,13 +29,17 @@
                      <view wx:for="{{item.details}}" wx:key="*this" class='item-details'>
                             <image class="cart-thumb" src="{{item.goodsMainImgData}}"></image>
                             <view class='item'>
-                              <text class="item-name">{{item.goodsName}}</text>
-                              <text class="cart-count-num">× {{item.goodsNum}}</text>
-                              <text class="cart-pro-price">￥{{item.price}}</text>
+                                   <text class="item-name">{{item.goodsName}}</text>
+                                   <text class="cart-count-num">× {{item.goodsNum}}</text>
+                                   <text class="cart-pro-price">￥{{item.price}}</text>
+                                   
                             </view>
                      </view>
+                     <button wx:if="{{currentTab==1}}" class="goods-operation" type='primary' style='display:inline-block;' bindtap="toPay" data-id="{{item.id}}" data-price="{{item.fee}}">
+                                          <text class="goods-to-cart">付款</text>
+                                   </button>
               </view>
-            <!-- <view style='position:relative;height:40px;'>
+              <!-- <view style='position:relative;height:40px;'>
  <button type='primary'>去付款</button></view> -->
        </view>
 </view>
