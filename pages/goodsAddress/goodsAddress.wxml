@@ -1,6 +1,9 @@
 <view wx:for="{{goodsAddress}}" wx:key="index">
-  <view bindtap='chooseAddress' data-index='{{index}}'>
-    <view>{{item.name}}</view>
-    <view>{{item.addressInfo.province+item.addressInfo.city+item.addressInfo.area+item.addressInfo.detailInfo}}</view>
-  </view>
+       <view bindtap='chooseAddress' data-index='{{index}}'>
+              <view>{{item.name}}</view>
+              <view>{{item.addressInfo.province+item.addressInfo.city+item.addressInfo.area+item.addressInfo.detailInfo}}</view>
+       </view>
+</view>
+<view wx:if="{{goodsAddress.length == 0}}" class="orders-no-address">
+       <text>附近没有可收件的地址</text>
 </view>

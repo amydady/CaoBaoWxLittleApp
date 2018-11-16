@@ -318,16 +318,26 @@ Page({
               })
        },
        check() {
-              if (this.data.hasAddress) {
-                     return true;
+              if (!this.data.hasAddress) {
+                     wx.showModal({
+                            title: '提示',
+                            content: '未添加收货地址',
+                            text: 'center',
+                            complete() {
+                                   return false;
+                            }
+                     })
               }
-              wx.showModal({
-                     title: '提示',
-                     content: '未添加收货地址',
-                     text: 'center',
-                     complete() {
-                            return false;
-                     }
-              })
+              if (!this.data.hasGoodsAddress) {
+                     wx.showModal({
+                            title: '提示',
+                            content: '未添加收件地址',
+                            text: 'center',
+                            complete() {
+                                   return false;
+                            }
+                     })
+              }
+              return true;
        }
 })

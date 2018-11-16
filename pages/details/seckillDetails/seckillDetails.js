@@ -64,6 +64,11 @@ Page({
                      },
                      success: function(res) {
                             console.log('secDetail-addToCar', res);
+                            wx.showToast({
+                                   title: '加入购物车成功',
+                                   icon: 'success',
+                                   duration: 2000
+                            })
                      },
               })
 

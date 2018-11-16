@@ -1,1 +1,8 @@
-/* pages/goodsAddress/goodsAddress.wxss */
+.orders-no-address{
+    position: relative;
+    height: 90rpx;
+    line-height: 90rpx;
+    color: #adadad;
+    border-bottom: 20rpx solid #ededed;
+    text-align: center;
+}
