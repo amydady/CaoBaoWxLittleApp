@@ -331,7 +331,7 @@ Page({
               if (!this.data.hasGoodsAddress) {
                      wx.showModal({
                             title: '提示',
-                            content: '未添加收件地址',
+                            content: '未选择自提点',
                             text: 'center',
                             complete() {
                                    return false;
