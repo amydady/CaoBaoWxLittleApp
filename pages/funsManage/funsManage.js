@@ -9,18 +9,23 @@ Page({
          wx.request({
                 url: app.globalData.serverUrl + "/rest/littlecat/caobao/quanzi/tuanmember/getlist", //给函数传递服务器地址参数
                 data: {
-                       tuanId: app.globalData.openID
+                        condition: {
+                              "logicType": "and",
+                              "condItems": [
+                                     {
+                                            "fieldName": "enable",
+                                            "opType": "equal",
+                                            "value": "Y"
+                                     },
+                                     {
+                                            "fieldName": "tuanId",
+                                            "opType": "equal",
+                                            "value": app.globalData.openID
+                                     }
+                              ]
+                       },
                 }, 
-                condition: {
-                       "logicType": "and",
-                       "condItems": [
-                              {
-                                     "fieldName": "enable",
-                                     "opType": "equal",
-                                     "value": "Y"
-                              }
-                       ]
-                },
+               
                 method: "POST",
                 header: {
                        'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式

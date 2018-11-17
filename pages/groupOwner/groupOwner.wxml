@@ -8,14 +8,14 @@
                      <text>合伙人手机号：</text>
                      <input type="number" name="mobile" value="{{mobile}}" />
 
-                     <text>上传身份证：
+                     <!-- <text>上传身份证：
                      </text>
                      <image style='height:120rpx;width:120rpx;margin-right:20rpx;margin-top:10rpx' bindtap="chooseFront" mode="scaleToFill" src="/images/upload.jpeg"></image>
                      <image style='height:120rpx;width:120rpx;margin-top:10rpx' bindtap="chooseBack" mode="scaleToFill" src="/images/upload.jpeg"></image>
                      <view>
                             <image class="orders-thumb" src="{{idCardFront}}"></image>
                             <image class="orders-thumb" src="{{idCardBack}}"></image>
-                     </view>
+                     </view> -->
 
                      <text>住址</text>
                      <view bindtap='chooseAddress'>
@@ -30,7 +30,7 @@
                             <span style='margin-left:20px;'>是否作为自提点</span>
                      </view>
 
-                     <button form-type="submit" type='primary'>申请入圈</button>
+                     <button form-type="submit" type='primary'>马上申请</button>
               </form>
        </view>
 

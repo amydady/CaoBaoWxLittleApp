@@ -48,7 +48,8 @@ Page({
                                           isModify: true,
                                           idCardFront: res.data.data[0].idCardImgDataFront,
                                           idCardBack: res.data.data[0].idCardImgDataBack,
-                                          isDeliverySite: res.data.data[0].isDeliverySite == "Y" ? true : false
+                                          isDeliverySite: res.data.data[0].isDeliverySite == "Y" ? true : false,
+                                          enable: res.data.data[0].enable
                                    })
                             }
                      },
@@ -223,6 +224,11 @@ Page({
                             },
                             success: function(res) {
                                    console.log('groupOwner', res);
+                                   wx.showToast({
+                                          title: '申请成功',
+                                          icon: 'success',
+                                          duration: 2000
+                                   })
                                    //pay weixin
                                    self.setData({
                                           isModify: true

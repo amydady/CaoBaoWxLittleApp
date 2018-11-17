@@ -10,20 +10,39 @@ Page({
               }
        },
 
+       onPullDownRefresh: function () {
+           
+              this.queryList()
+       },
+
 
        onShow() {
+              
+              this.queryList()
+       },
+
+       queryList(){
               var self = this;
               //查询购物车
               wx.request({
                      url: app.globalData.serverUrl + "/rest/littlecat/caobao/shoppingcart/getList", //给函数传递服务器地址参数
                      data: {
-
+                            condition: {
+                                   "logicType": "and",
+                                   "condItems": [
+                                          {
+                                                 "fieldName": "terminalUserId",
+                                                 "opType": "equal",
+                                                 "value": app.globalData.openID
+                                          }
+                                   ]
+                            },
                      }, //给服务器传递数据，本次请求不需要数据，可以不填
                      method: "POST",
                      header: {
                             'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
                      },
-                     success: function(res) {
+                     success: function (res) {
                             //TO-DO 详细信息
                             console.log('cart', res);
                             var hasList = false;

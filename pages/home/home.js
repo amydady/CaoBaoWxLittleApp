@@ -13,7 +13,15 @@ Page({
               previousMargin: 0,
               nextMargin: 0
        },
+
+       onPullDownRefresh: function () {
+
+              this.queryList()
+       },
        onLoad: function() {
+              this.queryList()
+       },
+       queryList(){
               var self = this;
               //首页滚动
               wx.request({
@@ -25,7 +33,7 @@ Page({
                      header: {
                             'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
                      },
-                     success: function(res) {
+                     success: function (res) {
                             console.log('title', res);
                             self.setData({
                                    titlePictures: res.data.data,
@@ -39,7 +47,7 @@ Page({
                      header: {
                             'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
                      },
-                     success: function(res) {
+                     success: function (res) {
                             console.log("common", res); //打印出返回的数据
                             self.setData({
                                    commonSell: res.data.data
@@ -54,7 +62,7 @@ Page({
                      },
                      success: function (res) {
                             console.log("secKill", res); //打印出返回的数据
-                          
+
                             self.setData({
                                    quickSell: res.data.data
                             })
