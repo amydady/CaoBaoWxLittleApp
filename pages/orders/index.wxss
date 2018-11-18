@@ -82,3 +82,12 @@
   color: #353535;
   font-size: 14px;
 }
+
+.goods-operation{
+  height: 40px;
+  line-height: 40px;
+  width: 90px;
+  float: right;
+  margin-top: 10px;
+  margin-right: 10px;
+}

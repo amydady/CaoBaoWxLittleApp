@@ -24,7 +24,7 @@
 
 <view>
        <view class="cart-list" wx:for="{{ordersData}}" wx:key="{{index}}">
-              <view>
+              <view style='overflow:auto'>
                      <text class="cart-pro-name">收货人：{{item.contactName}}（电话：{{item.contactMobile}}）</text>
                      <view wx:for="{{item.details}}" wx:key="*this" class='item-details'>
                             <image class="cart-thumb" src="{{item.goodsMainImgData}}"></image>

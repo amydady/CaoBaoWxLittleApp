@@ -10,9 +10,9 @@
        </swiper>
        <view class="newest">
               <view class="quickSell-title">
-                     <text decode="{{true}}" space="{{true}}" class='text-line'>-&nbsp;&nbsp;</text>
+                     <text decode="{{true}}" space="{{true}}" class='text-line'>—&nbsp;&nbsp;</text>
                      <text class='title'>限时秒杀</text>
-                     <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;-</text>
+                     <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;—</text>
               </view>
               <view class='scroll-item'>
                      <scroll-view class="scroll-view_H" scroll-x style="width: 100%" scrollTop="100px">
@@ -31,9 +31,9 @@
        </view>
        <view class="newest">
               <view class="quickSell-title">
-                     <text decode="{{true}}" space="{{true}}" class='text-line'>-&nbsp;&nbsp;</text>
+                     <text decode="{{true}}" space="{{true}}" class='text-line'>—&nbsp;&nbsp;</text>
                      <text class='title'>品源之选</text>
-                     <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;-</text>
+                     <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;—</text>
               </view>
               <view class='newest-box'>
                      <view wx:for="{{commonSell}}" wx:key="*this" class="newest-list">

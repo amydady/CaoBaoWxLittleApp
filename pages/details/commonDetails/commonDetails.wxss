@@ -86,13 +86,15 @@
 }
 
  .goods-operation{
-   width: 47%;
+   width:314rpx;
     display: inline-block;
     background-color: #09bb07;
     color: #fff;
     font-size: 32rpx;
     height: 90rpx;
     line-height: 90rpx;
+    position: fixed;
+    bottom:10px;
 }
 .goods-operation text{
     display: inline-block;
@@ -144,7 +146,7 @@
 .my-group{
   line-height:88rpx;
   padding:0 15px;
-  font-size:16px;
+  font-size:18px;
   font-weight:bold;
   color:#353535;
   height:88rpx;
@@ -166,8 +168,8 @@ button[plain] {
 }
 
 .button-box{
-  position: absolute;
-  bottom: 20px;
+  position: fixed;
+  bottom: 0;
   padding: 0 20px;
   box-sizing: border-box;
   width: 100%;
