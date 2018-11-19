@@ -183,7 +183,7 @@ Page({
         console.log('支付成功', res)
         self.paySuccess();
         wx.hideLoading()
-        this.setData({
+        self.setData({
           disabled: true
         })
         wx.navigateBack({
