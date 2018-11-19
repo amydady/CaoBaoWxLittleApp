@@ -25,7 +25,9 @@
 
           <view>
             <!-- 商品原价 -->
-            <text class="newest-text-price" style='text-decoration:line-through'>￥{{item.goodsPrice}}</text>
+            <view class="newest-text">
+            <text>{{item.name}}</text>
+            </view>
 
             <!-- 秒杀价格 -->
             <text class="newest-text-price">￥{{item.price}}</text>

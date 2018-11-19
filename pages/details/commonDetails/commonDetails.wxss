@@ -86,7 +86,7 @@
 }
 
  .goods-operation{
-   width:314rpx;
+    width:314rpx;
     display: inline-block;
     background-color: #09bb07;
     color: #fff;

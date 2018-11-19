@@ -94,13 +94,14 @@
     font-size: 24rpx;
 }
  .goods-operation{
-   width: 47%;
+    width:314rpx;
     display: inline-block;
-    background-color: #09bb07;
     color: #fff;
     font-size: 32rpx;
     height: 90rpx;
     line-height: 90rpx;
+    position: fixed;
+    bottom:10px;
 }
 .goods-operation text{
     display: inline-block;
@@ -127,12 +128,26 @@
     float:left;
     font-size: 18px;
 }
-
+.old-price{
+  float: right;
+  text-decoration:line-through;
+  height: 100%;
+  line-height: 50px;
+  font-size: 14px;
+  color:#353535;
+  margin-right: 10px;
+}
+.desc{
+  padding:5px 15px;
+  color:#b2b2b2;
+  line-height: 24px;
+  font-size: 14px;
+}
 .goods-price{
     height: 100%;
     line-height: 50px;
     float:right;
-    font-size: 18px;
+    font-size: 20px;
 }
 .goods-tab-nav{
     display: inline-block;
@@ -174,8 +189,8 @@ button[plain] {
 }
 
 .button-box{
-  position: absolute;
-  bottom: 20px;
+  position: fixed;
+  bottom: 0;
   padding: 0 20px;
   box-sizing: border-box;
   width: 100%;
