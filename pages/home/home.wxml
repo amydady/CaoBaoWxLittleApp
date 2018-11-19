@@ -1,50 +1,57 @@
 <view class="section section_gap">
-       <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
-              <block wx:for="{{titlePictures}}" wx:key="*this">
-                     <swiper-item>
-                            <view class="swiper-item ">
-                                   <image  mode="scaleToFill" src="{{item.imgData}}"></image>
-                            </view>
-                     </swiper-item>
-              </block>
-       </swiper>
-       <view class="newest">
-              <view class="quickSell-title">
-                     <text decode="{{true}}" space="{{true}}" class='text-line'>—&nbsp;&nbsp;</text>
-                     <text class='title'>限时秒杀</text>
-                     <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;—</text>
-              </view>
-              <view class='scroll-item'>
-                     <scroll-view class="scroll-view_H" scroll-x style="width: 100%" scrollTop="100px">
-         
-                            <view wx:for="{{quickSell}}" wx:key="*this" class="scroll-view-item_H">
-                                   <image bindtap="seckill" data-productID="{{item.id}}" mode="scaleToFill" src="{{item.goodsMainImgData}}"></image>
-                                   <view class="newest-text">
-                                          <text>{{item.goodsName}}</text>
-                                   </view>
-                                   <view class="newest-text-price">
-                                          <text>￥{{item.goodsPrice}}</text>
-                                   </view>
-                            </view>
-                     </scroll-view>
-              </view>
-       </view>
-       <view class="newest">
-              <view class="quickSell-title">
-                     <text decode="{{true}}" space="{{true}}" class='text-line'>—&nbsp;&nbsp;</text>
-                     <text class='title'>品源之选</text>
-                     <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;—</text>
-              </view>
-              <view class='newest-box'>
-                     <view wx:for="{{commonSell}}" wx:key="*this" class="newest-list">
-                            <image bindtap="commonBuy" data-productID="{{item.id}}" mode="scaleToFill" src="{{item.mainImgData}}"></image>
-                            <view class="newest-text">
-                                   <text>{{item.name}}</text>
-                            </view>
-                            <view class="newest-text-price">
-                                   <text>￥{{item.price}}</text>
-                            </view>
-                     </view>
-              </view>
-       </view>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+    <block wx:for="{{titlePictures}}" wx:key="*this">
+      <swiper-item>
+        <view class="swiper-item ">
+          <image mode="scaleToFill" src="{{item.imgData}}"></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="newest">
+    <view class="quickSell-title">
+      <text decode="{{true}}" space="{{true}}" class='text-line'>—&nbsp;&nbsp;</text>
+      <text class='title'>限时秒杀</text>
+      <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;—</text>
+    </view>
+    <view class='scroll-item'>
+      <scroll-view class="scroll-view_H" scroll-x style="width: 100%" scrollTop="100px">
+
+        <view wx:for="{{quickSell}}" wx:key="*this" class="scroll-view-item_H">
+          <image bindtap="seckill" data-productID="{{item.id}}" mode="scaleToFill" src="{{item.goodsMainImgData}}"></image>
+          <view class="newest-text">
+            <text>{{item.goodsName}}</text>
+          </view>
+
+          <view>
+            <!-- 商品原价 -->
+            <text class="newest-text-price" style='text-decoration:line-through'>￥{{item.goodsPrice}}</text>
+
+            <!-- 秒杀价格 -->
+            <text class="newest-text-price">￥{{item.price}}</text>
+
+          </view>
+
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="newest">
+    <view class="quickSell-title">
+      <text decode="{{true}}" space="{{true}}" class='text-line'>—&nbsp;&nbsp;</text>
+      <text class='title'>品源之选</text>
+      <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;—</text>
+    </view>
+    <view class='newest-box'>
+      <view wx:for="{{commonSell}}" wx:key="*this" class="newest-list">
+        <image bindtap="commonBuy" data-productID="{{item.id}}" mode="scaleToFill" src="{{item.mainImgData}}"></image>
+        <view class="newest-text">
+          <text>{{item.name}}</text>
+        </view>
+        <view class="newest-text-price">
+          <text>￥{{item.price}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
