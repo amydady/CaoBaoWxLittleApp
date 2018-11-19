@@ -44,13 +44,15 @@ Page({
     var that = this;
     setInterval(function() {
       var remaindTimeDisplay = "";
-      var now = new Date().getTime();
+      var now = Date.parse(new Date()) / 1000;
+      var startTime = Date.parse(that.data.goodsDetail.startTime.replace(/\-/g, "/")) / 1000;
+      var endTime = Date.parse(that.data.goodsDetail.endTime.replace(/\-/g, "/")) / 1000;
 
-      var startTime = new Date(that.data.goodsDetail.startTime).getTime();
-      var endTime = new Date(that.data.goodsDetail.endTime).getTime();
-
+      // console.log("now:", now)
+      // console.log("startTime:", startTime)
+      // console.log("endTime:", endTime)
       if (now < startTime) { //即将开始
-        let remaindTime = Math.floor(startTime / 1000) - Math.floor(now / 1000);
+        let remaindTime = startTime - now;
         remaindTimeDisplay = "即将开始：" + remaindTime;
         that.data.canBuy=false;
 
@@ -58,7 +60,7 @@ Page({
         remaindTimeDisplay = "已经结束";
         that.data.canBuy = false;
       } else { //进行中
-        let remaindTime = Math.floor(endTime / 1000) - Math.floor(now / 1000);
+        let remaindTime = endTime - now;
         that.data.canBuy = true;
 
 
