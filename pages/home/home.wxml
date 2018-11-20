@@ -26,7 +26,7 @@
           <view>
             <!-- 商品原价 -->
             <view class="newest-text">
-            <text>{{item.name}}</text>
+              <text>￥{{item.goodsPrice}}</text>
             </view>
 
             <!-- 秒杀价格 -->
