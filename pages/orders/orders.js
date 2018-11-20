@@ -63,7 +63,7 @@ Page({
     let self = this;
     let orders = this.data.orders;
     let payOders = [];
-    let shareTuanZhangId = app.globalData.shareID;
+    var shareTuanZhangId = app.globalData.shareID;
     for (let i = 0; i < orders.length; i++) {
       payOders.push({
         buyType: orders[i].buyType,
@@ -72,7 +72,7 @@ Page({
         price: orders[i].price,
         goodsNum: orders[i].num
       });
-      if (shareTuanZhangId == null && orders[i].shareId != null){
+      if (shareTuanZhangId == undefined && orders[i].shareId != null && orders[i].shareId != undefined){
         shareTuanZhangId: orders[i].shareId
       }
     }
@@ -84,7 +84,6 @@ Page({
       wx.showLoading({
 
       })
-      console.log("xxxxxxxxxxxx  shareTuanZhangId  xxxxxxxxxxxxx", shareTuanZhangId)
       wx.request({
         url: app.globalData.serverUrl + "/rest/littlecat/caobao/order/create", //给函数传递服务器地址参数
         data: {
