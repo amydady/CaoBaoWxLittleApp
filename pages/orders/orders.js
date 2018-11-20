@@ -63,15 +63,18 @@ Page({
     let self = this;
     let orders = this.data.orders;
     let payOders = [];
+    let shareTuanZhangId = app.globalData.shareID;
     for (let i = 0; i < orders.length; i++) {
       payOders.push({
         buyType: orders[i].buyType,
         resId: orders[i].resId,
         goodsId: orders[i].goodsId,
         price: orders[i].price,
-        goodsNum: orders[i].num,
-        shareTuanZhangId: orders[i].shareId,
+        goodsNum: orders[i].num
       });
+      if (shareTuanZhangId == null && orders[i].shareId != null){
+        shareTuanZhangId: orders[i].shareId
+      }
     }
     if (this.check()) {
       this.setData({
@@ -81,10 +84,12 @@ Page({
       wx.showLoading({
 
       })
+      console.log("xxxxxxxxxxxx  shareTuanZhangId  xxxxxxxxxxxxx", shareTuanZhangId)
       wx.request({
         url: app.globalData.serverUrl + "/rest/littlecat/caobao/order/create", //给函数传递服务器地址参数
         data: {
           "orderMO": {
+            "shareTuanZhangId": shareTuanZhangId,
             "terminalUserId": app.globalData.openID,
             "fee": self.data.total,
             "state": "daifukuan",
@@ -111,14 +116,16 @@ Page({
           'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
         },
         success: function(res) {
-          console.log('orders', res);
+          console.log('orders-create', res);
+          if (res.data.code == 'NONE_ERROR') {
+            self.setData({
+              paySn: res.data.data[0].orderId
+            })
 
-          self.setData({
-            paySn: res.data.data[0].orderId
-          })
-
-          self.pay(res.data.data[0].prePayId);
-
+            self.pay(res.data.data[0].prePayId);
+          } else {
+            wx.hideLoading()
+          }
         },
       })
     }
@@ -267,24 +274,20 @@ Page({
   },
   check() {
     if (!this.data.hasAddress) {
-      wx.showModal({
-        title: '提示',
-        content: '未添加收货地址',
-        text: 'center',
-        complete() {
-          return false;
-        }
+      wx.showToast({
+        title: '未添加收货地址',
+        icon: 'none',
+        duration: 2000
       })
+      return false;
     }
     if (!this.data.hasGoodsAddress) {
-      wx.showModal({
-        title: '提示',
-        content: '未选择自提点',
-        text: 'center',
-        complete() {
-          return false;
-        }
+      wx.showToast({
+        title: '未选择自提点',
+        icon: 'none',
+        duration: 2000
       })
+      return false;
     }
     return true;
   }

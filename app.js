@@ -40,7 +40,7 @@ App({
                             console.log("userInfo", res.userInfo);
                             self.globalData.userInfo = res.userInfo;
                             wx.request({
-                                   url: self.globalData.serverUrl + "/rest/littlecat/caobao/terminaluser/add ",
+                                   url: self.globalData.serverUrl + "/rest/littlecat/caobao/terminaluser/add",
                                    data: {
                                           id: self.globalData.openID,
                                           name: res.userInfo.nickName,
@@ -52,6 +52,7 @@ App({
                                    },
                                    success: function(res) {
                                           console.log('userInfo-success', res);
+                                          
                                    },
                             })
                      }
@@ -62,6 +63,7 @@ App({
               userInfo: null,
               serverUrl: "https://s.yimiwei.cn:8006",
               // serverUrl: "http://192.168.0.102:8116",
+              // serverUrl: "http://localhost:8116",
               openID: null,
               shareID: null
        },

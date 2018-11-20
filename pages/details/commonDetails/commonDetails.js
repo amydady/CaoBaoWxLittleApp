@@ -8,7 +8,7 @@ Page({
        },
        onLoad(options) {
               var id = options.id;
-              app.globalData.shareID = options.shareid
+              app.globalData.shareID = options.shareid;
               var self = this;
               self.setData({
                      goodsId:id

@@ -1,109 +1,113 @@
 <view class="main">
-       <view class="header" wx:if="{{isLogin}}">
-              <view style='display:inline-block;width:50px;float:left;'>
-                     <open-data type="userAvatarUrl"></open-data>
-              </view>
-              <open-data style='margin-left:20rpx' type="userNickName"></open-data>
-              <!-- <text class="about" bindtap='welfare'>兑换福利</text> -->
-       </view>
-       <view wx:else>
-              <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
-       </view>
+  <view wx:if="{{isLogin}}">
+    <view class="header" >
+      <view style='display:inline-block;width:50px;float:left;'>
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data style='margin-left:20rpx' type="userNickName"></open-data>
+      <!-- <text class="about" bindtap='welfare'>兑换福利</text> -->
+    </view>
 
-       <navigator url="/pages/orders/index" class="my-order" style='position:relative'>
-              <text>我的订单</text>
-              <view class="pull-right">查看全部
-                     <image src="/images/left-b.png"></image>
-              </view>
-       </navigator>
 
-       <view class="orderInfo text-center">
-              <view bindtap="showOrder" data-type="1">
-                     <view>
-                            <image src="/images/unpay.png"></image>
-                     </view>
-                     <view class="orders-status">待付款</view>
-              </view>
-              <!-- <view bindtap="showOrder" data-type="2">
+    <navigator url="/pages/orders/index" class="my-order" style='position:relative'>
+      <text>我的订单</text>
+      <view class="pull-right">查看全部
+        <image src="/images/left-b.png"></image>
+      </view>
+    </navigator>
+
+    <view class="orderInfo text-center">
+      <view bindtap="showOrder" data-type="1">
+        <view>
+          <image src="/images/unpay.png"></image>
+        </view>
+        <view class="orders-status">待付款</view>
+      </view>
+      <!-- <view bindtap="showOrder" data-type="2">
                      <view>
                             <image src="/images/ungroup.png"></image>
                      </view>
                      <view class="orders-status">待成团</view>
               </view> -->
-              <view bindtap="showOrder" data-type="3">
-                     <view>
-                            <image src="/images/undelivery.png"></image>
-                     </view>
-                     <view class="orders-status">待发货</view>
-              </view>
-              <view bindtap="showOrder" data-type="3">
-                     <view>
-                            <image src="/images/unreceipt.png"></image>
-                     </view>
-                     <view class="orders-status">待签收</view>
-              </view>
-              <view bindtap="showOrder" data-type="4">
-                     <view>
-                            <image src="/images/unreceipt.png"></image>
-                     </view>
-                     <view class="orders-status">已发货</view>
-              </view>
-              <view bindtap="showOrder" data-type="5">
-                     <view>
-                            <image src="/images/unreceipt.png"></image>
-                     </view>
-                     <view class="orders-status">售后/退款</view>
-              </view>
-       </view>
-       <view wx:if="{{isTuanZhang}}">
-        <view class='my-group'>
-              <text class="">我是团长</text>
-       </view>
+      <view bindtap="showOrder" data-type="3">
+        <view>
+          <image src="/images/undelivery.png"></image>
+        </view>
+        <view class="orders-status">待发货</view>
+      </view>
+      <view bindtap="showOrder" data-type="3">
+        <view>
+          <image src="/images/unreceipt.png"></image>
+        </view>
+        <view class="orders-status">待签收</view>
+      </view>
+      <view bindtap="showOrder" data-type="4">
+        <view>
+          <image src="/images/unreceipt.png"></image>
+        </view>
+        <view class="orders-status">已发货</view>
+      </view>
+      <view bindtap="showOrder" data-type="5">
+        <view>
+          <image src="/images/unreceipt.png"></image>
+        </view>
+        <view class="orders-status">售后/退款</view>
+      </view>
+    </view>
+    <view wx:if="{{isTuanZhang}}">
+      <view class='my-group'>
+        <text class="">我是团长</text>
+      </view>
 
-       <view class="orderInfo bg-fff text-center">
-              <!-- <view bindtap="shopManage">
+      <view class="orderInfo bg-fff text-center">
+        <!-- <view bindtap="shopManage">
                      <view>
                             <image src="/images/unpay.png"></image>
                      </view>
                      <view class="orders-status">商铺管理</view>
               </view> -->
-              <view bindtap="showFuns">
-                     <view style='text-align:center;position:relative'>
-                            <image src="/images/ungroup.png"></image>
-                     </view>
-                     <view class="orders-status">我的粉丝</view>
-              </view>
-              <view bindtap="showShopOrder">
-                     <view>
-                            <image src="/images/undelivery.png"></image>
-                     </view>
-                     <view class="orders-status">订单明细</view>
-              </view>
-              <view bindtap="showCommission" data-type="4">
-                     <view>
-                            <image src="/images/unreceipt.png"></image>
-                     </view>
-                     <view class="orders-status">我的佣金</view>
-              </view>
-       </view>
-       </view>
-      
+        <view bindtap="showFuns">
+          <view style='text-align:center;position:relative'>
+            <image src="/images/ungroup.png"></image>
+          </view>
+          <view class="orders-status">我的粉丝</view>
+        </view>
+        <view bindtap="showShopOrder">
+          <view>
+            <image src="/images/undelivery.png"></image>
+          </view>
+          <view class="orders-status">订单明细</view>
+        </view>
+        <view bindtap="showCommission" data-type="4">
+          <view>
+            <image src="/images/unreceipt.png"></image>
+          </view>
+          <view class="orders-status">我的佣金</view>
+        </view>
+      </view>
+    </view>
 
-       <view class='collect'>
-              <text class="">其他</text>
-       </view>
-       <view class="orderInfo bg-fff text-center">
-              <view bindtap="aboutUS">
-                     <view>
-                            <image src="/images/undelivery.png"></image>
-                     </view>
-                     <view class="orders-status">关于我们</view>
-              </view>
-              <view bindtap="groupOwner">
-                     <view>
-                            <image src="/images/unreceipt.png"></image>
-                     </view>
-                     <view class="orders-status">申请合作</view>
-              </view>
-       </view>
+
+    <view class='collect'>
+      <text class="">其他</text>
+    </view>
+    <view class="orderInfo bg-fff text-center">
+      <view bindtap="aboutUS">
+        <view>
+          <image src="/images/undelivery.png"></image>
+        </view>
+        <view class="orders-status">关于我们</view>
+      </view>
+      <view bindtap="groupOwner">
+        <view>
+          <image src="/images/unreceipt.png"></image>
+        </view>
+        <view class="orders-status">申请合作</view>
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+    <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  </view>
+
 </view>
