@@ -62,7 +62,7 @@ Page({
       } else { //进行中
         let remaindTime = endTime - now;
         that.data.canBuy = true;
-
+        remaindTimeDisplay = "距离结束：";
 
         if (Math.floor(remaindTime / (3600 * 24)) > 0) {
           remaindTimeDisplay += Math.floor(remaindTime / (3600 * 24)) + " 天";
