@@ -13,11 +13,6 @@ Page({
                               "logicType": "and",
                               "condItems": [
                                      {
-                                            "fieldName": "enable",
-                                            "opType": "equal",
-                                            "value": "Y"
-                                     },
-                                     {
                                             "fieldName": "tuanId",
                                             "opType": "equal",
                                             "value": app.globalData.openID
