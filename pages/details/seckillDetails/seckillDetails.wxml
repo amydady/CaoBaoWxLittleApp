@@ -1,40 +1,41 @@
 <view class="main">
-  <view class="goods-box">
-    <image src="{{goodsDetail.goodsMainImgData}}" class="goods-thumb"></image>
-    <button data-name="shareBtn" open-type="share" plain="true" class="carts-icon">
-      <image bindtap="back" style='width:30px;height:30px' src="/images/share.png"></image>
-    </button>
-  </view>
-  <view class='goods-intro'>
-    <view class="goods-title">{{goodsDetail.goodsName}}
-      </view>
-    <!-- 秒杀价格 -->
-     <view class="goods-price">￥{{goodsDetail.price}}</view>
-    <!-- 商品原价 -->
-    <view class='old-price' style='text-decoration:line-through'>￥{{goodsDetail.goodsPrice}}</view>
-    <!-- 剩余的秒杀库存（不定时刷新） -->
-    <view style='float:left;font-size:14px;'>（ 库存:{{goodsDetail.currentInventory}} ）</view>
-  </view>
-  <!-- 商品概要描述 -->
-      <view class='desc'>{{goodsDetail.goodsSummaryDescription}}</view>
-  <!-- 秒杀时间相关的显示信息(定时刷新：即将开始的倒计时；进行中的剩余时间倒计时；已经结束的提示) -->
-   <view>{{goodsDetail.remaindTimeDisplay}}</view>
-  <view class="goods-tab-box">
-    <view class='my-group'>
-      <text class="">商品详情</text>
-    </view>
-    <view class="goods-content">
-      <view wx:for="{{goodsDetail.goodsDetailImgs}}">
-        <image style='width:100%;height:300px' src="{{item.imgData}}"></image>
-      </view>
-    </view>
-  </view>
-  <view class='button-box'>
-    <button wx:if="{{canBuy}}" class="goods-operation" type='primary' style='left:10px;' bindtap="buy">
-      <text class="goods-to-cart">立即购买</text>
-    </button>
-    <button wx:if="{{canBuy}}" class="goods-operation" type='primary' style='right:10px' bindtap="addToCart">
-      <text class="goods-to-cart">加入购物车</text>
-    </button>
-  </view>
+       <view class="goods-box">
+              <image src="{{goodsDetail.goodsMainImgData}}" class="goods-thumb"></image>
+              <button data-name="shareBtn" open-type="share" plain="true" class="carts-icon">
+                     <image bindtap="back" style='width:30px;height:30px' src="/images/share.png"></image>
+              </button>
+       </view>
+       <view class='goods-intro'>
+              <view class="goods-title">{{goodsDetail.goodsName}}
+              </view>
+              <!-- 秒杀价格 -->
+              <view class="goods-price">￥{{goodsDetail.price}}</view>
+              <!-- 商品原价 -->
+              <view class='old-price' style='text-decoration:line-through'>￥{{goodsDetail.goodsPrice}}</view>
+              <!-- 剩余的秒杀库存（不定时刷新） -->
+              <view style='float:left;font-size:14px;'>（ 库存:{{goodsDetail.currentInventory}} ）</view>
+       </view>
+       <!-- 商品概要描述 -->
+       <view class='desc'>{{goodsDetail.goodsSummaryDescription}}</view>
+       <!-- 秒杀时间相关的显示信息(定时刷新：即将开始的倒计时；进行中的剩余时间倒计时；已经结束的提示) -->
+       <view>{{goodsDetail.remaindTimeDisplay}}</view>
+       <view class="goods-tab-box">
+              <view class='my-group'>
+                     <text class="">商品详情</text>
+              </view>
+              <view class="goods-content">
+                     <view wx:for="{{goodsDetail.goodsDetailImgs}}">
+                            <image style='width:100%;height:300px' src="{{item.imgData}}"></image>
+                     </view>
+              </view>
+       </view>
+       <view class='button-box'>
+              <image src='/images/home.png' style='width:200px;height:200px' bindtap="toHome"></image>
+              <button wx:if="{{canBuy}}" class="goods-operation" type='primary' style='left:10px;' bindtap="buy">
+                     <text class="goods-to-cart">立即购买</text>
+              </button>
+              <button wx:if="{{canBuy}}" class="goods-operation" type='primary' style='right:10px' bindtap="addToCart">
+                     <text class="goods-to-cart">加入购物车</text>
+              </button>
+       </view>
 </view>

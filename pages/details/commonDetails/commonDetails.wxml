@@ -1,31 +1,34 @@
 <view class="main">
-  <view class="goods-box">
-     <image src="{{goodsDetail.mainImgData}}" class="goods-thumb"></image>
-      <button data-name="shareBtn" open-type="share" plain="true" class="carts-icon">
-      <image bindtap="back" style='width:30px;height:30px'  src="/images/share.png"></image>
-      </button>
-   </view>   
-   <view class='goods-intro'>
-        <view class="goods-title">{{goodsDetail.name}}            </view>
-        <view class="goods-price">￥ {{goodsDetail.price}}
-         </view>
-  </view>
-   <view class="goods-tab-box">
-        <view class='my-group'>
-              <text class="">商品详情</text>
+       <view class="goods-box">
+              <image src="{{goodsDetail.mainImgData}}" class="goods-thumb"></image>
+              <button data-name="shareBtn" open-type="share" plain="true" class="carts-icon">
+                     <image bindtap="back" style='width:30px;height:30px' src="/images/share.png"></image>
+              </button>
        </view>
-        <view class="goods-content">
-             <view wx:for="{{goodsDetail.detailImgs}}">
-              <image style='width:100%;height:300px'  src="{{item.imgData}}"></image>
-            </view>
-        </view>
-    </view>
-    <view class='button-box'>
-            <button class="goods-operation" type='primary' style='left:20px;' bindtap="buy">
-              <text class="goods-to-cart">立即购买</text>
-            </button>
-            <button class="goods-operation" type='primary' style='right:20px;' bindtap="addToCart">
-              <text class="goods-to-cart" >加入购物车</text>
-            </button>
-    </view>
+       <view class='goods-intro'>
+              <view class="goods-title">{{goodsDetail.name}} </view>
+              <view class="goods-price">￥ {{goodsDetail.price}}
+              </view>
+       </view>
+        <!-- 商品概要描述 -->
+       <view class='desc'>{{goodsDetail.summaryDescription}}</view>
+       <view class="goods-tab-box">
+              <view class='my-group'>
+                     <text class="">商品详情</text>
+              </view>
+              <view class="goods-content">
+                     <view wx:for="{{goodsDetail.detailImgs}}">
+                            <image style='width:100%;height:300px' src="{{item.imgData}}"></image>
+                     </view>
+              </view>
+       </view>
+       <view class='button-box'>
+              <image src='/images/home.png' style='width:200px;height:200px' bindtap="toHome"></image>
+              <button class="goods-operation" type='primary' style='left:20px;' bindtap="buy">
+                     <text class="goods-to-cart">立即购买</text>
+              </button>
+              <button class="goods-operation" type='primary' style='right:20px;' bindtap="addToCart">
+                     <text class="goods-to-cart">加入购物车</text>
+              </button>
+       </view>
 </view>

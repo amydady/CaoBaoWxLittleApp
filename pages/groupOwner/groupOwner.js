@@ -30,7 +30,7 @@ Page({
                      header: {
                             'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
                      },
-                     success: function (res) {
+                     success: function(res) {
                             console.log('groupOwner', res);
 
                             if (res.data.data.length != 0) {
@@ -57,6 +57,9 @@ Page({
        },
 
        isDeliverySite() {
+              if (this.data.isModify) {
+                     return;
+              }
               this.data.isDeliverySite = !this.data.isDeliverySite
               this.setData({
                      isDeliverySite: this.data.isDeliverySite
@@ -67,10 +70,13 @@ Page({
         * 生命周期函数--监听页面加载
         */
        onShow: function() {
-             
+
        },
 
        chooseAddress() {
+              if (this.data.isModify) {
+                     return;
+              }
               let self = this;
               wx.chooseAddress({
                      success: (res) => {
@@ -223,7 +229,7 @@ Page({
                                    'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
                             },
                             success: function(res) {
-                                   console.log('groupOwner', res);
+                                   console.log('groupOwner-success', res);
                                    wx.showToast({
                                           title: '申请成功',
                                           icon: 'success',
@@ -234,6 +240,14 @@ Page({
                                           isModify: true
                                    });
                             },
+                            fail: function (res) {
+                                   console.log('groupOwner-fail', res);
+                                   wx.showToast({
+                                          title: '系统开了小差，请稍后再试',
+                                          icon: 'success',
+                                          duration: 2000
+                                   })
+                            }
                      })
               } else {
                      wx.showModal({

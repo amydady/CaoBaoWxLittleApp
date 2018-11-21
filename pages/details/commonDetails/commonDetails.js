@@ -95,5 +95,11 @@ Page({
               
        },
 
+       toHome(){
+              wx.switchTab ({
+                     url: '/pages/home/home'
+              })
+       }
+
       
 })

@@ -125,7 +125,7 @@ Page({
           "condItems": [{
               "fieldName": "state",
               "opType": "in",
-              "value": "'tuikuanzhong','yituikuan','tuangoujiesantuikuan'"
+                 "value": "'tuikuanzhong','yituikuan','tuangoujiesantuikuan'"
             },
             {
               "fieldName": "terminalUserId",
@@ -182,6 +182,28 @@ Page({
     })
 
   },
+
+       toCancel: function (e) {
+              let self = this;
+              let orderId = e.currentTarget.dataset.id;
+           
+              wx.request({
+                     url: app.globalData.serverUrl + "/rest/littlecat/caobao/order/cancel/" + orderId, //给函数传递服务器地址参数
+                     data: {
+
+                     }, //给服务器传递数据，本次请求不需要数据，可以不填
+                     method: "PUT",
+                     header: {
+                            'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
+                     },
+                     success: function (res) {
+                            console.log('toCancel', res);
+                            self.setCurrentData();
+                     },
+              })
+
+       },
+
   /* 随机数 */
   randomString: function() {
     var chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678'; /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
