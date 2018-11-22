@@ -17,7 +17,7 @@
                             <image class="orders-thumb" src="{{idCardBack}}"></image>
                      </view> -->
 
-                     <text>住址</text>
+                     <text>住址：</text>
                      <view bindtap='chooseAddress'>
                             <view wx:if="{{hasAddress}}" class="orders-address">
                                    <view class="orders-address-detail">{{addressInfo.provinceName + addressInfo.cityName + addressInfo.countyName+ addressInfo.detailInfo}}</view>

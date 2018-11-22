@@ -94,12 +94,12 @@
     font-size: 24rpx;
 }
  .goods-operation{
-    width:314rpx;
+    width:280rpx;
     display: inline-block;
     color: #fff;
     font-size: 32rpx;
-    height: 90rpx;
-    line-height: 90rpx;
+    height: 80rpx;
+    line-height: 80rpx;
     position: fixed;
     bottom:10px;
 }
@@ -181,7 +181,7 @@
   font-size:30rpx;
   color:#353535;
   min-height:340rpx;
-  padding-bottom: 80px;
+  padding-bottom: 60px;
 
 }
 button[plain] {
@@ -194,4 +194,12 @@ button[plain] {
   padding: 0 20px;
   box-sizing: border-box;
   width: 100%;
+}
+
+.button-box image{
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  bottom: 10px;
+  left:336rpx;
 }
