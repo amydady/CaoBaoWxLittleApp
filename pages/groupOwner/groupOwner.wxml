@@ -1,11 +1,11 @@
 <view class="welfare">
        <view class="form-box">
               <form bindsubmit="formSubmit">
-                     <text>店铺名称：</text>
+                     <text>名称：</text>
                      <input value="{{shopName}}" name="shopName" />
-                     <text>合伙人姓名：</text>
+                     <text>姓名：</text>
                      <input value="{{name}}" name="name" />
-                     <text>合伙人手机号：</text>
+                     <text>手机：</text>
                      <input type="number" name="mobile" value="{{mobile}}" />
 
                      <!-- <text>上传身份证：
@@ -17,7 +17,7 @@
                             <image class="orders-thumb" src="{{idCardBack}}"></image>
                      </view> -->
 
-                     <text>住址：</text>
+                     <text>地址：</text>
                      <view bindtap='chooseAddress'>
                             <view wx:if="{{hasAddress}}" class="orders-address">
                                    <view class="orders-address-detail">{{addressInfo.provinceName + addressInfo.cityName + addressInfo.countyName+ addressInfo.detailInfo}}</view>
@@ -30,7 +30,7 @@
                             <span style='margin-left:20px;'>是否作为自提点</span>
                      </view>
 
-                     <button form-type="submit" type='primary'>马上申请</button>
+                     <button form-type="submit" type='primary'>{{submitBtnText}}</button>
               </form>
        </view>
 

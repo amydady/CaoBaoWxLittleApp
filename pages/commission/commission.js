@@ -25,8 +25,7 @@ Page({
                        let commision = res.data.data[0];
                        let applyHistory = [];
                        for (let i = 0; i < commision.applyHistory.length; i++){
-                              applyHistory.push(commision.applyHistory[i].split(",")[0]);
-                              applyHistory.push(commision.applyHistory[i].split(",")[1]);
+                              applyHistory.push(commision.applyHistory[i].split(",")[0]+"-------------￥"+commision.applyHistory[i].split(",")[1]);
                        }
                        let totalPayedFee = 0;
                        let totalCanApplyFee = 0;
