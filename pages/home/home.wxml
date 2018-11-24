@@ -10,9 +10,10 @@
   </swiper>
   <view class="newest">
     <view class="quickSell-title">
-      <text decode="{{true}}" space="{{true}}" class='text-line'>—&nbsp;&nbsp;</text>
+      <!-- <text decode="{{true}}" space="{{true}}" class='text-line'>—&nbsp;&nbsp;</text>
       <text class='title'>限时秒杀</text>
-      <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;—</text>
+      <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;—</text> -->
+      <image src="/images/kill.jpg"></image>
     </view>
     <view class='scroll-item'>
       <scroll-view class="scroll-view_H" scroll-x style="width: 100%" scrollTop="100px">
@@ -22,16 +23,13 @@
           <view class="newest-text">
             <text>{{item.goodsName}}</text>
           </view>
-
-          <view>
             <!-- 商品原价 -->
-            <view class="newest-text">
+            <view class="old-price">
               <text>￥{{item.goodsPrice}}</text>
             </view>
-
+            <view>
             <!-- 秒杀价格 -->
             <text class="newest-text-price">￥{{item.price}}</text>
-
           </view>
 
         </view>
@@ -39,10 +37,11 @@
     </view>
   </view>
   <view class="newest">
-    <view class="quickSell-title">
-      <text decode="{{true}}" space="{{true}}" class='text-line'>—&nbsp;&nbsp;</text>
+     <view class="quickSell-title">
+      <!-- <text decode="{{true}}" space="{{true}}" class='text-line'>—&nbsp;&nbsp;</text>
       <text class='title'>品源之选</text>
-      <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;—</text>
+      <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;—</text> -->
+      <image src="/images/title.jpg"></image>
     </view>
     <view class='newest-box'>
       <view wx:for="{{commonSell}}" wx:key="*this" class="newest-list">

@@ -84,9 +84,9 @@
 }
 
 .goods-operation{
-  height: 40px;
-  line-height: 40px;
-  width: 90px;
+  height: 32px;
+  line-height: 32px;
+  width: 110px;
   float: right;
   margin-top: 10px;
   margin-right: 10px;
