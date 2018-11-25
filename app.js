@@ -26,6 +26,7 @@ App({
                    console.log("openID", res);
                    self.globalData.openID = JSON.parse(res.data.data[0]).openid;
                    self.getUserInfo();
+                   resolve();
                  },
                })
 
