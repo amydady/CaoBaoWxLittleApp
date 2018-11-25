@@ -19,10 +19,21 @@ Page({
         self.query();
       })
     }
+  },
 
+  onShow(){
+    var self = this;
+    if (app.globalData.openID) {
+      this.query()
+    } else {
+      app.getToken().then((resArg) => {
+        self.query();
+      })
+    }
   },
 
   query() {
+    debugger
     let self = this;
     wx.request({
       url: app.globalData.serverUrl + "/rest/littlecat/caobao/tuan/isTuanZhang?id=" + app.globalData.openID, //给函数传递服务器地址参数

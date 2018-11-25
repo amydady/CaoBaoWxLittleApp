@@ -25,8 +25,8 @@ App({
                  success: function (res) {
                    console.log("openID", res);
                    self.globalData.openID = JSON.parse(res.data.data[0]).openid;
-                   self.getUserInfo();
-                   resolve();
+                   self.getUserInfo(resolve);
+                 
                  },
                })
 
@@ -35,7 +35,7 @@ App({
          })
        },
 
-       getUserInfo() {
+  getUserInfo(resolve) {
               let self = this;
               wx.getUserInfo({
                      success: function(res) {
@@ -54,7 +54,7 @@ App({
                                    },
                                    success: function(res) {
                                           console.log('userInfo-success', res);
-                                          
+                                     resolve();
                                    },
                             })
                      }
