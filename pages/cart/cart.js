@@ -11,8 +11,15 @@ Page({
        },
 
        onPullDownRefresh: function () {
-           
-              this.queryList()
+
+         var self = this;
+         if (app.globalData.openID) {
+           this.queryList()
+         } else {
+           app.getToken().then((resArg) => {
+             self.queryList();
+           })
+         }
        },
 
 
