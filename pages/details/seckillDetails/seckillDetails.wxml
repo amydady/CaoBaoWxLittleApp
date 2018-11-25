@@ -30,11 +30,11 @@
               </view>
        </view>
        <view class='button-box'>
-              <image src='/images/home.png' style='width:200px;height:200px' bindtap="toHome"></image>
-              <button wx:if="{{canBuy}}" class="goods-operation" type='primary' style='left:10px;' bindtap="buy">
+              <image src='/images/home.png' bindtap="toHome"></image>
+              <button wx:if="{{canBuy}}" class="goods-operation" type='warn' style='left:10px;' bindtap="buy">
                      <text class="goods-to-cart">立即购买</text>
               </button>
-              <button wx:if="{{canBuy}}" class="goods-operation" type='primary' style='right:10px' bindtap="addToCart">
+              <button wx:if="{{canBuy}}" class="goods-operation" type='default' style='right:10px' bindtap="addToCart">
                      <text class="goods-to-cart">加入购物车</text>
               </button>
        </view>

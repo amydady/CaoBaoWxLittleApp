@@ -13,7 +13,8 @@ Page({
               mobile: '',
               idCardFront: '',
               idCardBack: '',
-              isDeliverySite: false
+              isDeliverySite: false,
+              submitBtnText:'马上申请'
        },
 
        /**
@@ -49,7 +50,8 @@ Page({
                                           idCardFront: res.data.data[0].idCardImgDataFront,
                                           idCardBack: res.data.data[0].idCardImgDataBack,
                                           isDeliverySite: res.data.data[0].isDeliverySite == "Y" ? true : false,
-                                          enable: res.data.data[0].enable
+                                          enable: res.data.data[0].enable,
+                                     submitBtnText:'修 改'
                                    })
                             }
                      },

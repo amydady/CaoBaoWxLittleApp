@@ -1,16 +1,16 @@
 <view class="funs">
-       <view class="funsTopic">
-              <text>累计发放佣金：¥{{totalPayedFee}}
+  <view class="funsTopic">
+    <text>累计发放佣金：¥{{totalPayedFee}}
 可提现：¥{{totalCanApplyFee}}</text>
 
-       </view>
-       <button  type='primary' style='right:10px' bindtap="apply">
-                     <text >申请佣金</text>
-              </button>
-       <view class="funsTitle">
-          <view data-current="0">
-              <span class='on'>申请提现记录</span>
-           </view>
-            <view wx:for="{{applyHistory}}" wx:key="*this">{{item}}</view>
-        </view>
+  </view>
+  <button type='primary' bindtap="apply" style='  margin-right: 10px; margin-left: 10px;'>
+    <text>申请佣金</text>
+  </button>
+  <view class="funsTitle">
+    <view data-current="0">
+      <span class='on'>申请提现记录</span>
+    </view>
+  </view>
+  <view class="applyHistory" wx:for="{{applyHistory}}" wx:key="*this">{{item}}</view>
 </view>
