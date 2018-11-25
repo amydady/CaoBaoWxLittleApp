@@ -33,7 +33,6 @@ Page({
   },
 
   query() {
-    debugger
     let self = this;
     wx.request({
       url: app.globalData.serverUrl + "/rest/littlecat/caobao/tuan/isTuanZhang?id=" + app.globalData.openID, //给函数传递服务器地址参数
