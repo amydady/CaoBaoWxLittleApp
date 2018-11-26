@@ -7,6 +7,7 @@
        </view>
        <view class='goods-intro'>
               <view class="goods-title">{{goodsDetail.name}} </view>
+               <view style='float:left;font-size:14px;'>（ 库存:{{goodsDetail.currentInventory}} ）</view>
               <view class="goods-price">￥ {{goodsDetail.price}}
               </view>
        </view>

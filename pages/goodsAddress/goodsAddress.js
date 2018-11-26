@@ -13,7 +13,6 @@ Page({
    */
   onLoad: function(options) {
     let self = this;
-    console.log("app.globalData.openID", app.globalData.openID)
     wx.request({
       url: app.globalData.serverUrl + "/rest/littlecat/caobao/tuan/getDeliverySiteList?province=" + options.province + '&city=' + options.city + '&area=' + options.area
         + '&terminalUserId=' + app.globalData.openID, //给函数传递服务器地址参数
