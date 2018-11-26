@@ -1,35 +1,35 @@
 <scroll-view scroll-x="true" class="scroll-view-x">
-       <view class="scroll-view-item">
-              <view class="{{currentTab==0 ? 'on' : ''}}" bindtap="swichNav" data-current="0">冻结</view>
-       </view>
-       <view class="scroll-view-item">
-              <view class="{{currentTab==1 ? 'on' : ''}}" bindtap="swichNav" data-current="1">可申请</view>
-       </view>
-       <view class="scroll-view-item">
-              <view class="{{currentTab==2 ? 'on' : ''}}" bindtap="swichNav" data-current="2">已申请</view>
-       </view>
-       <view class="scroll-view-item">
-              <view class="{{currentTab==3 ? 'on' : ''}}" bindtap="swichNav" data-current="3">已发放</view>
-       </view>
-        <view class="scroll-view-item">
-              <view class="{{currentTab==4 ? 'on' : ''}}" bindtap="swichNav" data-current="4">已发放</view>
-       </view>
+  <view class="scroll-view-item">
+    <view class="{{currentTab==0 ? 'on' : ''}}" bindtap="swichNav" data-current="0">冻结</view>
+  </view>
+  <view class="scroll-view-item">
+    <view class="{{currentTab==1 ? 'on' : ''}}" bindtap="swichNav" data-current="1">可申请</view>
+  </view>
+  <view class="scroll-view-item">
+    <view class="{{currentTab==2 ? 'on' : ''}}" bindtap="swichNav" data-current="2">已申请</view>
+  </view>
+  <view class="scroll-view-item">
+    <view class="{{currentTab==3 ? 'on' : ''}}" bindtap="swichNav" data-current="3">已发放</view>
+  </view>
+  <view class="scroll-view-item">
+    <view class="{{currentTab==4 ? 'on' : ''}}" bindtap="swichNav" data-current="4">已发放</view>
+  </view>
 </scroll-view>
 <view>
- <view wx:for="{{ordersData}}" wx:key="*this" class="scroll-view-item_H">
-                                   <image  data-productID="{{item.id}}" mode="scaleToFill" src="{{item.goodsMainImgData}}"></image>
-                                   <view >
-                                          <text>{{item.goodsName}}</text>
-                                   </view>
-                                   <view >
-                                          <text>{{item.goodsFee}}</text>
-                                   </view>
-                                   <view >
-                                    <text>￥{{item.commissionTypeName}}</text>
-                                          <text>￥{{item.calcFee}}</text>
-                                   </view>
-                                   <view >
-                                    <text>佣金生成时间{{item.createTime}}</text>
-                                   </view>
-                            </view>
+  <view wx:for="{{ordersData}}" wx:key="*this" class="scroll-view-item_H">
+    <image data-productID="{{item.id}}" mode="scaleToFill" src="{{item.goodsMainImgData}}"></image>
+    <view>
+      <text>{{item.goodsName}}</text>
+    </view>
+    <view>
+      <text>订单费用：{{item.goodsFee}}</text>
+    </view>
+    <view>
+      <text>{{item.commissionTypeName}}：</text>
+      <text>￥{{item.calcFee}}</text>
+    </view>
+    <view>
+      <text>佣金生成时间：{{item.createTime}}</text>
+    </view>
+  </view>
 </view>

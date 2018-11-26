@@ -45,7 +45,7 @@
         <view>
           <image src="/images/unreceipt.png"></image>
         </view>
-        <view class="orders-status">已发货</view>
+        <view class="orders-status">已收货</view>
       </view>
       <view bindtap="showOrder" data-type="6">
         <view>

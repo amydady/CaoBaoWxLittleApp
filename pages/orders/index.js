@@ -7,10 +7,10 @@ Page({
     page: 0,
     ordersData: [],
     showState: {
-      "daifukuan": '代付款',
+      "daifukuan": '待付款',
       'yiquxiao': '已取消',
-      'daifahuo': '代发货',
-      'daiqianshou': '代签收',
+      'daifahuo': '待发货',
+      'daiqianshou': '待签收',
       'yishouhuo': '已收货'
     }
   },
