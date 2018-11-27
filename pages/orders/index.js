@@ -132,7 +132,7 @@ Page({
           "condItems": [{
               "fieldName": "state",
               "opType": "in",
-                 "value": "'tuikuanzhong','yituikuan','tuangoujiesantuikuan'"
+              "value": "'tuikuanzhong','yituikuan','tuangoujiesantuikuan'"
             },
             {
               "fieldName": "terminalUserId",
@@ -183,33 +183,33 @@ Page({
       success: function(res) {
         console.log('topay', res);
 
-        self.pay(res.data.data[0]);
+        self.pay(res.data.data[0],orderId);
 
       },
     })
 
   },
 
-       toCancel: function (e) {
-              let self = this;
-              let orderId = e.currentTarget.dataset.id;
-           
-              wx.request({
-                     url: app.globalData.serverUrl + "/rest/littlecat/caobao/order/cancel/" + orderId, //给函数传递服务器地址参数
-                     data: {
+  toCancel: function(e) {
+    let self = this;
+    let orderId = e.currentTarget.dataset.id;
 
-                     }, //给服务器传递数据，本次请求不需要数据，可以不填
-                     method: "PUT",
-                     header: {
-                            'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
-                     },
-                     success: function (res) {
-                            console.log('toCancel', res);
-                            self.setCurrentData();
-                     },
-              })
+    wx.request({
+      url: app.globalData.serverUrl + "/rest/littlecat/caobao/order/cancel/" + orderId, //给函数传递服务器地址参数
+      data: {
 
-       },
+      }, //给服务器传递数据，本次请求不需要数据，可以不填
+      method: "PUT",
+      header: {
+        'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
+      },
+      success: function(res) {
+        console.log('toCancel', res);
+        self.setCurrentData();
+      },
+    })
+
+  },
 
   /* 随机数 */
   randomString: function() {
@@ -231,7 +231,7 @@ Page({
     return parseInt(new Date().getTime() / 1000) + ''
   },
   /* 支付   */
-  pay: function(prepay_id) {
+  pay: function(prepay_id,orderId) {
     let self = this;
     //签名  
     var key = 'q9qShwkPzNTKlU5vJTvMb3DA6OYcZzD5';
@@ -250,9 +250,9 @@ Page({
       success: function(res) {
         // success
         console.log('支付成功', res)
-        self.paySuccess();
+        self.paySuccess(orderId);
         wx.hideLoading()
-        this.setData({
+        self.setData({
           disabled: true
         })
         wx.navigateBack({
@@ -285,6 +285,7 @@ Page({
   },
   paySuccess(orderId) {
     let self = this;
+    console.log("payorder:id", orderId);
     wx.request({
       url: app.globalData.serverUrl + "/rest/littlecat/caobao/order/payOrder/" + orderId, //给函数传递服务器地址参数
       data: {
