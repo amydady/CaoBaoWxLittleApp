@@ -56,11 +56,6 @@ Page({
       })
     }
   },
-  onShow() {
-    var self = this;
-
-  },
-
 
   showOrder: function(e) {
     var type = e.currentTarget.dataset.type

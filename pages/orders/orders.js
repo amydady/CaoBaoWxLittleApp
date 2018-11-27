@@ -192,22 +192,18 @@ Page({
         self.setData({
           disabled: true
         })
-        wx.navigateBack({
-          delta: 1, // 回退前 delta(默认为1) 页面
-          success: function(res) {
+        
+        wx.navigateTo({
+          url: '/pages/orders/index?id=3',
+          success: function () {
             wx.showToast({
               title: '支付成功',
               icon: 'success',
               duration: 2000
             })
-          },
-          fail: function() {
-            // fail
-          },
-          complete: function() {
-            // complete
           }
         })
+        
       },
       fail: function() {
         // fail
