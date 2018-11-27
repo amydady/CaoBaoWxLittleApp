@@ -19,6 +19,11 @@
   <view wx:for="{{ordersData}}" wx:key="*this" class="scroll-view-item_H">
     <image data-productID="{{item.id}}" mode="scaleToFill" src="{{item.goodsMainImgData}}"></image>
     <view>
+      <image src="{{item.terminalUserImg}}"></image>
+      <text>{{item.terminalUserName}}</text>
+    </view>
+
+    <view>
       <text>{{item.goodsName}}</text>
     </view>
     <view>
