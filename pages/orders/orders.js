@@ -291,10 +291,13 @@ Page({
   chooseAddress() {
     wx.chooseAddress({
       success: (res) => {
+        wx.removeStorageSync('selectAddress')
         this.setData({
           addressInfo: res,
-          hasAddress: true
+          hasAddress: true,
+          hasGoodsAddress:false
         })
+        
       },
       fail: function(err) {
         console.log(err)
