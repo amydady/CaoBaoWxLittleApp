@@ -41,9 +41,10 @@ span.on {
 .applyHistory {
   width: 100%;
   display: inline-block;
-  height: 32px;
+  box-sizing: border-box;
+  height: 52px;
   line-height: 32px;
   border-bottom: solid 1px #e2e2e2;
-  margin-top: 10px;
-  margin-left: 10px;
+  padding:10px;
+  text-align: center;
 }
