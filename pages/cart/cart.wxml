@@ -8,7 +8,7 @@
                                    <image class="cart-thumb" src="{{item.goodsMainImgData}}"></image>
                             </navigator>
                             <text class="cart-pro-name">{{item.goodsName}}</text>
-                            <text class="cart-pro-price">￥{{item.goodsPrice}}</text>
+                            <text class="cart-pro-price">￥{{item.price}}</text>
                             <view class="cart-count-box">
                                    <text class="cart-count-down" bindtap="minusCount" data-obj="{{obj}}" data-index="{{index}}">-</text>
                                    <text class="cart-count-num">{{item.goodsNum}}</text>

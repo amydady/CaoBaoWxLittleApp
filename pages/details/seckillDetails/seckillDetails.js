@@ -16,6 +16,7 @@ Page({
       goodsId: id
     })
 
+
     if (app.globalData.openID) {
       this.query()
     } else {
@@ -122,7 +123,6 @@ Page({
         
       },
     })
-  
   },
 
   addToCart() {
@@ -158,7 +158,7 @@ Page({
       resId: this.data.goodsDetail.id,
       goodsId: this.data.goodsDetail.goodsId,
       name: this.data.goodsDetail.goodsName,
-      price: this.data.goodsDetail.goodsPrice,
+      price: this.data.goodsDetail.price,
       image: this.data.goodsDetail.goodsMainImgData,
       shareId: app.globalData.shareID,
       num: 1,

@@ -74,13 +74,13 @@
         </view>
         <view bindtap="showShopOrder">
           <view>
-            <image src="/images/undelivery.png"></image>
+            <image src="/images/orders.png"></image>
           </view>
           <view class="orders-status">订单明细</view>
         </view>
         <view bindtap="showCommission" data-type="4">
           <view>
-            <image src="/images/unreceipt.png"></image>
+            <image src="/images/mymoney.png"></image>
           </view>
           <view class="orders-status">我的佣金</view>
         </view>
@@ -94,13 +94,13 @@
     <view class="orderInfo bg-fff text-center">
       <view bindtap="aboutUS">
         <view>
-          <image src="/images/undelivery.png"></image>
+          <image src="/images/aboutus.png"></image>
         </view>
         <view class="orders-status">关于我们</view>
       </view>
       <view bindtap="groupOwner">
         <view>
-          <image src="/images/unreceipt.png"></image>
+          <image src="/images/team.png"></image>
         </view>
         <view class="orders-status">申请合作</view>
       </view>
