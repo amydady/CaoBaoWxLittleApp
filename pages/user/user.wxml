@@ -43,13 +43,13 @@
       </view>
       <view bindtap="showOrder" data-type="5">
         <view>
-          <image src="/images/unreceipt.png"></image>
+          <image src="/images/receipt.png"></image>
         </view>
         <view class="orders-status">已收货</view>
       </view>
       <view bindtap="showOrder" data-type="6">
         <view>
-          <image src="/images/unreceipt.png"></image>
+          <image src="/images/return.png"></image>
         </view>
         <view class="orders-status">售后/退款</view>
       </view>

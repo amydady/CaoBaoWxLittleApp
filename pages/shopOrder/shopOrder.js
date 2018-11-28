@@ -28,7 +28,7 @@ Page({
               wx.request({
                      url: app.globalData.serverUrl + "/rest/littlecat/caobao/commission/calc/getList", //给函数传递服务器地址参数
                      data: {
-                            tuanZhangId: app.globalData.openID,
+                       tuanZhangId: 'o9pFJ5EvqFvInxRIpBw0CY25LNAA',
                             state: state,
                      }, //给服务器传递数据，本次请求不需要数据，可以不填
                      method: "GET",
