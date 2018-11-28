@@ -120,8 +120,8 @@ Page({
             self.setData({
               paySn: res.data.data[0].orderId
             })
-
-            self.pay(res.data.data[0].prePayId);
+            self.checkOrderInventory(res.data.data[0].orderId,res.data.data[0].prePayId);
+            
           } else {
             wx.hideLoading()
           }
@@ -130,6 +130,45 @@ Page({
     }
   },
 
+//检测库存
+  checkOrderInventory(orderId, prePayId){
+    var self = this;
+    wx.request({
+      url: app.globalData.serverUrl + "/rest/littlecat/caobao/order/checkInventory?id=" + orderId, //给函数传递服务器地址参数
+      method: "GET",
+      header: {
+        'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
+      },
+      success: function (res) {
+        //TO-DO 详细信息
+        console.log('check-order', res);
+        if (res.data.data.length == 0){
+          self.pay(prePayId);
+        }else{
+          wx.hideLoading()
+          var content = "";
+          for (var i = 0; i < res.data.data.length;i++){
+            content += res.data.data[i].goodsName + "(" + parseInt(res.data.data[i].goodsCurrentInventory) +")  "
+          }
+          wx.showModal({
+            title: '商品库存不足',
+            content: content,
+            showCancel:false,
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/orders/index?id=0',
+                })
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+        }
+       
+      },
+    })
+  },
 
 
   deleteFromCart(ids) {

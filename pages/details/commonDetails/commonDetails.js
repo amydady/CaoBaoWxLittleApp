@@ -14,16 +14,16 @@ Page({
     })
     
     if (app.globalData.openID) {
-      this.query()
+      this.query(id)
     } else {
       app.getToken().then((resArg) => {
-        self.query();
+        self.query(id);
       })
     }
   },
 
 
-  query() {
+  query(id) {
     var self = this;
     //查询详情
     wx.request({
