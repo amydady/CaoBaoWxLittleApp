@@ -38,7 +38,9 @@ Page({
             "opType": "equal",
             "value": app.globalData.openID
           }]
-        }
+        },
+        "sortFields": "createTime",
+        "sortType": "desc"
       };
     } else if (this.data.currentTab == 1) {
       state = {
@@ -55,7 +57,9 @@ Page({
               "value": app.globalData.openID
             }
           ]
-        }
+        },
+        "sortFields": "createTime",
+        "sortType": "desc"
       }
     } else if (this.data.currentTab == 2) {
       state = {
@@ -72,7 +76,9 @@ Page({
               "value": app.globalData.openID
             }
           ]
-        }
+        },
+        "sortFields": "createTime",
+        "sortType": "desc"
       }
     } else if (this.data.currentTab == 3) {
       state = {
@@ -89,7 +95,9 @@ Page({
               "value": app.globalData.openID
             }
           ]
-        }
+        },
+        "sortFields": "payTime",
+        "sortType": "desc"
       }
     } else if (this.data.currentTab == 4) {
       state = {
@@ -106,7 +114,9 @@ Page({
               "value": app.globalData.openID
             }
           ]
-        }
+        },
+        "sortFields": "payTime",
+        "sortType": "desc"
       }
     } else if (this.data.currentTab == 5) {
       state = {
@@ -123,7 +133,9 @@ Page({
               "value": app.globalData.openID
             }
           ]
-        }
+        },
+        "sortFields": "receiveTime",
+        "sortType": "desc"
       }
     } else {
       state = {
@@ -140,7 +152,9 @@ Page({
               "value": app.globalData.openID
             }
           ]
-        }
+        },
+        "sortFields": "createTime",
+        "sortType": "desc"
       }
     }
     var self = this;
