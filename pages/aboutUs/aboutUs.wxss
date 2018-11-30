@@ -18,7 +18,7 @@
 }
 
 .welfare{
-  padding:  10px;
+  padding:10px 25px;
   font-size: 14px;
   color: #353535;
   line-height: 28px;

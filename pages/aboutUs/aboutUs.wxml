@@ -1,9 +1,21 @@
 <page>
-    <view class="quickSell-title">
-        <text decode="{{true}}" space="{{true}}" class='text-line'>-&nbsp;&nbsp;</text>
-        <text class='title'>关于我们</text>
-        <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;-</text>
+  <!-- <view class="quickSell-title">
+    <text decode="{{true}}" space="{{true}}" class='text-line'>-&nbsp;&nbsp;</text>
+    <text class='title'>关于我们</text>
+    <text decode="{{true}}" space="{{true}}" class='text-line'>&nbsp;&nbsp;-</text>
+  </view> -->
+  <view class="welfare">
+    <!-- <view wx:for="{{imgs}}">
+      <image style='width:100%;height:800px' src="{{item.imgData}}"></image>
+    </view> -->
+
+    <view wx:for="{{imgs}}">
+      <image width="100%" mode="widthFix" src="{{item.imgData}}"></image>
     </view>
-    <view class="welfare">
-    <text decode="{{true}}" space="{{true}}">&nbsp;&nbsp;About US</text></view>
+
+    <!-- <view wx:for="{{imgs}}">
+      <image mode='aspectFill' style='width:100%;height:2000px' src="{{item.imgData}}"></image>
+    </view> -->
+
+  </view>
 </page>
