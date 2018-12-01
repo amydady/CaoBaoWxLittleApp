@@ -18,8 +18,11 @@
 }
 
 .welfare{
-  padding:10px 25px;
-  font-size: 14px;
-  color: #353535;
-  line-height: 28px;
+  padding:0 25px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.welfare image {
+  width: 650rpx;
+
 }

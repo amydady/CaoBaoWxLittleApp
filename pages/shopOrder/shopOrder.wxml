@@ -18,22 +18,19 @@
 <view>
   <view wx:for="{{ordersData}}" wx:key="*this" class="scroll-view-item_H">
     <image data-productID="{{item.id}}" mode="scaleToFill" src="{{item.goodsMainImgData}}"></image>
-    <view>
-      <image src="{{item.terminalUserImg}}"></image>
-      <text>{{item.terminalUserName}}</text>
-    </view>
-
-    <view>
+  <view  class='item'>
+    <view class='item-name'>
       <text>{{item.goodsName}}</text>
     </view>
-    <view>
+    <view class='item-price'>
       <text>订单费用：{{item.goodsFee}}</text>
     </view>
-    <view>
-      <text>{{item.commissionTypeName}}：</text>
-      <text>￥{{item.calcFee}}</text>
+    <view class='money'>
+      <text class='money-type'>{{item.commissionTypeName}}：</text>
+      <text class='money-price'>￥{{item.calcFee}}</text>
     </view>
-    <view>
+  </view>
+    <view class='start-time'>
       <text>佣金生成时间：{{item.createTime}}</text>
     </view>
   </view>
