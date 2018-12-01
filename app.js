@@ -66,7 +66,7 @@ App({
               serverUrl: "https://s.yimiwei.cn:8006",
               // serverUrl: "http://192.168.0.108:8116",
               // serverUrl: "http://localhost:8116",
-         openID: 'o9pFJ5EvqFvInxRIpBw0CY25LNAAl',
+         openID: null,
               shareID: null
        },
        redirect: function(url, param) {

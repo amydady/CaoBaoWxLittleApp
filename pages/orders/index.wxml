@@ -35,7 +35,7 @@
                                    <text class="cart-pro-price">￥{{item.price}}</text>
                             </view>
                      </view>
-                      <button wx:if="{{currentTab==1}}" class="goods-operation" type='primary' style='display:inline-block;' bindtap="toCancel" data-id="{{item.id}}" >
+                      <button wx:if="{{currentTab==1}}" class="goods-operation" type='warn' style='display:inline-block;' bindtap="toCancel" data-id="{{item.id}}" >
                             <text class="goods-to-cart">撤销订单</text>
                      </button>
                      <button wx:if="{{currentTab==1}}" class="goods-operation" type='primary' style='display:inline-block;' bindtap="toPay" data-id="{{item.id}}" data-price="{{item.fee}}">
