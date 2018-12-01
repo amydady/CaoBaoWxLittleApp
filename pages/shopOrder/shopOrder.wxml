@@ -29,9 +29,9 @@
       <text class='money-type'>{{item.commissionTypeName}}：</text>
       <text class='money-price'>￥{{item.calcFee}}</text>
     </view>
-  </view>
     <view class='start-time'>
       <text>佣金生成时间：{{item.createTime}}</text>
     </view>
+  </view>
   </view>
 </view>
