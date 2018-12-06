@@ -72,7 +72,7 @@ Page({
         price: orders[i].price,
         goodsNum: orders[i].num
       });
-      if (shareTuanZhangId == undefined && orders[i].shareId != null && orders[i].shareId != undefined){
+      if (shareTuanZhangId == undefined && orders[i].shareId != null && orders[i].shareId != undefined) {
         shareTuanZhangId: orders[i].shareId
       }
     }
@@ -120,8 +120,8 @@ Page({
             self.setData({
               paySn: res.data.data[0].orderId
             })
-            self.checkOrderInventory(res.data.data[0].orderId,res.data.data[0].prePayId);
-            
+            self.checkOrderInventory(res.data.data[0].orderId, res.data.data[0].prePayId);
+
           } else {
             wx.hideLoading()
           }
@@ -130,8 +130,8 @@ Page({
     }
   },
 
-//检测库存
-  checkOrderInventory(orderId, prePayId){
+  //检测库存
+  checkOrderInventory(orderId, prePayId) {
     var self = this;
     wx.request({
       url: app.globalData.serverUrl + "/rest/littlecat/caobao/order/checkInventory?id=" + orderId, //给函数传递服务器地址参数
@@ -139,21 +139,21 @@ Page({
       header: {
         'content-type': 'application/json' // 默认值，返回的数据设置为json数组格式
       },
-      success: function (res) {
+      success: function(res) {
         //TO-DO 详细信息
         console.log('check-order', res);
-        if (res.data.data.length == 0){
+        if (res.data.data.length == 0) {
           self.pay(prePayId);
-        }else{
+        } else {
           wx.hideLoading()
           var content = "";
-          for (var i = 0; i < res.data.data.length;i++){
-            content += res.data.data[i].goodsName + "(" + parseInt(res.data.data[i].goodsCurrentInventory) +")  "
+          for (var i = 0; i < res.data.data.length; i++) {
+            content += res.data.data[i].goodsName + "(" + parseInt(res.data.data[i].goodsCurrentInventory) + ")  "
           }
           wx.showModal({
             title: '商品库存不足',
             content: content,
-            showCancel:false,
+            showCancel: false,
             success(res) {
               if (res.confirm) {
                 wx.navigateTo({
@@ -165,7 +165,7 @@ Page({
             }
           })
         }
-       
+
       },
     })
   },
@@ -210,13 +210,14 @@ Page({
   pay: function(prepay_id) {
     let self = this;
     //签名  
-    var key = 'q9qShwkPzNTKlU5vJTvMb3DA6OYcZzD5';
-    var appId = 'wx59e6873e9161c795';
+    var key = app.globalData.key;
+    var appId = app.globalData.appId;
     var timeStamp = self.createTimeStamp();
     var nonceStr = self.randomString();
     var stringSignTemp = "appId=" + appId + "&nonceStr=" + nonceStr + "&package=prepay_id=" + prepay_id + "&signType=MD5&timeStamp=" + timeStamp + "&key=" + key
     var sign = md5(stringSignTemp).toUpperCase()
 
+    console.log("stringSignTemp", stringSignTemp);
     wx.requestPayment({
       timeStamp: timeStamp,
       nonceStr: nonceStr,
@@ -231,10 +232,10 @@ Page({
         self.setData({
           disabled: true
         })
-        
+
         wx.navigateTo({
           url: '/pages/orders/index?id=3',
-          success: function () {
+          success: function() {
             wx.showToast({
               title: '支付成功',
               icon: 'success',
@@ -242,7 +243,7 @@ Page({
             })
           }
         })
-        
+
       },
       fail: function() {
         // fail
@@ -295,9 +296,9 @@ Page({
         this.setData({
           addressInfo: res,
           hasAddress: true,
-          hasGoodsAddress:false
+          hasGoodsAddress: false
         })
-        
+
       },
       fail: function(err) {
         console.log(err)

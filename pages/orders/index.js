@@ -248,12 +248,14 @@ Page({
   pay: function(prepay_id,orderId) {
     let self = this;
     //签名  
-    var key = 'q9qShwkPzNTKlU5vJTvMb3DA6OYcZzD5';
-    var appId = 'wx59e6873e9161c795';
+    var key = app.globalData.key;
+    var appId = app.globalData.appId;
     var timeStamp = self.createTimeStamp();
     var nonceStr = self.randomString();
     var stringSignTemp = "appId=" + appId + "&nonceStr=" + nonceStr + "&package=prepay_id=" + prepay_id + "&signType=MD5&timeStamp=" + timeStamp + "&key=" + key
     var sign = md5(stringSignTemp).toUpperCase()
+
+    console.log("stringSignTemp", stringSignTemp);
 
     wx.requestPayment({
       timeStamp: timeStamp,

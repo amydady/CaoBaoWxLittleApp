@@ -61,7 +61,10 @@ App({
               })
        },
 
-       globalData: {
+  globalData: {
+    appId: "wxb8e6ea3620a7beee",
+    appSecret: "861756fda06b3f7094882092cb3bd41a",
+    key: "q9qShwkPzNTKlU5vJTvMb3DA6OYcZzD5",
               userInfo: null,
               serverUrl: "https://s.yimiwei.cn:8006",
               // serverUrl: "http://192.168.0.108:8116",
