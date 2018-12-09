@@ -1,0 +1,39 @@
+<view>
+  <view>
+    <text>请输入您本人的账户信息</text>
+  </view>
+
+  <view class="account">
+    <form bindsubmit="formSubmit">
+      <view >
+        <text class="info">开户人姓名：</text>
+        <input value="{{accountInfo.bankHolderName}}" name="bankHolderName" />
+      </view>
+      <view>
+        <text class="info">开户银行名称：</text>
+        <input value="{{accountInfo.bankName}}" name="bankName" />
+      </view>
+      <view>
+        <text class="info">开户银行卡号：</text>
+        <input value="{{accountInfo.bankAccount}}" name="bankAccount" />
+      </view>
+      <view class="split"></view>
+      <view>
+        <text class="info">支付宝姓名：</text>
+        <input value="{{accountInfo.zfbName}}" name="zfbName" />
+      </view>
+      <view>
+        <text class="info">支付宝账号：</text>
+        <input value="{{accountInfo.zfbAccount}}" name="zfbAccount" />
+      </view>
+
+      <view>
+      <text>
+      注：
+      我们会按照您当前提交的账号信息进行发放佣金，请确认账号信息
+      </text>
+      </view>
+      <button form-type="submit" type='primary'>确认提现</button>
+    </form>
+  </view>
+</view>

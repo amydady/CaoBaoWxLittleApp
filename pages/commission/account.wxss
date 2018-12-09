@@ -1,0 +1,17 @@
+.account .info {
+  float: left;
+  width: 288rpx;
+  text-align: right;
+}
+
+.account input {
+  border: 1px solid #000;
+}
+
+.account view {
+  padding: 26rpx;
+}
+
+.account .split {
+  background-color: rgba(0, 0, 0, 0.37);
+}
