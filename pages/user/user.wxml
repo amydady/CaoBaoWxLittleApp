@@ -54,7 +54,7 @@
         <view class="orders-status">售后/退款</view>
       </view>
     </view>
-    <view wx:if="{{isTuanZhang}}">
+    <view >
       <view class='my-group'>
         <text class="">我是团长</text>
       </view>
